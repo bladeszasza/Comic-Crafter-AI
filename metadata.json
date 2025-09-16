@@ -1,0 +1,5 @@
+{
+  "name": "Comic Crafter",
+  "description": "An application that generates a complete 20-22 page comic book with a consistent character, following a classic three-act story structure. The app takes a user-uploaded character image, generates a unique story, creates all comic pages including a cover and a centerfold poster, and compiles everything into a downloadable PDF.",
+  "requestFramePermissions": []
+}

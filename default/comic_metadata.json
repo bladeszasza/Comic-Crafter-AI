@@ -1,0 +1,3575 @@
+{
+  "characterProfile": {
+    "physical_traits": [
+      "athletic build",
+      "face obscured by hood and mask"
+    ],
+    "clothing_style": "streetwear, skater fashion, with a vibrant orange hooded sweatshirt, dark loose-fitting jeans, black gloves, and dark sneakers",
+    "color_palette": [
+      "vibrant orange",
+      "deep black",
+      "off-white",
+      "muted grays"
+    ],
+    "distinctive_features": [
+      "hood covering head",
+      "mask covering face",
+      "skateboard",
+      "dynamic paint splatters and drips in orange and black"
+    ],
+    "consistency_tags": "hooded figure, orange hoodie, dark jeans, black sneakers, black gloves, mask, skateboard, orange and black paint splatters",
+    "art_style": "grungy street art style, ink splatter illustration, graffiti aesthetic, stylized"
+  },
+  "storyDevelopmentPackage": {
+    "title": "Neon Rebellion",
+    "logline": "When a silent, chrome-headed enforcer begins systematically erasing the city's vibrant street art, a masked vigilante known as Splatter must unite their crew to defend creativity from conformity before their world becomes a monochrome wasteland.",
+    "themes": [
+      "Creativity vs. Conformity",
+      "The Power of Expression and Community"
+    ],
+    "character_arcs": [
+      {
+        "character_name": "Splatter",
+        "internal_conflict": "Splatter struggles with their identity as a lone wolf artist/vigilante, torn between impulsive, anarchic expression and the responsibility of leading a movement to protect art. They also fear being erased, both literally and figuratively, and grapple with whether their art truly makes a difference or if it's just a fleeting act of defiance.",
+        "arc_summary": "Initially a solitary, impulsive artist focused on personal acts of defiance, Splatter learns to embrace leadership and collaboration. They start by believing their art alone is enough, but through facing The Eraser, they realize the power of collective action and the importance of inspiring others. By the end, Splatter moves from simply vandalizing corporate symbols to creating art that galvanizes the community, accepting their role as a symbol of hope and resistance rather than just a lone agent of chaos."
+      }
+    ],
+    "character_voices": [
+      {
+        "character_name": "Splatter",
+        "speech_patterns": "Concise, often punctuated with art-related metaphors or exclamations. Can be intense and passionate when riled, using short, declarative sentences for effect.",
+        "vocabulary": "A mix of street slang and art terminology. Words like 'canvas,' 'palette,' 'graffiti,' 'tag,' 'masterpiece,' 'void,' 'erase,' 'vibrant.'"
+      },
+      {
+        "character_name": "Tag Master",
+        "speech_patterns": "Gravelly, wise, and a bit world-weary, but with a spark of mischievous wit. Speaks in parables or seasoned advice, often with a slow, deliberate cadence.",
+        "vocabulary": "Rich with historical art references, street wisdom, and philosophical musings about art's purpose. Uses terms like 'legacy,' 'roots,' 'the old ways,' 'soul,' 'spirit.'"
+      },
+      {
+        "character_name": "Pixel Pallet",
+        "speech_patterns": "Fast-paced, energetic, and often rapid-fire, with a tendency to combine tech jargon and street slang. Frequently interrupts or finishes others' sentences with solutions.",
+        "vocabulary": "Heavily uses tech terms ('algorithm,' 'data,' 'network,' 'glitch,' 'system'), mixed with contemporary slang and art terms ('render,' 'pixel,' 'layer,' 'digital canvas')."
+      },
+      {
+        "character_name": "The Eraser",
+        "speech_patterns": "Monotone, emotionless, and utterly devoid of inflection. Speaks in short, declarative, logical statements, almost like a machine. Each word is precise and sterile.",
+        "vocabulary": "Clinical, corporate, and focused on order, efficiency, and elimination. Words like 'purify,' 'conformity,' 'deviance,' 'optimise,' 'eliminate,' 'sterile,' 'standard.'"
+      },
+      {
+        "character_name": "Conformity",
+        "speech_patterns": "Utterly silent, communicates only through grunts, heavy footsteps, or the hiss and roll of their paint rollers. If forced to speak, it's guttural and monosyllabic commands.",
+        "vocabulary": "Primarily non-verbal. If forced, uses basic, forceful words like 'ERASE,' 'PAINT,' 'ORDER.'"
+      }
+    ],
+    "three_act_outline": [
+      {
+        "act_number": 1,
+        "act_title": "The Inciting Mark",
+        "summary": "Introduce Splatter, their style of art, and their usual targets. Establish the vibrant, rebellious city art scene. Introduce the chilling threat of The Eraser and Conformity, who begin their systematic eradication. Splatter witnesses the destruction and feels the initial call to action, seeking out Tag Master and Pixel Pallet.",
+        "key_scenes": [
+          {
+            "scene_title": "The Urban Canvas",
+            "description": "Opening montage pages showcasing the vibrant, anarchic street art of the city. Splatter is introduced mid-action, finishing a dynamic piece disrupting a corporate billboard. Show the energy and freedom of their work.",
+            "page_estimation": "2 pages"
+          },
+          {
+            "scene_title": "The Grey Tide",
+            "description": "The first appearance of The Eraser and Conformity. A popular, beloved mural is systematically and chillingly painted over with gray. Splatter witnesses this, feeling a cold dread. They try to intervene but are outmatched by Conformity's brute force and The Eraser's ominous presence, narrowly escaping.",
+            "page_estimation": "2 pages"
+          },
+          {
+            "scene_title": "Old Roots, New Tech",
+            "description": "Splatter retreats to Tag Master's hidden studio, discussing the new threat. Tag Master identifies The Eraser as a corporate tool, a new kind of 'cleansing.' Pixel Pallet, already tracking strange energy signatures, shows initial data of widespread art eradication across the city. The crew forms.",
+            "page_estimation": "2 pages"
+          }
+        ]
+      },
+      {
+        "act_number": 2,
+        "act_title": "The Chroma Chase",
+        "summary": "Splatter and crew launch a counter-offensive, using their combined skills to track The Eraser. They face increasing resistance as The Eraser's influence grows. A major midpoint confrontation reveals The Eraser's true objective and potential personal connection to the city's artistic past. Splatter's internal conflict about leadership intensifies.",
+        "key_scenes": [
+          {
+            "scene_title": "Digital Footprints",
+            "description": "Pixel Pallet uses her tech to track The Eraser's movements, mapping out targeted zones. Splatter plans a diversion, using their art to draw Conformity away from a critical location while trying to gather intel on The Eraser's base.",
+            "page_estimation": "2 pages"
+          },
+          {
+            "scene_title": "Erased Memories",
+            "description": "Splatter and Tag Master infiltrate an archive of historical street art, only to find it being methodically destroyed by The Eraser. A tense chase ensues. During the escape, Tag Master recognizes a symbol or method used by The Eraser that links to a forgotten, rival art movement from his past, hinting at a deeper, personal motive behind the corporate cleanse. This is the midpoint.",
+            "page_estimation": "3 pages"
+          },
+          {
+            "scene_title": "The Canvas Trap",
+            "description": "Splatter, emboldened but also frustrated by their limited impact, tries to create a massive, provocative piece to lure The Eraser. It works, but The Eraser and Conformity quickly corner Splatter, who narrowly escapes thanks to a quick-thinking intervention from Pixel Pallet's tech. Splatter feels the pressure of leadership.",
+            "page_estimation": "2 pages"
+          }
+        ]
+      },
+      {
+        "act_number": 3,
+        "act_title": "The Masterpiece's Stand",
+        "summary": "The crew prepares for a final, decisive confrontation. Splatter confronts their fears and embraces their leadership role, inspiring the community. The climax is a battle of art vs. erasure. The resolution sees the city's art defended, but with the understanding that the fight for expression is ongoing. Splatter finds their true purpose.",
+        "key_scenes": [
+          {
+            "scene_title": "The Grand Design",
+            "description": "Recognizing they can't fight The Eraser alone, Splatter, guided by Tag Master and Pixel Pallet, conceives a daring plan: to create a 'living mural' that requires community participation, making it impossible to erase without public outrage. Splatter makes a heartfelt speech, rallying other street artists and citizens.",
+            "page_estimation": "2 pages"
+          },
+          {
+            "scene_title": "Clash on the Chrome Tower",
+            "description": "The climax. The Eraser and Conformity descend on the location of the grand living mural. A visually dynamic battle unfolds: Splatter's explosive art, Pixel Pallet's digital distractions, and Tag Master's strategic guidance against The Eraser's sterile light beams and Conformity's overwhelming gray. The community, inspired by Splatter, forms a human shield for the art. Splatter directly confronts The Eraser, finally shattering their chrome orb to reveal... a blank, expressionless face or perhaps the distorted reflection of themselves. The Eraser is driven back, its project temporarily halted, or its power diminished. Conformity is overwhelmed.",
+            "page_estimation": "4 pages"
+          },
+          {
+            "scene_title": "The Resilient City",
+            "description": "The immediate aftermath. The living mural stands, imperfect but vibrant, a symbol of resistance. Splatter, no longer just a vigilante, is seen as a leader and an inspiration. The city's art scene is revitalized, more united. Tag Master gives a knowing nod. Pixel Pallet smiles. The fight isn't over, but the city has found its voice, and Splatter has embraced their role as its defender and muse.",
+            "page_estimation": "1 page"
+          }
+        ]
+      }
+    ]
+  },
+  "story": {
+    "title": "Neon Rebellion",
+    "prologue": "In a city suffocated by corporate grey, where expression is meticulously controlled, a vibrant underground art movement thrives. But now, a cold, chrome-headed enforcer called The Eraser has risen, systematically purifying the city's walls. Against this tide of sterile conformity, a masked vigilante known as Splatter must unite a fractured community to defend the very soul of their urban canvas before their world becomes a monochrome void.",
+    "panels": [
+      {
+        "page_number": 0,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A grimy, graffiti-covered alleyway in Neo-Veridia, leading to a street dominated by a corporate billboard.",
+            "time_of_day": "Late night, just before dawn.",
+            "description": "The alley is a labyrinth of brick and rusted metal, illuminated by flickering neon signs from nearby businesses. Every surface is an explosion of color and defiant tags. At the alley's mouth, a pristine, sterile corporate billboard for 'OptiCorp Solutions' looms, its clean lines stark against the chaos."
+          },
+          "action": {
+            "description": "SPLATTTER, a whirlwind of motion, is completing a large, dynamic piece of graffiti that visually disrupts and defaces the OptiCorp billboard. Paint cans are scattered around their feet. They move with fluid, acrobatic grace, adding a final, explosive flourish.",
+            "key_moment": "Splatter finishes their masterpiece, a vibrant, chaotic splash of color and defiant imagery that transforms the corporate sterility into a statement of rebellion."
+          },
+          "composition": {
+            "shot_type": "Splash Page",
+            "angle": "Low Angle, looking up at Splatter and the defaced billboard.",
+            "focus": "Splatter and their freshly completed art, dominating the page, with the OptiCorp logo barely visible beneath the new layer of paint."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Energetic, rebellious, vibrant, yet with an underlying tension.",
+            "lighting_source": "Harsh, artificial neon lights from the city mixing with the faint glow of dawn, casting dramatic shadows. The art itself seems to emit light.",
+            "coloring_notes": "Bold, contrasting neon colors (orange, electric blue, magenta) for Splatter's art, clashing with the sterile white and corporate blue of the original billboard. Deep shadows and grimy textures for the alley."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, airborne, mid-spray, arm extended.",
+              "expression": "Obscured by mask, but body language conveys fierce focus and defiant exhilaration.",
+              "description": "Oversized orange hoodie with chaotic black and orange ink splatters, worn denim, black high-top sneakers, fingerless gloves. Stylized black half-mask, jagged at the edges. Skateboard with aggressive graffiti art underfoot. Grungy street art style, bold lines, ink splatter effects."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A single, dynamic splash panel filling the entire page, bursting with color and motion. The title 'NEON REBELLION' is integrated into the graffiti itself, perhaps sprayed across the top of the defaced billboard.",
+          "border_style": "None (bleeds to edge)"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "HSSST!",
+              "style": "Bold, jagged, in orange paint.",
+              "position": {
+                "x": 60,
+                "y": 45
+              },
+              "rotation": 5,
+              "scale": 1.5
+            },
+            {
+              "sfx_text": "DRIP",
+              "style": "Small, subtle, trailing down.",
+              "position": {
+                "x": 75,
+                "y": 80
+              },
+              "rotation": -10,
+              "scale": 0.8
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 1,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The same alleyway and street.",
+            "time_of_day": "Early morning, sunrise.",
+            "description": "The city slowly stirs. People are beginning their commutes. Splatter's newly finished art on the billboard is now highly visible, a beacon of defiance."
+          },
+          "action": {
+            "description": "Commuters pass by, their reactions varied: some glance with disdain, others with covert admiration, a few stop to take photos. A child stares in open wonder.",
+            "key_moment": "The art evokes a clear emotional response from the public."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The billboard art and the diverse reactions of the passersby."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "A mix of mundane daily life and quiet rebellion. Hopeful morning light contrasting with the raw energy of the art.",
+            "lighting_source": "Soft, golden morning sun from the left, highlighting the vibrant colors.",
+            "coloring_notes": "Warm morning hues blending with the bold art. The corporate building in the background remains cool and grey."
+          },
+          "characters": [
+            {
+              "name": "Crowd",
+              "position": "Scattered across the foreground and midground.",
+              "expression": "Varied: curious, annoyed, inspired, indifferent.",
+              "description": "Silhouettes and partially rendered figures representing the city's populace."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide, horizontal panel spanning the top half of the page.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "Every sunrise, a new canvas. Every spray, a whisper of defiance.",
+            "coordinates": {
+              "x": 5,
+              "y": 5
+            }
+          }
+        }
+      },
+      {
+        "page_number": 1,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "Rooftop overlooking the street.",
+            "time_of_day": "Morning.",
+            "description": "A hidden perch, offering a panoramic view of the street below and the billboard."
+          },
+          "action": {
+            "description": "Splatter observes the scene, a sense of quiet satisfaction emanating from their stance. They lean against a grimy vent pipe, almost part of the urban landscape.",
+            "key_moment": "Splatter takes in the impact of their work, feeling a fleeting moment of victory."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Slightly High Angle, looking down on Splatter and the street below.",
+            "focus": "Splatter, with the billboard and crowd blurred in the background."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Contemplative, proud, yet inherently solitary.",
+            "lighting_source": "Backlit by the rising sun, creating a strong silhouette.",
+            "coloring_notes": "Warm outlines on Splatter's silhouette, deep blues and greys in the shadows, contrasting with the vibrant background art."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Right side, leaning against a pipe.",
+              "expression": "Obscured by mask, but posture suggests satisfaction.",
+              "description": "Hood up, hands in pockets, skateboard resting against the wall beside them. Still in their distinct street art style."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel occupying the bottom half of the page, leading the eye down to Splatter.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "Another canvas claimed. Another void filled.",
+              "type": "Thought Bubble",
+              "position": {
+                "x": 30,
+                "y": 70
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 2,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A bustling public square, adorned with a magnificent, historic mural.",
+            "time_of_day": "Mid-morning.",
+            "description": "The mural, a sprawling piece depicting the city's history and diverse cultures, is a landmark, beloved by the community. It's rendered in an old-school wildstyle, rich with intricate details and vibrant, enduring colors."
+          },
+          "action": {
+            "description": "People go about their day, pausing occasionally to admire the mural. A street vendor sells coffee nearby.",
+            "key_moment": "Establish the mural's significance and integration into daily life."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The entire mural and the casual interaction of the citizens with it."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Lively, communal, and peaceful.",
+            "lighting_source": "Bright, even daylight.",
+            "coloring_notes": "Warm and inviting tones for the square and the mural, reflecting its beloved status."
+          }
+        },
+        "layout": {
+          "description": "A horizontal panel stretching across the top half of the page.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "Some art isn't just paint on a wall. It's the city's pulse. Its memory.",
+            "coordinates": {
+              "x": 5,
+              "y": 5
+            }
+          }
+        }
+      },
+      {
+        "page_number": 2,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "The public square, foregrounding the mural.",
+            "time_of_day": "Mid-morning.",
+            "description": "The same scene, but a chilling presence begins to intrude."
+          },
+          "action": {
+            "description": "A long, oppressive shadow falls over a section of the vibrant mural. The crowd begins to murmur, heads turning.",
+            "key_moment": "The first indication of The Eraser's arrival, casting a literal and metaphorical shadow."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level, slightly skewed to create unease.",
+            "focus": "The shadow creeping across the mural, and the bewildered reactions of the onlookers."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Foreboding, unsettling, a sudden shift from peace to dread.",
+            "lighting_source": "The bright daylight is partially obscured by an unseen source, creating a sharp, unnatural shadow.",
+            "coloring_notes": "The shadow is a deep, unnatural grey, sucking the color out of the mural where it falls."
+          }
+        },
+        "layout": {
+          "description": "A square panel in the middle of the page, framed by smaller panels.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 2,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The public square, at the base of the mural.",
+            "time_of_day": "Mid-morning.",
+            "description": "The mural, with its vibrant imagery, is now directly confronted by sterility."
+          },
+          "action": {
+            "description": "CONFORMITY, a hulking figure with paint rollers for hands, begins to systematically paint over the mural. A low, continuous HISS accompanies the rollers. The crowd recoils in horror.",
+            "key_moment": "The methodical and chilling destruction of art begins."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Conformity's paint rollers applying dull grey paint over the vivid mural, obscuring detailed faces and symbols."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Shocking, horrific, violation.",
+            "lighting_source": "Harsh, unfeeling light illuminating the grey paint.",
+            "coloring_notes": "The dull, flat grey of Conformity's paint is aggressively applied over the bright, textured art, creating a sickening contrast."
+          },
+          "characters": [
+            {
+              "name": "Conformity",
+              "position": "Centered, rollers pressed against the wall.",
+              "expression": "Featureless helmet, conveying robotic efficiency.",
+              "description": "Hulking, broad-shouldered figure in a heavy, shapeless industrial grey jumpsuit. Bulky, featureless grey helmet with a single slit for vision. Massive paint-roller attachments for hands, dripping dull grey paint."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the bottom left, showing the start of the erasure.",
+          "border_style": "Clean"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "HIIISS",
+              "style": "Wavy, long, in dull grey.",
+              "position": {
+                "x": 50,
+                "y": 70
+              },
+              "rotation": 0,
+              "scale": 1.2
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 2,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "A high vantage point, overlooking the square.",
+            "time_of_day": "Mid-morning.",
+            "description": "Splatter's hidden perch, now revealing a horrifying sight."
+          },
+          "action": {
+            "description": "Splatter, having arrived to witness the scene, stares in disbelief and cold dread as the mural is defaced.",
+            "key_moment": "Splatter's horrified realization of the threat's magnitude."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Splatter's masked face, eyes wide with shock and anger."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Shock, anger, growing dread.",
+            "lighting_source": "Shadows creep over Splatter's face, a cold light reflecting in their masked eyes.",
+            "coloring_notes": "The vibrancy of their hoodie feels muted by the encroaching dread."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered.",
+              "expression": "Masked, but eyes convey utter shock and mounting rage.",
+              "description": "Head tilted slightly, hands clenching at their sides."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the bottom right, mirroring the action below and focusing on Splatter's reaction.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "No… Not this one. Not here!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 70,
+                "y": 80
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 3,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The public square, directly in front of the mural.",
+            "time_of_day": "Mid-morning.",
+            "description": "Conformity continues its relentless work, a growing grey patch consuming the vibrant art."
+          },
+          "action": {
+            "description": "Splatter bursts into action, launching themselves towards Conformity, spray cans at the ready, attempting to interrupt the erasure.",
+            "key_moment": "Splatter's impulsive, defiant charge against the enforcer."
+          },
+          "composition": {
+            "shot_type": "Dynamic Medium Shot",
+            "angle": "Low Angle, emphasizing Splatter's leap and Conformity's towering presence.",
+            "focus": "Splatter in mid-air, a streak of orange and black against the grey."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Furious, desperate, a flash of vibrant resistance.",
+            "lighting_source": "Harsh, stark light on the grey, dynamic shadows following Splatter's movement.",
+            "coloring_notes": "Splatter's vibrant colors are almost violently clashing with Conformity's dull grey."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, leaping towards the center.",
+              "expression": "Body tense with anger and determination.",
+              "description": "Spray cans held like weapons, hoodie flowing with the motion."
+            },
+            {
+              "name": "Conformity",
+              "position": "Right, continuing to paint, unperturbed.",
+              "expression": "Featureless, oblivious to the attack.",
+              "description": "Massive form, steadily rolling grey paint."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A dynamic, angled panel, conveying immediate action.",
+          "border_style": "Jagged, almost torn, reflecting the violence of the action."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "WHIIISH",
+              "style": "Fast, streaking, orange outline.",
+              "position": {
+                "x": 20,
+                "y": 50
+              },
+              "rotation": -15,
+              "scale": 1.3
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 3,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "The public square, by the mural.",
+            "time_of_day": "Mid-morning.",
+            "description": "Conformity, a wall of unfeeling force, stands against Splatter's attack."
+          },
+          "action": {
+            "description": "Splatter's attempt to engage Conformity is met with brute, unyielding force. Conformity's massive arm simply shoves Splatter aside, barely breaking its painting rhythm.",
+            "key_moment": "Splatter is effortlessly dismissed, revealing Conformity's raw power."
+          },
+          "composition": {
+            "shot_type": "Medium Close-Up",
+            "angle": "Eye-level",
+            "focus": "Conformity's paint-roller arm pushing Splatter, highlighting the size difference and impact."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Brutal, unfeeling, overwhelming.",
+            "lighting_source": "Flat, institutional light on Conformity, Splatter cast in shadow.",
+            "coloring_notes": "The dull grey physically pushing away the vibrant orange."
+          },
+          "characters": [
+            {
+              "name": "Conformity",
+              "position": "Right, arm extended.",
+              "expression": "Still featureless, emotionless.",
+              "description": "Blocky, unstoppable."
+            },
+            {
+              "name": "Splatter",
+              "position": "Left, recoiling.",
+              "expression": "Masked, but body language shows surprise and pain.",
+              "description": "Twisted awkwardly by the force, paint cans flying from their grip."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel, showing the clash of forces.",
+          "border_style": "Solid"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "THUD!",
+              "style": "Heavy, blunt, in grey.",
+              "position": {
+                "x": 60,
+                "y": 50
+              },
+              "rotation": 0,
+              "scale": 1.4
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 3,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "A few yards away from the mural, overlooking the fray.",
+            "time_of_day": "Mid-morning.",
+            "description": "The Eraser stands observing, its presence radiating cold authority."
+          },
+          "action": {
+            "description": "THE ERASER, a chilling, chrome-headed figure, steps forward slightly, its staff glowing with a sterile white light. It speaks with an emotionless monotone.",
+            "key_moment": "The Eraser's chilling intervention, asserting control."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Low Angle, emphasizing Eraser's imposing height and power.",
+            "focus": "The Eraser, with the conflict blurred in the background."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Chilling, dominant, sterile.",
+            "lighting_source": "The staff emits a pure, harsh white light that seems to drain color from its surroundings.",
+            "coloring_notes": "Sharp contrasts between the black suit and white light, against the muted colors of the background."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Centered, staff held upright.",
+              "expression": "Chrome orb reflects only distorted light, conveying utter blankness.",
+              "description": "Tall, imposing, featureless sleek black suit. Chrome orb for a head. Thick, black industrial-grade gloves. Staff-like device glowing with white light."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel, emphasizing Eraser's height and authority.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "The Eraser",
+              "content": "Deviance. Will be. Eliminated. Without. Exception.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 3,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "The public square, near the edge of the conflict.",
+            "time_of_day": "Mid-morning.",
+            "description": "The ground is littered with Splatter's scattered art tools."
+          },
+          "action": {
+            "description": "Splatter scrambles away, narrowly avoiding a beam of sterile white light from The Eraser's staff. Their skateboard is clutched under one arm, but some paint cans are left behind.",
+            "key_moment": "Splatter's hurried retreat, highlighting the overwhelming odds."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Low Angle",
+            "focus": "Splatter's frantic movements, the skateboard, and the escaping light beam."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Urgent, fearful, desperate escape.",
+            "lighting_source": "A stark white beam crosses the panel, creating a sharp line.",
+            "coloring_notes": "The white beam burns against the dark, grimy ground."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, crouching, running.",
+              "expression": "Masked, but body language shows intense panic and urgency.",
+              "description": "One arm flung out for balance, a few droplets of paint on their hoodie."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A horizontal panel, conveying motion and urgency.",
+          "border_style": "Clean"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "SCKKT!",
+              "style": "Sharp, energetic, in orange.",
+              "position": {
+                "x": 30,
+                "y": 70
+              },
+              "rotation": 10,
+              "scale": 1.1
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 3,
+        "panel_number": 5,
+        "visuals": {
+          "setting": {
+            "location": "The public square, from a distance.",
+            "time_of_day": "Mid-morning.",
+            "description": "The mural is now half-erased, a stark grey void growing over the vibrant art. The Eraser and Conformity stand like cold sentinels."
+          },
+          "action": {
+            "description": "Splatter, a tiny figure, disappears into the labyrinthine alleys, retreating from the overwhelming force. The grey tide continues to advance on the mural.",
+            "key_moment": "Splatter's defeat and the chilling image of the art being systematically destroyed."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "High Angle, looking down on the square.",
+            "focus": "The contrasting colors of the remaining mural and the spreading grey, with Splatter's retreating figure as a small point."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Defeated, ominous, a growing sense of loss.",
+            "lighting_source": "Overhead, casting the grey in flat, cold light.",
+            "coloring_notes": "The grey patch on the mural dominates the visual, making the remaining colors seem fragile and fading."
+          }
+        },
+        "layout": {
+          "description": "A panoramic panel across the bottom of the page, emphasizing the scale of the threat.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "The grey tide consumes… and for the first time, Splatter tasted fear.",
+            "coordinates": {
+              "x": 70,
+              "y": 90
+            }
+          }
+        }
+      },
+      {
+        "page_number": 4,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "TAG MASTER'S hidden studio, a labyrinth of art supplies and forgotten projects.",
+            "time_of_day": "Late afternoon.",
+            "description": "The studio is a cozy, cluttered sanctuary, walls adorned with old-school graffiti sketches, canvases, and various paint tools. The air is thick with the smell of spray paint and aged paper."
+          },
+          "action": {
+            "description": "Splatter bursts in, mask askew, agitated and visibly shaken. Tag Master looks up from a half-finished canvas, his expression shifting from calm concentration to concern.",
+            "key_moment": "Splatter seeks refuge and guidance after their traumatic encounter."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "Splatter, dishevelled, and Tag Master's reaction."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Tense, urgent, a sense of sanctuary broken.",
+            "lighting_source": "Warm, natural light filtering through a dusty window, creating a safe contrast to the cold outside.",
+            "coloring_notes": "Rich, earthy tones for the studio, contrasting with Splatter's vibrant but now muddied colors."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, disoriented.",
+              "expression": "Masked, but body language conveys agitation and distress.",
+              "description": "Hoodie slightly torn, a faint smudge of grey paint on their arm. Skateboard dropped to the floor."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, seated at a workbench.",
+              "expression": "Brow furrowed with concern, a spark of knowing in his eyes.",
+              "description": "Grizzled, older, faded paint-splattered jacket, worn denim beanie. Hands perpetually stained with paint."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel at the top left, depicting Splatter's entry.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 4,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "Tag Master's studio.",
+            "time_of_day": "Late afternoon.",
+            "description": "A corner of the studio, filled with old art books and scrolls."
+          },
+          "action": {
+            "description": "Tag Master sets aside his work and gestures for Splatter to explain, his expression grave.",
+            "key_moment": "Tag Master prepares to listen, knowing the seriousness of the situation."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Tag Master's face, conveying ancient wisdom and a hint of foreboding."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Serious, expectant, somber.",
+            "lighting_source": "Soft, diffuse light from an old lamp, highlighting the lines on his face.",
+            "coloring_notes": "Warm sepia tones dominate, suggesting age and history."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Centered.",
+              "expression": "Grave, thoughtful, a slight frown.",
+              "description": "His eyes hold a weight of past experiences."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A small, intimate panel, focusing on Tag Master's reaction.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "Easy, young brush. Tell Old Man Tag what's got your colors so faded.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 4,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "Tag Master's studio.",
+            "time_of_day": "Late afternoon.",
+            "description": "The center of the studio, a small, clear space."
+          },
+          "action": {
+            "description": "Splatter gesticulates wildly, recounting the events with passionate intensity, their voice filled with a mixture of anger and disbelief. They kick a fallen paint can.",
+            "key_moment": "Splatter expresses their raw frustration and fear."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "Splatter's agitated posture and hand movements."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Frantic, desperate, a sense of injustice.",
+            "lighting_source": "Uneven, dramatic shadows dancing around Splatter, reflecting their turmoil.",
+            "coloring_notes": "Sharp contrasts of light and shadow, reflecting the intensity of the emotion."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, animated.",
+              "expression": "Body language of intense frustration and agitation.",
+              "description": "Hood up, hands balled into fists, moving restlessly."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A larger, dynamic panel, conveying Splatter's agitated state.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "It wasn't just grey, Tag. It was… a void! A chrome demon and its mindless roller-bot, erasing the city's soul. That mural… gone! They tried to erase *me*!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 60
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 4,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "Tag Master's studio, by the workbench.",
+            "time_of_day": "Late afternoon.",
+            "description": "A small corner of the workbench, cluttered with tools and a damaged spray can."
+          },
+          "action": {
+            "description": "Tag Master picks up one of Splatter's damaged spray cans, bent and scuffed, a remnant of the struggle. He inspects it with a grim expression.",
+            "key_moment": "Tag Master's quiet recognition of the seriousness of the threat, connecting it to old knowledge."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "High Angle, looking down on the can and Tag Master's hands.",
+            "focus": "The damaged spray can and Tag Master's paint-stained fingers."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Ominous, thoughtful, a hint of historical context.",
+            "lighting_source": "A single, focused light from above, creating deep shadows.",
+            "coloring_notes": "The dull metal of the can contrasts with the vibrant dried paint on Tag Master's hands."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Hands in frame.",
+              "expression": "Concentrated, mouth set in a grim line.",
+              "description": "Wrinkled, paint-stained hands, a lifetime of art in their texture."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A small, rectangular panel at the bottom right, focusing on the detail.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "A chrome head, you say? And a blank canvas bot? Sounds like corporate cleansing, kid. But… something feels older. Colder.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 90
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 5,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A dimly lit alcove within Tag Master's studio.",
+            "time_of_day": "Late afternoon.",
+            "description": "The alcove houses PIXEL PALLET's workstation: a glowing array of custom-built screens, wires, and tech gadgets, all with a distinct street-art aesthetic."
+          },
+          "action": {
+            "description": "PIXEL PALLET, already absorbed in her work, rapidly types on a holographic keyboard, her screens flickering with abstract data and city maps. Splatter and Tag Master approach her with urgency.",
+            "key_moment": "Pixel Pallet, already on the case, provides the initial intel."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "High Angle, looking down on the tech setup.",
+            "focus": "Pixel Pallet and her glowing screens, with Splatter and Tag Master entering the frame."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "High-tech, urgent, a buzzing hub of information.",
+            "lighting_source": "The screens cast an eerie, multi-colored glow on Pixel Pallet's face.",
+            "coloring_notes": "Electric blues, purples, and greens from the screens, contrasting with the dark studio."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Centered at her console.",
+              "expression": "Intensely focused, a slight frown of concentration.",
+              "description": "Vibrant, short hair, oversized thick-rimmed glasses reflecting code. Loose-fitting hoodie dress with glitch art patterns. Custom-built tablet on her lap."
+            },
+            {
+              "name": "Splatter",
+              "position": "Left, moving forward.",
+              "expression": "Impatient.",
+              "description": "Hands gesturing."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, observing.",
+              "expression": "Curious.",
+              "description": "Arms crossed."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A horizontal panel across the top of the page, introducing Pixel Pallet's domain.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 5,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "Pixel Pallet's workstation.",
+            "time_of_day": "Late afternoon.",
+            "description": "A close-up on one of Pixel Pallet's main monitors, displaying a detailed map of Neo-Veridia."
+          },
+          "action": {
+            "description": "Pixel Pallet spins her monitor to show a rapidly expanding network of grey zones across the city map, indicating widespread art eradication. Energy signatures trace to specific locations.",
+            "key_moment": "Visual confirmation of the widespread and systematic nature of the erasure."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "The city map on the screen, particularly the encroaching grey areas and pulsing red energy signatures."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Alarming, urgent, factual.",
+            "lighting_source": "The screen's internal light illuminates the panel.",
+            "coloring_notes": "Sharp red, black, and grey on a digital blue map. Glitch effects around the encroaching grey."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Hands pointing at the screen.",
+              "expression": "Serious, intense.",
+              "description": "Fingers tap rapidly on the screen's surface."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel, emphasizing the digital threat.",
+          "border_style": "Digital glitch effect."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Already on it, Splatter. Anomalous energy spikes. Rapid aesthetic degradation confirmed city-wide. Their algorithm is efficient. Too efficient.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 5,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "Pixel Pallet's workstation, studio interior.",
+            "time_of_day": "Late afternoon.",
+            "description": "The three figures stand together, illuminated by the tech's glow, united by a common threat."
+          },
+          "action": {
+            "description": "Splatter clenches their fist, resolved. Tag Master places a reassuring hand on Splatter's shoulder. Pixel Pallet continues to monitor, but her gaze shifts to her teammates.",
+            "key_moment": "The trio forms, ready to face the challenge."
+          },
+          "composition": {
+            "shot_type": "Medium Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The three characters, their shared determination."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Determined, united, a sense of emerging purpose.",
+            "lighting_source": "The cool glow from Pixel Pallet's screens bathes them, contrasting with the studio's warmth.",
+            "coloring_notes": "The digital hues blend with the warmer studio colors, symbolizing the fusion of old and new."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, body tensed with resolution.",
+              "expression": "Masked, but chin set firm.",
+              "description": "Fist clenched, looking at the screen."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Center, hand on Splatter's shoulder.",
+              "expression": "A knowing, almost proud look.",
+              "description": "His presence is grounding."
+            },
+            {
+              "name": "Pixel Pallet",
+              "position": "Right, glancing at Splatter.",
+              "expression": "Serious, but a flicker of shared purpose.",
+              "description": "Fingers hovering over her keyboard."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide panel across the bottom half of the page, emphasizing their unity.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "Then we paint back. Harder. Brighter. You got the digital canvas, Pixel. Tag, you know the city's roots. Let's show this chrome void what real art is.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 40,
+                "y": 70
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 6,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "Pixel Pallet's workstation, focused on a holographic map.",
+            "time_of_day": "Night.",
+            "description": "A complex, shimmering holographic map of Neo-Veridia floats above Pixel Pallet's console, pulsing with data points and red 'eradication zones'."
+          },
+          "action": {
+            "description": "Pixel Pallet gestures at the holographic map, explaining Eraser's predicted movements and highlighting potential targets. Splatter leans in, absorbing the intel.",
+            "key_moment": "Strategic planning begins, blending tech and street knowledge."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "High Angle, looking down into the holographic map.",
+            "focus": "The holographic map, with Pixel Pallet and Splatter framing it."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Intense, strategic, high-tech.",
+            "lighting_source": "The cool, ethereal glow of the hologram illuminates their faces.",
+            "coloring_notes": "Predominantly cool blues, greens, and reds from the hologram, giving a cyber-punk aesthetic."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Left, hand gesturing over the map.",
+              "expression": "Energetic, articulate.",
+              "description": "Her glasses reflect the map's complex patterns."
+            },
+            {
+              "name": "Splatter",
+              "position": "Right, absorbed in the data.",
+              "expression": "Masked, but focused and analytical.",
+              "description": "Leaning in, arms crossed, hoodie prominent."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide, horizontal panel at the top, emphasizing the map's scale.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Analysis shows Eraser prioritizes high-visibility historical art. Pattern indicates a 'purification' sweep of Sector 7-Delta, starting with the Old Town Archives. We have a narrow window before they get there.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 30
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 6,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A grimy alleyway, lit by a distant streetlamp.",
+            "time_of_day": "Night.",
+            "description": "A rough, textured brick wall serves as Splatter's temporary planning board."
+          },
+          "action": {
+            "description": "Splatter rapidly sketches out a plan on a grimy wall using a stub of chalk, showing tactical graffiti placements. Tag Master observes with a thoughtful gaze.",
+            "key_moment": "Splatter translates digital intel into street-level tactics."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "Splatter's chalk sketch, conveying a dynamic plan, and Tag Master's approving look."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Gritty, resourceful, collaborative.",
+            "lighting_source": "A single, focused beam from Tag Master's old lantern highlights the sketch.",
+            "coloring_notes": "Monochromatic chalk lines on dark brick, with the soft glow of the lantern. Splatter's outfit provides the only strong color."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, actively sketching.",
+              "expression": "Masked, but intensely focused, radiating confidence in their element.",
+              "description": "Chalk dust on gloves, hoodie slightly askew."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, observing.",
+              "expression": "A small, approving smile on his lips.",
+              "description": "Holding a small, antique lantern, casting light."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel, showing the tactical planning.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "Old Town. They'll send Conformity first, clear the path. That gives us an opening. I'll drop a masterpiece right here—a distraction so big they can't ignore it.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 30,
+                "y": 60
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 6,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "A close-up on Splatter's utility belt.",
+            "time_of_day": "Night.",
+            "description": "A collection of specialized spray paint cans, some with unique nozzles and caps."
+          },
+          "action": {
+            "description": "Splatter selects a specific, brightly colored spray can, testing its nozzle with a quick, decisive spray.",
+            "key_moment": "Preparation for action, a signature move of the artist."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Splatter's gloved hand holding the spray can, with the fine mist visible."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Anticipation, readiness, a moment before impact.",
+            "lighting_source": "A small, focused beam of light from an unseen source, highlighting the can.",
+            "coloring_notes": "The metallic sheen of the can, with vibrant paint colors visible on the nozzle. Fine mist illuminated."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Hand in center.",
+              "expression": "Gloves tight, firm grip.",
+              "description": "Black fingerless gloves, showing dexterity."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A small, square panel, focusing on the detail of preparation.",
+          "border_style": "Clean"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "CHIK-CHIK",
+              "style": "Metallic, small, in grey.",
+              "position": {
+                "x": 50,
+                "y": 40
+              },
+              "rotation": 0,
+              "scale": 0.9
+            },
+            {
+              "sfx_text": "PFFFT",
+              "style": "Light, airy, in black.",
+              "position": {
+                "x": 60,
+                "y": 30
+              },
+              "rotation": -5,
+              "scale": 0.8
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 6,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "A high rooftop overlooking a main thoroughfare.",
+            "time_of_day": "Night.",
+            "description": "The city sprawls below, a grid of lights and shadows. The target thoroughfare is a prominent, well-trafficked area with large, blank walls."
+          },
+          "action": {
+            "description": "Splatter stands on the edge of a rooftop, surveying the main thoroughfare, planning their strategic diversion. Their posture is confident, ready for action.",
+            "key_moment": "Splatter prepares to execute the plan, taking on the role of the visible artist."
+          },
+          "composition": {
+            "shot_type": "Overhead Shot",
+            "angle": "High Angle, looking down on Splatter and the city below.",
+            "focus": "Splatter, silhouetted against the city lights, and the target area below."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Strategic, anticipatory, vast.",
+            "lighting_source": "City lights below provide ambient glow, backlighting Splatter.",
+            "coloring_notes": "Cool blues and deep blacks for the night sky, vibrant specks of orange and yellow from the city lights."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Top center, on the rooftop edge.",
+              "expression": "Masked, but body language conveys determination.",
+              "description": "Standing tall, arms loosely at their sides. Skateboard propped nearby."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide panel across the bottom of the page, emphasizing the urban landscape.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "To draw their gaze… to create a blinding, beautiful explosion of color.",
+            "coordinates": {
+              "x": 80,
+              "y": 90
+            }
+          }
+        }
+      },
+      {
+        "page_number": 7,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A massive, blank wall on a busy thoroughfare.",
+            "time_of_day": "Night, late.",
+            "description": "The wall is an oppressive expanse of grey concrete, devoid of life. Traffic is sparse but present."
+          },
+          "action": {
+            "description": "Splatter executes a monumental piece of graffiti, a whirlwind of color and movement. Explosive bursts of paint create chaotic, vibrant forms. It's designed to be loud, defiant, and impossible to ignore.",
+            "key_moment": "Splatter's dramatic art-based diversion in full swing."
+          },
+          "composition": {
+            "shot_type": "Dynamic Wide Shot",
+            "angle": "Low Angle, capturing the scale of the art and Splatter's energy.",
+            "focus": "Splatter, framed by the emerging, vibrant art, with spray paint streaking across the panel."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Electrifying, rebellious, loud.",
+            "lighting_source": "Harsh, focused spotlights from Splatter's hidden setup illuminate the wall, making the colors pop.",
+            "coloring_notes": "Neon oranges, electric blues, hot pinks explode against the dark concrete, creating an otherworldly glow."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, a blur of motion.",
+              "expression": "Masked, but body conveys exhilarating focus.",
+              "description": "Arms extended, body twisting, unleashing a torrent of paint. Almost a silhouette against the bright art."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A large, dynamic panel filling most of the page, emphasizing the energy of the art.",
+          "border_style": "Exploding, vibrant lines."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "KSSHHH KSSHHH",
+              "style": "Long, flowing, in various paint colors.",
+              "position": {
+                "x": 30,
+                "y": 40
+              },
+              "rotation": -10,
+              "scale": 1.5
+            },
+            {
+              "sfx_text": "FWOOOSH",
+              "style": "Broad, energetic, in orange.",
+              "position": {
+                "x": 70,
+                "y": 60
+              },
+              "rotation": 15,
+              "scale": 1.2
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 7,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A few blocks away from Splatter's art, at the entrance to Sector 7-Delta.",
+            "time_of_day": "Night, late.",
+            "description": "Conformity and The Eraser are methodically advancing towards the Old Town Archives. The street is otherwise desolate."
+          },
+          "action": {
+            "description": "CONFORMITY, a relentless grey force, suddenly pauses. Its helmeted head slowly turns towards the distant, dazzling glow of Splatter's art. A low, guttural sound emanates from it.",
+            "key_moment": "The diversion works, drawing Conformity's attention."
+          },
+          "composition": {
+            "shot_type": "Medium Close-Up",
+            "angle": "Eye-level",
+            "focus": "Conformity's head turning, with a faint, colorful glow reflecting in its single visor slit."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Shift from methodical to distracted, slight unease.",
+            "lighting_source": "Dim, sterile streetlights, with the distant glow of Splatter's art creating a colorful highlight.",
+            "coloring_notes": "The dull grey of Conformity is momentarily touched by vibrant, unnatural hues."
+          },
+          "characters": [
+            {
+              "name": "Conformity",
+              "position": "Centered.",
+              "expression": "Featureless, but the slow turn conveys a mechanical response to a new stimulus.",
+              "description": "Its massive form is momentarily static, rollers still. The Eraser stands a step behind it, also pausing."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the mid-left of the page, showing the impact of the diversion.",
+          "border_style": "Clean"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "GROAN",
+              "style": "Deep, rumbling, in grey.",
+              "position": {
+                "x": 50,
+                "y": 40
+              },
+              "rotation": -3,
+              "scale": 1
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 7,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "Near Sector 7-Delta entrance, an abandoned building's facade.",
+            "time_of_day": "Night, late.",
+            "description": "The Eraser stands observing Conformity, then slowly shifts its gaze towards the direction of Splatter's art. Its chrome head reflects the chaotic colors."
+          },
+          "action": {
+            "description": "The Eraser, after a beat, turns and points its staff in the direction of Splatter's diversion. Conformity immediately begins to move towards the detected 'deviance,' leaving the path to the archives open.",
+            "key_moment": "The Eraser directs its enforcer, falling for the trap."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "High Angle, emphasizing Eraser's commanding position.",
+            "focus": "The Eraser pointing, with Conformity's retreating back in the background."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Calculating, cold, yet successfully manipulated.",
+            "lighting_source": "Sterile white light from Eraser's staff, casting long shadows.",
+            "coloring_notes": "The reflection of vibrant art on Eraser's chrome head provides a jarring contrast."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Right, staff extended.",
+              "expression": "Chrome orb reflects the distant lights, impassive.",
+              "description": "Its posture is rigid, authoritarian."
+            },
+            {
+              "name": "Conformity",
+              "position": "Left, moving away.",
+              "expression": "Head still turned towards the distant art.",
+              "description": "A lumbering, mechanical retreat."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel, showing the Eraser's command.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 7,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "A shadowed, forgotten doorway near the Old Town Archives.",
+            "time_of_day": "Night, late.",
+            "description": "The doorway is covered in grime and neglected tags, blending into the building's weathered facade."
+          },
+          "action": {
+            "description": "A small, hidden camera feed, previously obscured, flickers to life on Pixel Pallet's custom tablet, revealing the now-clear path to the archives. She gives a small, triumphant smile.",
+            "key_moment": "Pixel Pallet confirms the success of the diversion, clearing the way."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Pixel Pallet's tablet screen, showing the cleared path, and her expression of success."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Triumphant, strategic, subtle victory.",
+            "lighting_source": "The tablet's screen illuminates Pixel Pallet's face with a digital glow.",
+            "coloring_notes": "Sharp, clean digital visuals against the grimy background. A victorious neon green flash on the screen."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Hands holding the tablet, face illuminated.",
+              "expression": "A smirk, eyes bright with achievement.",
+              "description": "Her vibrant hair is slightly disheveled from concentration."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel at the bottom right, confirming the success.",
+          "border_style": "Glitchy, digital."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Algorithm re-routed. Old Town Archives clear. Go, Splatter. Make those files sing.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 80
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 8,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The Old Town Archives, a vast, decaying repository.",
+            "time_of_day": "Night, late.",
+            "description": "The archives are a cavernous, dusty space filled with shelves upon shelves of historical street art, old blueprints, photos, and archived graffiti pieces, each a fragment of the city's artistic past. Dim, flickering emergency lights barely pierce the gloom."
+          },
+          "action": {
+            "description": "Splatter and Tag Master move cautiously through the aisles, flashlights cutting through the dust. The silence is heavy, broken only by their soft footsteps.",
+            "key_moment": "The exploration of a sacred, forgotten space, rich with history."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The vastness of the archives, with Splatter and Tag Master as small figures amidst the historical treasures."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Reverent, nostalgic, yet with a palpable sense of unease.",
+            "lighting_source": "Flickering emergency lights and the narrow beams of their flashlights, creating long, dancing shadows.",
+            "coloring_notes": "Dusty sepia tones for the archives, with splashes of vibrant, faded colors from the stored art. The flashlights cut through with sharp, cold light."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, moving forward cautiously.",
+              "expression": "Masked, but eyes are wide, taking in the history.",
+              "description": "Holding a small, powerful LED flashlight. Skatepark tucked under arm."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, a step behind Splatter, looking around with a sense of wonder and sadness.",
+              "expression": "A wistful look, eyes scanning familiar tags from decades past.",
+              "description": "Older, but moving with quiet agility. His gaze is focused on the shelves."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide, horizontal panel spanning the top half of the page.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "A cathedral of forgotten colors. The city's true roots.",
+            "coordinates": {
+              "x": 5,
+              "y": 5
+            }
+          }
+        }
+      },
+      {
+        "page_number": 8,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A section of the archives, filled with old photographs and sketches.",
+            "time_of_day": "Night, late.",
+            "description": "A dusty shelf, covered in archival boxes. One box is open, revealing a collection of vintage street art photographs."
+          },
+          "action": {
+            "description": "Tag Master pulls out a faded photograph of an old mural, his finger tracing a familiar tag. A wave of nostalgia, then quiet concern, washes over him.",
+            "key_moment": "Tag Master connects with his past, making the threat personal."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "The photograph, held by Tag Master's paint-stained hand."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Nostalgic, bittersweet, a touch of melancholy.",
+            "lighting_source": "The narrow beam of Splatter's flashlight illuminates the photo.",
+            "coloring_notes": "Faded sepia tones for the photograph, contrasting with the vibrant remnants of paint on Tag Master's hands."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Hand holding photo, partially obscured face.",
+              "expression": "A flicker of sadness, recognition.",
+              "description": "His eyes, though in shadow, seem distant, remembering."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the mid-left, a moment of reflection.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "This… this was the 'Crimson Cobra.' My first big piece. Wiped clean by the city council, same year you were born, kid. Thought it was gone forever.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 30
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 8,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "A vast, central chamber of the Old Town Archives.",
+            "time_of_day": "Night, late.",
+            "description": "A chilling sight: THE ERASER is already present, its staff radiating sterile white light, methodically erasing a massive, centuries-old tapestry of indigenous street art that formed the archive's centerpiece."
+          },
+          "action": {
+            "description": "The Eraser systematically dissolves the ancient art into grey dust. Splatter and Tag Master, drawn by the eerie glow, discover the destruction, their faces twisted in horror and outrage.",
+            "key_moment": "The direct confrontation with Eraser's destructive power against irreplaceable history."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level, from Splatter and Tag Master's perspective.",
+            "focus": "The Eraser, framed by the dissolving tapestry, radiating cold, destructive energy."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Horror, desecration, violation. Cold and sterile.",
+            "lighting_source": "The Eraser's staff emits a blinding white light that consumes the colors of the tapestry.",
+            "coloring_notes": "Vibrant ancient art, dissolving into stark grey and white, creating a powerful visual of loss. Shadows are deep and oppressive."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Centered, staff pointed at the tapestry.",
+              "expression": "Chrome orb reflects the dissolving colors, emotionless.",
+              "description": "Imposing, its presence a void against the historical vibrancy."
+            },
+            {
+              "name": "Splatter",
+              "position": "Left foreground, recoiling in shock.",
+              "expression": "Masked, but body language screams outrage.",
+              "description": "Hands fly to their face in horror."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right foreground, jaw clenched in utter devastation.",
+              "expression": "Face etched with anguish and disbelief.",
+              "description": "His face, usually mischievous, is now profoundly pained."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A large, dramatic panel taking up the entire bottom half of the page.",
+          "border_style": "Sharp, angular, almost shattered."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "HIIISS",
+              "style": "Long, spectral, in grey.",
+              "position": {
+                "x": 50,
+                "y": 70
+              },
+              "rotation": -5,
+              "scale": 1.3
+            }
+          ]
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "The… the Ancestral Thread! Centuries of soul… Eraser, you soulless void! What are you?!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 20,
+                "y": 80
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 9,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The central chamber of the Old Town Archives.",
+            "time_of_day": "Night, late.",
+            "description": "The Eraser, having been confronted, now turns its full attention on Splatter and Tag Master. Its staff hums with power."
+          },
+          "action": {
+            "description": "A tense chase ensues. Splatter, grabbing Tag Master, deftly dodges a searing beam of light from The Eraser's staff, paint cans scattering as they run.",
+            "key_moment": "Splatter and Tag Master are pursued by The Eraser, barely escaping its destructive power."
+          },
+          "composition": {
+            "shot_type": "Dynamic Medium Shot",
+            "angle": "Low Angle, emphasizing the speed and danger.",
+            "focus": "Splatter and Tag Master, a blur of motion, with the light beam narrowly missing them."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Frantic, dangerous, high-stakes escape.",
+            "lighting_source": "The bright, piercing white beam from Eraser's staff, cutting through the dusty darkness.",
+            "coloring_notes": "Sharp contrasts of light and shadow. The vibrant orange of Splatter's hoodie is a flash against the cold white beam and dark archives."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, pulling Tag Master, mid-stride.",
+              "expression": "Masked, but eyes convey intense focus and urgency.",
+              "description": "One arm around Tag Master, propelling them both forward. Skateboard under the other arm."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, being pulled, looking over his shoulder.",
+              "expression": "Wide-eyed fear, but a glint of defiance.",
+              "description": "Older, but surprisingly agile."
+            },
+            {
+              "name": "The Eraser",
+              "position": "Background, staff extended.",
+              "expression": "Chrome orb gleaming, utterly focused on its targets.",
+              "description": "Its form is sleek and menacing."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A diagonal panel, conveying dynamic movement and a near miss.",
+          "border_style": "Jagged, energetic lines."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "ZAAAP!",
+              "style": "Sharp, electric, in white with a blue glow.",
+              "position": {
+                "x": 60,
+                "y": 30
+              },
+              "rotation": 10,
+              "scale": 1.4
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 9,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A collapsing section of the archives, dusty and chaotic.",
+            "time_of_day": "Night, late.",
+            "description": "Dust fills the air as shelves begin to buckle and fall. Old art pieces shatter."
+          },
+          "action": {
+            "description": "During the frenzied escape, Tag Master glimpses a unique pattern in the dissolving dust or a remnant of Eraser's light, recognizing a forgotten, rival art movement's sigil or technique, linking Eraser to a deeper, personal artistic vendetta.",
+            "key_moment": "Tag Master's crucial recognition, revealing a personal motive behind The Eraser's actions."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Tag Master's eyes, wide with sudden, terrifying recognition, reflecting a distorted symbol or a specific light pattern."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Revelation, shock, a personal connection to the terror.",
+            "lighting_source": "Flickering, distorted light from the collapsing archives and Eraser's residual energy.",
+            "coloring_notes": "A flash of an ancient, almost ghostly symbol, overlaid on Tag Master's wide eyes, in a contrasting color like faded crimson or electric green."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Centered, head turned back slightly.",
+              "expression": "Utter shock and a dawning, terrible understanding.",
+              "description": "His wise face is contorted with revelation."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A fragmented, intense panel, highlighting the sudden realization.",
+          "border_style": "Broken glass effect, reflecting the shattering revelation."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "No… the… the Blank Canvas cult! I thought they were just a ghost story… a failed sect of anti-colorists… But that technique… that sterile glow…",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 60
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 9,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "A crumbling, hidden exit in the archives.",
+            "time_of_day": "Night, late.",
+            "description": "Dust and debris rain down as the archives collapse behind them."
+          },
+          "action": {
+            "description": "Tag Master, revitalized by his grim discovery, shoves a reluctant Splatter through a barely open grate, just as a section of the archives gives way, blocking The Eraser's path. He shouts a warning.",
+            "key_moment": "A narrow escape, at the cost of the archives, deepening the mystery."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Low Angle",
+            "focus": "Tag Master pushing Splatter, with the collapsing debris framing the action."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Urgent, sacrificial, a desperate escape.",
+            "lighting_source": "Dusty light from the collapsing structure, creating dramatic backlighting.",
+            "coloring_notes": "Deep oranges and reds from the collapsing structure, contrasting with the cold, grey debris."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Right, pushing Splatter.",
+              "expression": "Grim determination, yelling a warning.",
+              "description": "His eyes are fierce, resolute."
+            },
+            {
+              "name": "Splatter",
+              "position": "Left, being shoved through the opening.",
+              "expression": "Masked, but body language conveys reluctance to leave.",
+              "description": "Turning back, wanting to fight."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A dynamic panel, showing the final push of the escape.",
+          "border_style": "Cracked and crumbling."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "CRUMMPLE",
+              "style": "Heavy, jagged, in grey.",
+              "position": {
+                "x": 70,
+                "y": 60
+              },
+              "rotation": -10,
+              "scale": 1.5
+            }
+          ]
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "Go! This is deeper than corporate greed! This is about a warped ideology… an old hatred for color itself!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 40
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 9,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "A desolate alleyway outside the archives.",
+            "time_of_day": "Night, late.",
+            "description": "The archives building, now largely a collapsing, dust-shrouded ruin, looms in the background. The air is thick with dust and the smell of decay."
+          },
+          "action": {
+            "description": "Splatter and Tag Master emerge from the rubble, coughing. They look back at the rapidly decaying archives, a cloud of grey dust rising where the building once stood proud. The Eraser's presence is gone.",
+            "key_moment": "The immediate aftermath, the loss of history, and the new, personal dimension of the threat."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The crumbling archives and the dust cloud, with Splatter and Tag Master in the foreground."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Devastated, somber, a chilling emptiness.",
+            "lighting_source": "Muted, distant streetlights and the faint glow from the dust cloud itself.",
+            "coloring_notes": "Overwhelming grey and browns from the rubble and dust, with Splatter's orange a lone, defiant spark."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, looking back with a mix of fury and despair.",
+              "expression": "Masked, but eyes narrow with determination.",
+              "description": "Clutching their skateboard tightly."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, a hand on his chest, breathing heavily, face grim.",
+              "expression": "A profound sadness, a look of ancient burdens renewed.",
+              "description": "His eyes are fixed on the destruction, reliving old wounds."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A panoramic panel across the bottom of the page, emphasizing the destruction and the weight of the revelation.",
+          "border_style": "Smudged, almost erased at the edges."
+        },
+        "textual": {
+          "caption": {
+            "content": "A silent war for the soul of the city… now revealed to be a battle older than memory, fueled by a terrifying, sterile ideology.",
+            "coordinates": {
+              "x": 50,
+              "y": 90
+            }
+          }
+        }
+      },
+      {
+        "page_number": 10,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The central plaza of Neo-Veridia, overlooked by the city's tallest, sleekest corporate tower: The Chromatica.",
+            "time_of_day": "Night, neon-lit.",
+            "description": "The plaza is a vast, open space, usually sterile. Now, it's transformed by a colossal, defiant mural created by Splatter, covering the entire facade of a derelict industrial building opposite The Chromatica. The art is a vibrant, aggressive explosion of color, digital patterns, and raw street art, depicting eyes that glare defiantly at the corporate tower. It pulses with hidden lights and interactive elements woven by Pixel Pallet. In the distance, The Eraser and Conformity advance, their forms silhouetted against the city lights."
+          },
+          "action": {
+            "description": "Splatter stands triumphant on a scaffolding high up on their masterpiece, adding a final, glowing touch. They feel a surge of defiant pride, mixed with the chilling awareness that this is a direct challenge. Below, THE ERASER and CONFORMITY approach, their presence a stark, cold contrast to the vibrant art. The mural's eyes seem to follow their every movement.",
+            "key_moment": "Splatter’s most audacious act of defiance, directly luring The Eraser into a trap."
+          },
+          "composition": {
+            "shot_type": "Double-Page Spread",
+            "angle": "Epic Wide Shot, slightly low angle to emphasize the scale of the mural and the imposing nature of the corporate tower.",
+            "focus": "The massive, glowing mural in the foreground, with Splatter prominently featured, and The Eraser and Conformity as ominous, encroaching figures in the mid-ground, heading towards it."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Electrifying, defiant, but with an underlying tension and impending doom. A collision of vibrant chaos and sterile order.",
+            "lighting_source": "The mural itself glows with internal neon lights, augmented by Pixel Pallet's tech. Distant city lights and the stark, sterile white glow from The Eraser's staff create dramatic contrasts.",
+            "coloring_notes": "A riot of neon oranges, electric blues, deep purples, and angry reds in the mural. This clashes violently with the cold, reflective chrome of the corporate tower and the oppressive black and grey of The Eraser and Conformity. Dynamic light and shadow on Splatter."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "High up on the mural, left side of the spread, adding a final stroke.",
+              "expression": "Masked, but their posture radiates defiant pride and a readiness for battle.",
+              "description": "Arms spread slightly, one leg bent, almost dancing on the scaffolding. Paint streaks on their hoodie glow faintly."
+            },
+            {
+              "name": "The Eraser",
+              "position": "Mid-ground, right side of the spread, leading the advance.",
+              "expression": "Chrome orb reflects the vibrant mural, but its posture is unwavering and relentless.",
+              "description": "Staff held firmly, its white light a harsh counterpoint to the mural's glow. A dark, imposing silhouette."
+            },
+            {
+              "name": "Conformity",
+              "position": "Behind The Eraser, right side of the spread, a hulking, grey mass.",
+              "expression": "Featureless, but its steady, unthinking advance is chilling.",
+              "description": "Rollers ready, a dark, heavy shadow following Eraser."
+            }
+          ]
+        },
+        "layout": {
+          "description": "This single panel spans two full pages (10 and 11), depicting a massive, defiant mural on the left, with Splatter upon it, and the encroaching figures of The Eraser and Conformity from the right, creating a powerful visual confrontation.",
+          "border_style": "Vibrant, almost shattering at the edges from the sheer energy."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "KSSHHH",
+              "style": "Energetic, glowing, in neon orange.",
+              "position": {
+                "x": 20,
+                "y": 40
+              },
+              "rotation": 10,
+              "scale": 1.2
+            },
+            {
+              "sfx_text": "HUMMM",
+              "style": "Subtle, ethereal, in electric blue.",
+              "position": {
+                "x": 50,
+                "y": 50
+              },
+              "rotation": 0,
+              "scale": 1
+            },
+            {
+              "sfx_text": "THUMP-THUMP",
+              "style": "Heavy, resonant, in oppressive grey.",
+              "position": {
+                "x": 80,
+                "y": 70
+              },
+              "rotation": -5,
+              "scale": 1.3
+            }
+          ]
+        },
+        "textual": {
+          "caption": {
+            "content": "A masterpiece of defiance. A lure for a monster. The city holds its breath.",
+            "coordinates": {
+              "x": 5,
+              "y": 90
+            },
+            "position": "Bottom Left"
+          },
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "Come on, chrome-head. Feast your blank eyes on this! This isn't just paint. It's a shout!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 30,
+                "y": 20
+              }
+            },
+            {
+              "character": "The Eraser",
+              "content": "Designation: Deviant Art. Protocol: Eradication. Initiating purge sequence.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 80,
+                "y": 30
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 12,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The central plaza, near the defaced mural.",
+            "time_of_day": "Night, immediately after the retreat.",
+            "description": "The monumental mural, now partially obscured by grey smears and scorch marks from Eraser's beams, still radiates defiance, but with a wounded pride. The air is thick with the smell of ozone and wet paint."
+          },
+          "action": {
+            "description": "Splatter lies disoriented, clutching their head, a streak of grey paint marring their mask. Their body language suggests a deep sense of frustration and momentary defeat.",
+            "key_moment": "Splatter experiences the emotional toll of their near-defeat and the defilement of their art."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "High Angle, looking down on Splatter.",
+            "focus": "Splatter's masked face, emphasizing the smudge of grey and their pained expression."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Drained, frustrated, a sense of failure.",
+            "lighting_source": "The dying glow of the mural and harsh, artificial city lights cast uneven shadows.",
+            "coloring_notes": "The vibrant orange of Splatter's hoodie is dulled, almost stained by the invading grey."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, slumped.",
+              "expression": "Masked, but forehead furrowed in pain and exasperation. A new crack on the mask.",
+              "description": "Hand clutching their head, body limp. Their skateboard is on the ground beside them."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the top left, a moment of vulnerability.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "It… it wasn't enough. My best work… nearly erased.",
+              "type": "Thought Bubble",
+              "position": {
+                "x": 70,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 12,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A hidden nook above the plaza, a makeshift command center.",
+            "time_of_day": "Night.",
+            "description": "Pixel Pallet is hunched over her tablet, smoke gently rising from a small, charred device near her, a remnant of her quick-thinking intervention."
+          },
+          "action": {
+            "description": "Pixel Pallet, though exhausted, is focused, ensuring Splatter's escape and Eraser's retreat. She glances at the damaged device with a mix of pride and annoyance.",
+            "key_moment": "Pixel Pallet confirms their tactical retreat, highlighting her critical role."
+          },
+          "composition": {
+            "shot_type": "Medium Close-Up",
+            "angle": "Eye-level",
+            "focus": "Pixel Pallet's face and her tablet, with the smoking device in the foreground."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Tense, relieved, but still charged.",
+            "lighting_source": "The tablet's glow and the faint smoke provide the primary light.",
+            "coloring_notes": "Cool digital blues mixed with the warmer glow of the smoke. Her hair looks slightly frazzled."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Centered, intensely focused.",
+              "expression": "A tired but determined look. A small, almost imperceptible smirk.",
+              "description": "Glasses slightly askew, fingers still flying over her tablet. A small, charred drone lies near her."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the top right, showing the quick-thinking tech.",
+          "border_style": "Digital, with a subtle burn mark."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Close call, Splatter. My 'digital ink bomb' created enough static distortion to scramble their optics. But I blew my last drone. Costly data points, that.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 20,
+                "y": 40
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 12,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The central plaza, from a slightly elevated position.",
+            "time_of_day": "Night.",
+            "description": "The grand mural, partially defaced, stands as a testament to both art and the relentless attack it just endured. Eraser and Conformity are distant, retreating figures, leaving behind a trail of grey smears."
+          },
+          "action": {
+            "description": "The Eraser and Conformity are shown receding into the night, their forms ominous but now distant. The monumental mural is visible, defaced but not entirely eradicated, a symbol of resilient, albeit wounded, art.",
+            "key_moment": "The enemy retreats, but the damage inflicted is visible, emphasizing the ongoing struggle."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level, a sweeping view.",
+            "focus": "The partially defaced mural, a striking contrast of vibrant colors and grey smears, and the retreating figures of the antagonists."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Aftermath, somber victory, a fragile peace.",
+            "lighting_source": "The mural's internal glow is dimmer, city lights are apathetic.",
+            "coloring_notes": "The grey smears on the mural are prominent, a visible scar on the vibrant canvas. The retreating figures are mere silhouettes."
+          }
+        },
+        "layout": {
+          "description": "A horizontal panel across the middle of the page, showing the scale of the confrontation and its immediate aftermath.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 12,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "A secluded alleyway, adjacent to the plaza.",
+            "time_of_day": "Night.",
+            "description": "A damp, shadowed alley, concrete walls covered in faded, ignored graffiti."
+          },
+          "action": {
+            "description": "Splatter is slumped against a grimy wall, their gaze fixed on the defaced mural in the distance. Their usual defiance is replaced by a profound sense of introspection and doubt.",
+            "key_moment": "Splatter grapples with their identity and the effectiveness of their solitary actions, feeling the weight of potential leadership."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "Splatter, emphasizing their posture and the distant, defaced mural."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Introspective, burdened, moments of self-doubt.",
+            "lighting_source": "Muted, indirect light, casting long shadows.",
+            "coloring_notes": "Dark, muted tones for the alley, making Splatter's usually vibrant colors appear subdued."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, slumped against the wall.",
+              "expression": "Masked, but head bowed, body language conveys exhaustion and doubt.",
+              "description": "Their hoodie seems heavier, more protective now."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel at the bottom left, portraying Splatter's internal struggle.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "A lone stroke is a protest. But a single artist cannot paint an entire city.",
+            "coordinates": {
+              "x": 80,
+              "y": 90
+            }
+          },
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "What's the point, Tag? They just… paint over it. My art… it's just a fleeting act. Does it even make a difference?",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 70
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 13,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "Tag Master's studio, a cluttered sanctuary, illuminated by maps and glowing screens.",
+            "time_of_day": "Day, late morning.",
+            "description": "The studio is a hub of activity. A large, detailed map of the city is spread across a workbench, covered in notes and sketches. Pixel Pallet's screens flicker with data."
+          },
+          "action": {
+            "description": "Splatter, now looking revitalized, points emphatically at a section of the city map. They're outlining a daring, unprecedented plan. Tag Master listens intently, while Pixel Pallet rapidly inputs data.",
+            "key_moment": "Splatter presents a bold new strategy, moving from solitary defiance to collaborative, community-driven resistance."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "High Angle, looking down on the map and the engaged trio.",
+            "focus": "The map and the interaction between the characters, particularly Splatter's focused intensity."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Determined, collaborative, a burst of creative energy.",
+            "lighting_source": "Sunlight streams through a window, mixing with the cool glow of Pixel Pallet's screens.",
+            "coloring_notes": "Bright, clear colors, reflecting the new sense of purpose. Splatter's hoodie is a beacon of orange."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, hand on the map.",
+              "expression": "Masked, but posture is confident, assertive.",
+              "description": "Leaning over the map, pointing with a gloved finger. Their energy is infectious."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Left, listening, chin resting on his hand.",
+              "expression": "Thoughtful, a spark of approval in his eyes.",
+              "description": "Nodding slowly, absorbing the plan."
+            },
+            {
+              "name": "Pixel Pallet",
+              "position": "Right, at her console, typing furiously.",
+              "expression": "Engaged, a slight smirk of appreciation for the audacity.",
+              "description": "Her screens reflect the city map, overlaid with new data points."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A horizontal panel across the top of the page, setting the scene for the new plan.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "A lone stroke dies. But a thousand hands… a thousand unique souls… that's a masterpiece they can't erase. We make a living mural. One that breathes, moves, and fights back.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 30
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 13,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A close-up on Splatter's sketchbook.",
+            "time_of_day": "Day, late morning.",
+            "description": "A rough, dynamic sketch of a monumental mural, but with blank spaces and outlines for community input, and digital elements sketched in."
+          },
+          "action": {
+            "description": "Splatter flips open a well-worn sketchbook, revealing intricate designs for a vast, collaborative art piece, incorporating both traditional graffiti and digital projections. The design emphasizes community participation.",
+            "key_moment": "The visual representation of the 'living mural' concept, a fusion of art forms."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "High Angle, looking directly down at the sketchbook.",
+            "focus": "The detailed sketch, showing both the grand vision and the participatory elements."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Inspiring, innovative, a blend of old and new creative approaches.",
+            "lighting_source": "Bright, even light illuminates the page.",
+            "coloring_notes": "Bold, dynamic lines for Splatter's primary design, with lighter, suggestive areas for community contribution. Digital overlay ideas are sketched in glowing ink."
+          }
+        },
+        "layout": {
+          "description": "A square panel in the mid-left, showcasing the 'grand design'.",
+          "border_style": "Sketchy, hand-drawn."
+        }
+      },
+      {
+        "page_number": 13,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "Tag Master's studio.",
+            "time_of_day": "Day, late morning.",
+            "description": "Tag Master leans back, a thoughtful expression on his face, eyes closed for a moment in contemplation."
+          },
+          "action": {
+            "description": "Tag Master, a repository of street art history, processes Splatter's daring idea, drawing on his knowledge of past movements and community actions. He offers seasoned advice, linking the plan to the city's artistic legacy.",
+            "key_moment": "Tag Master's wisdom grounds the ambitious plan, connecting it to the city's roots."
+          },
+          "composition": {
+            "shot_type": "Medium Close-Up",
+            "angle": "Eye-level",
+            "focus": "Tag Master's face, conveying deep thought and eventual approval."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Reflective, supportive, a transfer of generational knowledge.",
+            "lighting_source": "Warm, ambient light, emphasizing the textures of his weathered face.",
+            "coloring_notes": "Soft, earthy tones for Tag Master, grounding the vibrant ideas of Splatter."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Centered.",
+              "expression": "A slow smile spreads across his face, eyes twinkling.",
+              "description": "Head slightly tilted, a hand stroking his beard."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel in the mid-right, emphasizing Tag Master's contemplative nature.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "A living mural… the Old Ways meeting the New. It's ambitious, kid. But the roots run deep. A true masterpiece carries the soul of the people. And they'll defend their own.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 60
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 13,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "Pixel Pallet's workstation, screens alive with schematics and data flows.",
+            "time_of_day": "Day, late morning.",
+            "description": "The workspace is a whirlwind of digital activity, translating creative vision into practical application."
+          },
+          "action": {
+            "description": "Pixel Pallet, with rapid-fire efficiency, maps out the logistical and technological requirements of the living mural: projection systems, interactive elements, surveillance. Her fingers fly across her tablet.",
+            "key_moment": "Pixel Pallet's tech expertise brings the ambitious plan into the realm of possibility."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Pixel Pallet's tablet, displaying complex schematics and code, and her focused hands."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Fast-paced, high-tech, precise.",
+            "lighting_source": "The tablet's screen provides the primary illumination, casting sharp digital patterns.",
+            "coloring_notes": "Vibrant, electric greens and blues for the digital data, contrasting with the dark background of the tablet. Her finger movements leave faint trails of light."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Hands centered on the tablet.",
+              "expression": "A grin of challenge and excitement.",
+              "description": "Her vibrant hair seems to pulse with the digital energy."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A horizontal panel at the bottom, showcasing the technical planning.",
+          "border_style": "Circuit board pattern."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Projectors synced. Network access for interactive elements: secure. Passive surveillance for early detection: online. We'll make this canvas scream data, Splatter!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 30,
+                "y": 90
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 14,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A forgotten, grimy amphitheater in the heart of the city's art district.",
+            "time_of_day": "Night, lit by makeshift stage lights and neon signs.",
+            "description": "The amphitheater, usually empty, is now buzzing with a diverse crowd of street artists, musicians, and ordinary citizens. Graffiti covers every surface, reflecting a long history of underground gatherings."
+          },
+          "action": {
+            "description": "Splatter stands on a makeshift stage, facing the expectant crowd. They've shed some of their lone wolf demeanor, now embodying a leader. Their voice, though masked, carries weight as they rally the community.",
+            "key_moment": "Splatter embraces their leadership role, inspiring the community to collective action."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Low Angle, looking up at Splatter and the gathered crowd, emphasizing their newfound authority.",
+            "focus": "Splatter, silhouetted against a backdrop of vibrant art, addressing the diverse audience."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Hopeful, inspiring, communal, a sense of burgeoning unity.",
+            "lighting_source": "A single, warm spotlight on Splatter, with colorful neon signs illuminating the crowd.",
+            "coloring_notes": "Warm, inviting tones for the crowd and stage, contrasting with the city's usual coldness. Splatter's orange hoodie stands out as a symbol of leadership."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered on the stage.",
+              "expression": "Masked, but body language is open, commanding, passionate.",
+              "description": "Arms spread wide, captivating the audience."
+            },
+            {
+              "name": "Crowd",
+              "position": "Filling the amphitheater.",
+              "expression": "Varied: curious, skeptical, but gradually shifting to inspired.",
+              "description": "Diverse ages, styles, and backgrounds, all looking up at Splatter."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide, horizontal panel across the top of the page, capturing the scale of the gathering.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "We've fought alone, in shadows, in alleys. But the grey tide is coming for us all. For our memories. For our very right to color! This isn't just about paint. It's about life!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 30
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 14,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "The amphitheater stage.",
+            "time_of_day": "Night.",
+            "description": "Splatter, animated, uses their hands to paint the air with their words."
+          },
+          "action": {
+            "description": "Splatter passionately describes the 'living mural,' emphasizing how each person's contribution, however small, becomes an indestructible part of a greater, evolving work. Their voice is unwavering, full of conviction.",
+            "key_moment": "Splatter's inspiring call to action, outlining the vision for collective art."
+          },
+          "composition": {
+            "shot_type": "Medium Close-Up",
+            "angle": "Eye-level",
+            "focus": "Splatter's masked face and expressive hand gestures, emphasizing their powerful delivery."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Charismatic, empowering, a sense of shared purpose.",
+            "lighting_source": "The spotlight on Splatter intensifies, making them glow with conviction.",
+            "coloring_notes": "Splatter's orange hoodie seems to vibrate with energy. The background is blurred, focusing on their passion."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, gesturing dynamically.",
+              "expression": "Masked, but eyes are blazing with fierce determination.",
+              "description": "Fingers splayed, as if painting the air."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the mid-left, highlighting Splatter's inspiring words.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "This 'living mural' will be our shield! Every tag, every stroke, every pixel… a piece of *your* soul. Can they erase us all? Can they silence a thousand voices?!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 60
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 14,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The amphitheater crowd.",
+            "time_of_day": "Night.",
+            "description": "The faces in the audience, once skeptical, now show a growing determination and solidarity."
+          },
+          "action": {
+            "description": "Various faces in the crowd react: a veteran street artist nods grimly, a young tech-enthusiast's eyes light up, a hesitant citizen clenches their fist. Their individual doubts give way to a collective resolve.",
+            "key_moment": "The community's transformation from passive observers to active participants."
+          },
+          "composition": {
+            "shot_type": "Montage Close-Up",
+            "angle": "Eye-level",
+            "focus": "Multiple faces, showing the spectrum of emotions from skepticism to inspiration."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Building hope, shared determination, emotional resonance.",
+            "lighting_source": "Colorful neon signs and stage lights cast dynamic, shifting hues on their faces.",
+            "coloring_notes": "Diverse skin tones and individual styles, united by the shared light and growing resolve."
+          }
+        },
+        "layout": {
+          "description": "A fragmented panel, showing multiple facial expressions in a collage style.",
+          "border_style": "Broken, overlapping shapes."
+        }
+      },
+      {
+        "page_number": 14,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "The amphitheater, from a high vantage point.",
+            "time_of_day": "Night.",
+            "description": "The crowd, once disparate, now moves with a singular purpose."
+          },
+          "action": {
+            "description": "The crowd, now united, begins to disperse, heading towards the designated mural site. They move not as individuals, but as a swelling tide of collective purpose, ready to paint.",
+            "key_moment": "The successful rallying of the community, setting the stage for the final confrontation."
+          },
+          "composition": {
+            "shot_type": "Overhead Wide Shot",
+            "angle": "High Angle, looking down on the dispersing crowd.",
+            "focus": "The movement of the united crowd, a stream of diverse individuals flowing towards a common goal."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Empowered, unified, a sense of collective momentum.",
+            "lighting_source": "The last vestiges of the stage lights, and the distant, inviting glow of the city center.",
+            "coloring_notes": "The diverse colors of the crowd create a vibrant mosaic, moving against the darker city streets. A subtle, collective glow emanates from them."
+          }
+        },
+        "layout": {
+          "description": "A panoramic panel across the bottom of the page, depicting the united movement.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "From scattered sparks, a wildfire. From a whisper, a roar.",
+            "coordinates": {
+              "x": 80,
+              "y": 90
+            }
+          }
+        }
+      },
+      {
+        "page_number": 15,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The 'Chrome Tower' plaza: a vast, sterile expanse at the foot of Neo-Veridia's most imposing corporate skyscraper.",
+            "time_of_day": "Dawn, just before sunrise.",
+            "description": "The plaza is dominated by the Chrome Tower, its reflective surfaces mirroring the pre-dawn glow. Opposite it, a colossal, blank wall has become the canvas for the 'living mural.' Dozens of citizens and artists are already at work, adding their unique touches to the evolving masterpiece."
+          },
+          "action": {
+            "description": "The early morning light catches the emerging colors of the living mural, which is already a riot of diverse artistic styles. Splatter, Tag Master, and Pixel Pallet oversee the frantic, joyful creation, a nervous energy palpable in the air.",
+            "key_moment": "The living mural takes shape, a powerful symbol of collective creativity."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The vast wall, teeming with artists and their vibrant creations, contrasting with the cold corporate tower."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Energetic, defiant, communal, but with an underlying tension of impending conflict.",
+            "lighting_source": "The soft, cool light of pre-dawn, enhanced by the glowing details of the mural and small work lights.",
+            "coloring_notes": "The wall bursts with a kaleidoscope of colors – traditional spray paint, digital projections, stencils, and brushwork. This vibrant chaos stands in stark opposition to the sterile chrome of the tower."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Center foreground, observing, hands on hips.",
+              "expression": "Masked, but posture is proud and resolute.",
+              "description": "Their orange hoodie is a stark splash of color against the early morning light."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Right, a slight smile, surveying the artists.",
+              "expression": "A knowing, almost paternal pride.",
+              "description": "His paint-stained jacket blends in with the artistic chaos."
+            },
+            {
+              "name": "Pixel Pallet",
+              "position": "Left, making final adjustments to a projector, tablet glowing.",
+              "expression": "Frazzled but exhilarated.",
+              "description": "Her vibrant hair is a counterpoint to her intense focus on the tech."
+            },
+            {
+              "name": "Artists/Citizens",
+              "position": "Scattered across the wall and ground.",
+              "expression": "Focused, joyful, determined.",
+              "description": "A diverse group, each adding their unique mark."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A wide, horizontal panel spanning the top half of the page, capturing the collaborative creation.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "A thousand hands, a thousand voices. The city's spirit, unleashed.",
+            "coordinates": {
+              "x": 5,
+              "y": 5
+            }
+          }
+        }
+      },
+      {
+        "page_number": 15,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A high vantage point overlooking the plaza.",
+            "time_of_day": "Dawn.",
+            "description": "The vast plaza, with the vibrant mural on one side and the cold Chrome Tower on the other. In the distance, a new threat emerges."
+          },
+          "action": {
+            "description": "A collective gasp ripples through the plaza as THE ERASER and CONFORMITY appear, their dark, sterile forms advancing relentlessly. Their approach casts a chilling shadow over the emerging artwork.",
+            "key_moment": "The arrival of the antagonists, initiating the final conflict."
+          },
+          "composition": {
+            "shot_type": "Overhead Wide Shot",
+            "angle": "High Angle, looking down on the plaza, creating a sense of scale and impending clash.",
+            "focus": "The advancing figures of The Eraser and Conformity, casting long, oppressive shadows over the vibrant mural and the scrambling artists below."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Ominous, dread, the calm before the storm.",
+            "lighting_source": "The nascent morning light struggles against the looming shadows cast by the antagonists.",
+            "coloring_notes": "The vibrant mural colors are suddenly dulled by the encroaching darkness and the cold, sterile black and grey of The Eraser and Conformity. The Chrome Tower reflects their grim advance."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Distant, leading the charge.",
+              "expression": "Chrome orb reflects the scene with cold indifference.",
+              "description": "Its staff emits a faint, unwavering white light."
+            },
+            {
+              "name": "Conformity",
+              "position": "Behind The Eraser, a hulking, grey mass.",
+              "expression": "Featureless, but its methodical advance is chilling.",
+              "description": "Paint rollers are ready."
+            },
+            {
+              "name": "Crowd",
+              "position": "Scattering, looking up in alarm.",
+              "expression": "Shock, fear, confusion.",
+              "description": "A momentary pause in their work."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A panoramic panel across the bottom of the page, emphasizing the scale of the incoming threat.",
+          "border_style": "Clean"
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "THUMP-THUMP",
+              "style": "Deep, heavy, in grey, almost vibrating the panel.",
+              "position": {
+                "x": 70,
+                "y": 70
+              },
+              "rotation": -5,
+              "scale": 1.6
+            }
+          ]
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "The Eraser",
+              "content": "Collective deviation detected. Commencing complete purification. All subjects. Must. Conform.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 40
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 16,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, directly in front of the living mural.",
+            "time_of_day": "Dawn.",
+            "description": "The living mural is vibrant, but its creators are now under direct assault. The plaza is filled with people, art supplies, and the ominous presence of Eraser and Conformity."
+          },
+          "action": {
+            "description": "The Eraser fires concentrated beams of sterile white light, attempting to erase sections of the mural. Conformity advances with its rollers. Splatter, now fully embracing leadership, unleashes a barrage of explosive paint bombs and vibrant aerosols, creating colorful smokescreens and visual distractions.",
+            "key_moment": "Splatter leads the artistic counter-attack, using their art as a weapon."
+          },
+          "composition": {
+            "shot_type": "Dynamic Wide Shot",
+            "angle": "Eye-level, chaotic and fast-paced.",
+            "focus": "The central clash: Splatter's explosive art meeting Eraser's sterile beams, with Conformity in the background."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Chaotic, energetic, desperate resistance, a clash of ideologies.",
+            "lighting_source": "Splatter's paint bursts glow with internal light. Eraser's beams cut through the chaotic colors with harsh white. Pre-dawn light provides a muted background.",
+            "coloring_notes": "Explosions of neon orange, pink, and electric blue from Splatter's art, colliding with the sterile white of Eraser's attacks and the dull grey of Conformity. Vibrant streaks and messy splatters dominate."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, leaping and throwing paint bombs.",
+              "expression": "Masked, but body radiates fierce determination and controlled chaos.",
+              "description": "A blur of motion, hoodie swirling, paint cans held like grenades. Their skateboard is strapped to their back."
+            },
+            {
+              "name": "The Eraser",
+              "position": "Center-right, staff extended, firing beams.",
+              "expression": "Chrome orb glows with cold focus.",
+              "description": "Its posture is rigid, unwavering, its beams precise."
+            },
+            {
+              "name": "Conformity",
+              "position": "Right, advancing relentlessly towards the mural.",
+              "expression": "Featureless, but its steady march is chilling.",
+              "description": "Paint rollers spin, ready to cover the vibrant art."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A large, action-packed panel, spanning most of the page, conveying the intensity of the battle.",
+          "border_style": "Exploding, shattered, vibrant lines."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "KA-BLOOOSH!",
+              "style": "Massive, explosive, in neon orange with jagged edges.",
+              "position": {
+                "x": 30,
+                "y": 40
+              },
+              "rotation": 15,
+              "scale": 1.8
+            },
+            {
+              "sfx_text": "ZAAAP!",
+              "style": "Sharp, piercing, in stark white with a blue outline.",
+              "position": {
+                "x": 70,
+                "y": 50
+              },
+              "rotation": -10,
+              "scale": 1.6
+            }
+          ]
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "You want to erase?! Try to see through THIS, chrome-head! My canvas isn't going down without a fight!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 20,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 16,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A high-rise balcony overlooking the plaza.",
+            "time_of_day": "Dawn.",
+            "description": "Pixel Pallet's makeshift command center, filled with glowing screens and flickering projections."
+          },
+          "action": {
+            "description": "Pixel Pallet, with intense concentration, hacks into the city's infrastructure, projecting blinding lights, disorienting static, and digital graffiti patterns directly onto The Eraser, momentarily overwhelming its sensors. She grins fiercely.",
+            "key_moment": "Pixel Pallet uses her tech to disrupt The Eraser, providing crucial support."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Pixel Pallet's face, illuminated by her screens, and the digital chaos she unleashes."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "High-octane, strategic, digital warfare.",
+            "lighting_source": "The brilliant, flickering light from her screens and projected hacks.",
+            "coloring_notes": "Electric blues, glitching greens, and blinding whites emanate from her tech, forming sharp contrasts with her determined expression."
+          },
+          "characters": [
+            {
+              "name": "Pixel Pallet",
+              "position": "Centered, hands flying over a holographic keyboard.",
+              "expression": "A fierce, triumphant grin, eyes sparkling with code.",
+              "description": "Her vibrant hair is a wild halo of color, reflecting the digital onslaught."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel in the mid-left, showcasing Pixel Pallet's tech prowess.",
+          "border_style": "Digital glitch effect, with lines radiating outwards."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "BWZZZT!",
+              "style": "Electric, buzzing, in neon green.",
+              "position": {
+                "x": 50,
+                "y": 40
+              },
+              "rotation": 5,
+              "scale": 1.3
+            },
+            {
+              "sfx_text": "STATT-IK",
+              "style": "Sharp, crackling, in white with jagged edges.",
+              "position": {
+                "x": 70,
+                "y": 60
+              },
+              "rotation": -8,
+              "scale": 1.1
+            }
+          ]
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Pixel Pallet",
+              "content": "Blinding their optical sensors! Now, let's see how well you 'purify' a DDoS attack, Eraser!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 20,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 16,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The plaza, near the edge of the living mural.",
+            "time_of_day": "Dawn.",
+            "description": "Amidst the chaos, Tag Master guides and protects the civilian artists."
+          },
+          "action": {
+            "description": "Tag Master, using his deep knowledge of urban spaces, directs groups of civilian artists to safety, pointing out structural weaknesses in Eraser's approach and strategic spots to continue painting, even under fire.",
+            "key_moment": "Tag Master's wisdom provides strategic guidance and protection."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "Tag Master, a grounded presence amidst the chaos, guiding a small group."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Wise, protective, strategic.",
+            "lighting_source": "Flickering reflections of the battle light his face.",
+            "coloring_notes": "Warm, earthy tones of Tag Master contrast with the vibrant and sterile flashes around him. He is an anchor in the storm."
+          },
+          "characters": [
+            {
+              "name": "Tag Master",
+              "position": "Centered, gesturing with a paint-stained hand.",
+              "expression": "Grim but determined, eyes sharply assessing the battle.",
+              "description": "His old work jacket is splattered with fresh paint, a testament to his continued involvement."
+            },
+            {
+              "name": "Civilians",
+              "position": "Around Tag Master, looking to him for guidance.",
+              "expression": "Fearful but resolute.",
+              "description": "Clutching spray cans and brushes, ready to contribute."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A horizontal panel, showing Tag Master's guidance.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "Keep the heart beating, people! Eraser goes for the big strokes! Pepper it with small tags, individual marks! Make it impossible to 'cleanse'!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 70
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 16,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, focused on The Eraser.",
+            "time_of_day": "Dawn.",
+            "description": "The Eraser is bombarded by Splatter's art and Pixel Pallet's digital attacks."
+          },
+          "action": {
+            "description": "The Eraser, for the first time, falters. Its chrome orb head flickers with distorted reflections of the chaotic art and digital static. A low, frustrated hum emanates from its form, its movements becoming less precise.",
+            "key_moment": "The Eraser is visibly affected, showing its vulnerability to the combined assault."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "The Eraser's chrome orb, filled with glitching, fragmented reflections of vibrant color and digital noise."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Disrupted, frustrated, a moment of weakness.",
+            "lighting_source": "The fragmented reflections and digital static create a chaotic, multi-colored light.",
+            "coloring_notes": "The sterile chrome is overwhelmed by a riot of glitching neon colors and static, almost like a digital painting on its surface."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Centered.",
+              "expression": "Chrome orb flickers, its cold composure cracking under the digital assault.",
+              "description": "Its staff wavers, and its body is momentarily still."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A square panel at the bottom right, focusing on Eraser's disruption.",
+          "border_style": "Glitchy, distorted, with vibrant bursts."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "The Eraser",
+              "content": "Irregularities… Data corruption… Systems… Compromised… Deviation… Unacceptable.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 70,
+                "y": 90
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 17,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, around the living mural.",
+            "time_of_day": "Dawn.",
+            "description": "The mural glows, partially protected by the sheer number of people now standing before it."
+          },
+          "action": {
+            "description": "Inspired by Splatter's leadership, citizens and artists, armed with brushes and spray cans, form a human shield around the most vulnerable sections of the living mural, directly challenging The Eraser's advance. They continue to add color to the wall even as beams strike nearby.",
+            "key_moment": "The community unites, physically defending their art and expressing their defiance."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level, a powerful, defiant tableau.",
+            "focus": "The human shield, a wall of colorful, determined faces, protecting the vibrant mural behind them."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Courageous, defiant, collective strength.",
+            "lighting_source": "The mural's vibrant glow illuminates the faces of the defenders. Eraser's beams cast stark, white shadows.",
+            "coloring_notes": "A powerful contrast between the warm, diverse colors of the human shield and the sterile, attacking white beams. The mural's colors are bright behind them."
+          },
+          "characters": [
+            {
+              "name": "Community Members",
+              "position": "Lined up, facing the threat.",
+              "expression": "Determined, some fearful but resolute, eyes fixed on The Eraser.",
+              "description": "Holding various art tools, standing shoulder to shoulder. Faces are a mix of ages and backgrounds."
+            },
+            {
+              "name": "Splatter",
+              "position": "Leading the human shield, visible but not central.",
+              "expression": "Masked, but posture is one of fierce protection and inspiration.",
+              "description": "Standing slightly in front, a beacon of orange."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A powerful, horizontal panel, emphasizing the collective courage.",
+          "border_style": "Clean, but with energetic bursts around the figures."
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "This isn't just *my* art anymore! It's *ours*! Try to erase that, chrome-head!",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 20,
+                "y": 20
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 17,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, focused on The Eraser.",
+            "time_of_day": "Dawn.",
+            "description": "The Eraser is surrounded by the defiant community and Splatter's remaining art diversions."
+          },
+          "action": {
+            "description": "Fueled by the community's courage and his own renewed purpose, Splatter leaps with incredible agility through the digital static and paint smokescreens, aiming directly for The Eraser, determined to end its threat.",
+            "key_moment": "Splatter's final, direct assault on The Eraser, embodying their leadership and courage."
+          },
+          "composition": {
+            "shot_type": "Dynamic Medium Shot",
+            "angle": "Low Angle, emphasizing Splatter's leap and determination.",
+            "focus": "Splatter in mid-air, a vibrant projectile, heading towards The Eraser."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Climactic, determined, a surge of adrenaline.",
+            "lighting_source": "Dynamic flashes of light from the battle, highlighting Splatter's trajectory.",
+            "coloring_notes": "Splatter's vibrant orange is a blazing streak against the chaotic background of digital static and paint mist. Eraser's cold white light serves as a target."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Left, airborne, propelled forward.",
+              "expression": "Masked, but body language is pure, unadulterated focus and fury.",
+              "description": "Skateboard still strapped to their back, one arm cocked back for a strike. Every line of their body screams resolve."
+            },
+            {
+              "name": "The Eraser",
+              "position": "Right, slightly off-balance, struggling against the digital static.",
+              "expression": "Chrome orb flickers, its beams wavering.",
+              "description": "Its form is slightly distorted by the digital interference."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A diagonal, action-filled panel, conveying speed and impact.",
+          "border_style": "Jagged, streaking lines, reflecting motion."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "FWOOSH!",
+              "style": "Fast, rushing, in orange.",
+              "position": {
+                "x": 30,
+                "y": 60
+              },
+              "rotation": -10,
+              "scale": 1.5
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 17,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The point of impact in the plaza.",
+            "time_of_day": "Dawn.",
+            "description": "A close-up on the final, decisive blow."
+          },
+          "action": {
+            "description": "Splatter, with a powerful, paint-splattered gauntlet, slams directly into The Eraser's chrome orb head. The impact is explosive, shattering the smooth, reflective surface with a sickening crack.",
+            "key_moment": "The decisive blow, cracking The Eraser's impenetrable facade."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level, intensely focused.",
+            "focus": "Splatter's gauntlet connecting with The Eraser's chrome orb, showing the initial fractures."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Impactful, satisfying, a moment of triumph.",
+            "lighting_source": "A flash of white light from the shattering chrome, illuminating the point of impact.",
+            "coloring_notes": "The vibrant paint on Splatter's gauntlet contrasts sharply with the cracking, sterile chrome. Jagged lines of light emanate from the impact."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Hand in left, connecting with target.",
+              "expression": "Masked, but the force behind the blow is evident.",
+              "description": "Fist clenched, every ounce of defiance poured into the strike."
+            },
+            {
+              "name": "The Eraser",
+              "position": "Chrome orb in center, fracturing.",
+              "expression": "The chrome surface is breaking, revealing hints of what lies beneath.",
+              "description": "The smooth, featureless surface begins to spiderweb with cracks."
+            }
+          ]
+        },
+        "layout": {
+          "description": "An impactful, explosive panel, capturing the moment of contact.",
+          "border_style": "Shattered, radiating lines."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "CRKKKSH!",
+              "style": "Loud, sharp, in metallic silver with jagged outline.",
+              "position": {
+                "x": 50,
+                "y": 50
+              },
+              "rotation": 0,
+              "scale": 2
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 17,
+        "panel_number": 4,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, at the site of impact.",
+            "time_of_day": "Dawn.",
+            "description": "The Eraser's shattered head emits a blinding burst of sterile white light."
+          },
+          "action": {
+            "description": "The Eraser's chrome orb shatters completely, revealing not a face, but a swirling void, or a constantly shifting, distorted reflection of Splatter's own mask. A wave of pure, sterile white light blasts outwards, temporarily stunning Splatter. Conformity, its connection severed, freezes mid-action, its rollers seizing.",
+            "key_moment": "The revelation of The Eraser's true nature and the immediate effect on Conformity."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level, dynamic.",
+            "focus": "The shattered chrome orb and the void/reflection within, with the light blast radiating outwards."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Shocking, disorienting, a chilling reveal.",
+            "lighting_source": "An intense, blinding white light emanates from Eraser's head, briefly overwhelming all other light sources.",
+            "coloring_notes": "A stark white explosion against the background, temporarily washing out all color. The void/reflection is a disorienting, unsettling visual."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Centered, head shattered.",
+              "expression": "A swirling, blank void or distorted reflection where a face should be.",
+              "description": "Its form is now unstable, flickering."
+            },
+            {
+              "name": "Splatter",
+              "position": "Left, recoiling from the blast.",
+              "expression": "Masked, but posture is one of shock and momentary blindness.",
+              "description": "Arms up, shielding their eyes."
+            },
+            {
+              "name": "Conformity",
+              "position": "Right, frozen, rollers seized.",
+              "expression": "Featureless helmet, but its sudden stillness is unnerving.",
+              "description": "A stream of grey paint hangs frozen in the air from its rollers."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A dynamic panel capturing the shockwave and revelation.",
+          "border_style": "Explosive, radiating lines."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "SHHHZZZMM!",
+              "style": "Hissing, vibrating, in stark white with a blue-white aura.",
+              "position": {
+                "x": 50,
+                "y": 50
+              },
+              "rotation": 0,
+              "scale": 1.7
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 17,
+        "panel_number": 5,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, panoramic view.",
+            "time_of_day": "Dawn.",
+            "description": "The Eraser's project is momentarily halted. Conformity's forms are overwhelmed and dissipating. The living mural remains, bruised but triumphant."
+          },
+          "action": {
+            "description": "The Eraser's flickering form retreats rapidly, dissolving into shadows as its control over Conformity is broken. The hulking grey figures of Conformity destabilize, losing cohesion and collapsing into harmless piles of grey paint. The community cheers, a wave of relief washing over the plaza.",
+            "key_moment": "The antagonists are defeated (for now), and the community celebrates a hard-won victory."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "High Angle, looking down on the plaza, capturing the aftermath.",
+            "focus": "The retreating Eraser, the dissipating Conformity, and the jubilant, colorful crowd around the still-vibrant mural."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Triumphant, relieved, a sense of chaotic victory.",
+            "lighting_source": "The first rays of sunrise break over the horizon, casting golden light on the plaza, contrasting with the receding shadows.",
+            "coloring_notes": "The grey and black of the retreating antagonists are replaced by the vibrant colors of the mural and the celebrating crowd. Golden sunrise hues signify hope."
+          },
+          "characters": [
+            {
+              "name": "The Eraser",
+              "position": "Distant, flickering, retreating into the shadows.",
+              "expression": "The void/reflection within its head seems to shrink.",
+              "description": "Its form becomes less distinct, fading."
+            },
+            {
+              "name": "Conformity",
+              "position": "Multiple figures, collapsing into piles of paint.",
+              "expression": "Their helmets are now tilted, defeated.",
+              "description": "The grey material seems to melt and puddle on the ground."
+            },
+            {
+              "name": "Community Members",
+              "position": "Cheering, embracing near the mural.",
+              "expression": "Joyful, relieved, triumphant.",
+              "description": "Faces are bright with success."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A panoramic panel across the bottom of the page, showing the immediate aftermath and victory.",
+          "border_style": "Clean, with a subtle upward curve, suggesting rising hope."
+        },
+        "auditory": {
+          "sound_effects": [
+            {
+              "sfx_text": "CHEERS!",
+              "style": "Loud, joyful, in bright, varied colors.",
+              "position": {
+                "x": 30,
+                "y": 80
+              },
+              "rotation": 10,
+              "scale": 1.8
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 18,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "The Chrome Tower plaza, now bathed in full morning light.",
+            "time_of_day": "Morning.",
+            "description": "The living mural stands, imperfect but vibrant, a testament to collective will. It's a mosaic of countless individual contributions, still wet in places, but undeniably alive. People gather, not in fear, but in admiration and shared ownership."
+          },
+          "action": {
+            "description": "Citizens and artists admire the standing mural, their faces reflecting pride and awe. Some carefully add new, small touches, while others simply stand and absorb its message. It's a spontaneous, organic celebration of art.",
+            "key_moment": "The lasting impact of the living mural as a symbol of resistance and community."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "Eye-level",
+            "focus": "The sprawling mural, now fully revealed in daylight, and the reverent crowd gathered around it."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Hopeful, communal, resilient, a sense of earned peace.",
+            "lighting_source": "Bright, clear morning sun, illuminating every detail of the mural.",
+            "coloring_notes": "The mural glows with an internal light of a thousand colors. The city itself seems brighter, more vibrant."
+          }
+        },
+        "layout": {
+          "description": "A wide, horizontal panel spanning the top half of the page, celebrating the enduring art.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "The masterpiece stands. Not flawless, not finished, but undeniably alive. A reflection of a city that refused to be silenced.",
+            "coordinates": {
+              "x": 5,
+              "y": 5
+            }
+          }
+        }
+      },
+      {
+        "page_number": 18,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "A shadowed alleyway overlooking the plaza.",
+            "time_of_day": "Morning.",
+            "description": "Splatter's familiar, quiet perch, now serving as a place of observation."
+          },
+          "action": {
+            "description": "Splatter, having shed their mask for a moment (face partially obscured by shadows), quietly observes the community's reaction to the mural. A sense of quiet satisfaction and inner peace washes over them, no longer the lonely vigilante.",
+            "key_moment": "Splatter accepts their new role, finding purpose beyond solo acts of defiance."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "High Angle, looking down on Splatter and the plaza.",
+            "focus": "Splatter's pensive expression (partially visible), with the vibrant mural blurred in the background."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Contemplative, peaceful, a sense of purpose fulfilled.",
+            "lighting_source": "Soft, diffused morning light, casting gentle shadows on Splatter's face.",
+            "coloring_notes": "The soft orange of Splatter's hoodie is a comforting presence against the warm, morning-lit city."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered, leaning against a wall.",
+              "expression": "Face partially obscured by shadow, but a hint of a small, peaceful smile on their lips.",
+              "description": "Mask held loosely in one hand, their iconic hoodie now a symbol of quiet leadership. Their skateboard is resting against their leg."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A vertical panel at the bottom left, portraying Splatter's quiet moment of reflection.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "It's not about erasing them, Tag. It's about empowering us. About making them see… color can't be contained.",
+              "type": "Thought Bubble",
+              "position": {
+                "x": 60,
+                "y": 70
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 18,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "The plaza, at the base of the mural.",
+            "time_of_day": "Morning.",
+            "description": "The mural is a living, breathing canvas. A child, paintbrush in hand, approaches a blank spot."
+          },
+          "action": {
+            "description": "A small child, inspired, adds a small, bright, and imperfect splash of color to a previously blank spot on the mural. Their hand is steady, eyes alight with joy.",
+            "key_moment": "The perpetuation of art and defiance by the next generation, a symbol of enduring hope."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "The child's hand, holding a paintbrush, adding a small, vibrant detail to the mural."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Innocent, hopeful, the spark of creativity passed on.",
+            "lighting_source": "Bright, direct sunlight on the child's hand and the fresh paint.",
+            "coloring_notes": "A single, bright, pure color (e.g., yellow) added to the complex tapestry of the mural."
+          }
+        },
+        "layout": {
+          "description": "A small, square panel at the bottom right, a poignant detail.",
+          "border_style": "Clean"
+        }
+      },
+      {
+        "page_number": 19,
+        "panel_number": 1,
+        "visuals": {
+          "setting": {
+            "location": "A high rooftop overlooking the revitalized cityscape.",
+            "time_of_day": "Late afternoon, golden hour.",
+            "description": "The city below is a tapestry of new, defiant art, blossoming on walls and structures once sterile. The Chrome Tower still stands, but it's now speckled with small, individual tags – tiny acts of rebellion."
+          },
+          "action": {
+            "description": "Splatter stands on a rooftop, silhouetted against a golden sky, looking out at the city. Their stance is no longer that of a lone wolf, but a figure of inspiration, their mask held loosely in their hand.",
+            "key_moment": "Splatter embraces their new identity as a leader and muse for the city, no longer just a vigilante."
+          },
+          "composition": {
+            "shot_type": "Wide Shot",
+            "angle": "High Angle, a sweeping view of the transformed city.",
+            "focus": "Splatter, silhouetted, looking out at the city, with their mask held, symbolizing choice and acceptance."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Hopeful, expansive, a new beginning.",
+            "lighting_source": "Golden, warm light of the setting sun, backlighting Splatter and bathing the city in a soft glow.",
+            "coloring_notes": "Rich oranges, purples, and deep blues for the sky, reflecting Splatter's signature colors. The city below is a riot of new, vibrant art against warmer greys."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Centered on the rooftop edge.",
+              "expression": "Masked (now held in hand), their visible face conveys a quiet strength and acceptance.",
+              "description": "They stand taller, more confident. The mask is a choice, not a necessity."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A large, panoramic panel, conveying the scale of the transformation and Splatter's new role.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "caption": {
+            "content": "The fight for color is never truly over. But the city has found its voice, and its muse.",
+            "coordinates": {
+              "x": 5,
+              "y": 90
+            }
+          }
+        }
+      },
+      {
+        "page_number": 19,
+        "panel_number": 2,
+        "visuals": {
+          "setting": {
+            "location": "The same rooftop.",
+            "time_of_day": "Late afternoon.",
+            "description": "A moment of shared camaraderie and quiet understanding."
+          },
+          "action": {
+            "description": "Tag Master and Pixel Pallet join Splatter on the rooftop. Tag Master gives Splatter a knowing nod, a silent acknowledgement of their growth. Pixel Pallet offers a proud, energetic smile.",
+            "key_moment": "The trio, now a unified force, shares a moment of collective satisfaction and enduring friendship."
+          },
+          "composition": {
+            "shot_type": "Medium Shot",
+            "angle": "Eye-level",
+            "focus": "The three characters, their faces etched with shared experience and a renewed sense of purpose."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Comradely, warm, future-looking.",
+            "lighting_source": "The golden glow of the setting sun bathes them in warmth.",
+            "coloring_notes": "Warm, inviting colors. Their individual styles blend harmoniously."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Center, turning to face them.",
+              "expression": "A genuine, unmasked smile.",
+              "description": "Their face, finally revealed, shows youthful determination."
+            },
+            {
+              "name": "Tag Master",
+              "position": "Left, nodding at Splatter.",
+              "expression": "A wise, satisfied smile, a glint in his eye.",
+              "description": "His old eyes see the legacy continuing."
+            },
+            {
+              "name": "Pixel Pallet",
+              "position": "Right, a vibrant, energetic smile.",
+              "expression": "Proud and excited for the future.",
+              "description": "Her glasses sparkle in the sun."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A group shot, emphasizing unity and friendship.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Tag Master",
+              "content": "Looks like your palette's got a whole new range, kid. And a new canvas to boot. The city's listening.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 60,
+                "y": 40
+              }
+            }
+          ]
+        }
+      },
+      {
+        "page_number": 19,
+        "panel_number": 3,
+        "visuals": {
+          "setting": {
+            "location": "A close-up of Splatter's hand, holding their mask.",
+            "time_of_day": "Late afternoon.",
+            "description": "The iconic mask, once a symbol of hidden rebellion, is now a choice."
+          },
+          "action": {
+            "description": "Splatter gazes at their mask, a symbol of their past, before gently placing it on their skateboard, now a portable canvas for inspiration. A small, knowing smile plays on their lips.",
+            "key_moment": "Splatter's acceptance of their dual identity and renewed purpose, embracing vulnerability and leadership."
+          },
+          "composition": {
+            "shot_type": "Close-Up",
+            "angle": "Eye-level",
+            "focus": "Splatter's hand holding the mask, then placing it on the skateboard. A glimpse of their unmasked smile."
+          },
+          "mood_and_lighting": {
+            "atmosphere": "Reflective, empowered, a sense of quiet triumph.",
+            "lighting_source": "Soft, golden light, highlighting the textures of the mask and hand.",
+            "coloring_notes": "The deep black of the mask against Splatter's vibrant glove, with the colorful skateboard as a background."
+          },
+          "characters": [
+            {
+              "name": "Splatter",
+              "position": "Hand in center, then placing mask.",
+              "expression": "A gentle, confident smile, eyes full of newfound purpose.",
+              "description": "Their hand is steady, no longer hiding."
+            }
+          ]
+        },
+        "layout": {
+          "description": "A intimate panel, focusing on the symbolic gesture.",
+          "border_style": "Clean"
+        },
+        "textual": {
+          "dialogue": [
+            {
+              "character": "Splatter",
+              "content": "Not just listening, Tag. Creating. And this canvas… it's just getting started.",
+              "type": "Speech Bubble",
+              "position": {
+                "x": 50,
+                "y": 70
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "characterConcepts": [
+    {
+      "role": "Protagonist",
+      "name": "Splatter",
+      "description": "Splatter, a masked vigilante known for their explosive, anarchic art that disrupts corporate greed. Their signature look is a heavy, oversized orange hoodie, stained and textured like a spray-painted brick wall, with chaotic black and orange ink splatters across the chest and sleeves, appearing as if the paint is still wet. Worn, dark wash denim jeans are similarly distressed, showing rips and graffiti tags. Black high-top sneakers are scuffed and covered in more abstract paint drips. Black, fingerless gloves are visible under the hoodie cuffs. Their face is obscured by a sleek, stylized black half-mask, jagged at the edges, reminiscent of a torn stencil, hinting at a hidden identity. They carry a well-used skateboard, its underside a canvas of dynamic, almost aggressive orange and black graffiti art, streaks of paint suggesting motion. The entire figure is rendered in a grungy street art style, with bold, stylized lines, ink splatter effects, and a raw, urban aesthetic, as if stepping out of a vibrant, rebellious mural."
+    },
+    {
+      "role": "Mentor",
+      "name": "Tag Master",
+      "description": "Tag Master, a grizzled, older street artist who once ruled the city's walls and now guides Splatter. He has a lean, wiry frame, dressed in a faded, paint-splattered work jacket, its fabric textured like aged canvas, adorned with intricate, hand-drawn graffiti patches that tell stories of his past. A worn denim beanie covers his head, pulled low. His face is etched with wisdom and a mischievous grin, rendered in a stylized, almost caricatured way, with sharp, expressive lines. He wears thick, smudged painter's pants and sturdy, broken-in boots. His hands are perpetually stained with various paint colors, and he often carries a well-used spray paint can, almost an extension of his arm. His style is a blend of old-school wildstyle and new-school abstraction, reflected in his clothing and demeanor, all within the grungy street art aesthetic, with subtle ink wash shading and bold outlines."
+    },
+    {
+      "role": "Tech Guru",
+      "name": "Pixel Pallet",
+      "description": "Pixel Pallet, Splatter's quick-witted tech guru, who creates digital tools and surveillance maps with a street-art flair. She's a young, energetic figure with vibrant, short hair, possibly dyed in electric blues and purples, styled with sharp, angular edges like a pixelated graphic. She wears oversized, thick-rimmed glasses that reflect digital code and graffiti patterns. Her attire is a loose-fitting, deconstructed hoodie dress with glitch art patterns and QR codes integrated into the fabric, appearing as if spray-painted directly onto the material. Leggings are adorned with circuit board motifs that look like stylized tags. She often carries a custom-built, rugged tablet, its screen displaying flickering data and abstract geometric graffiti. Her appearance is sharp and modern, yet fully embraces the grungy street art style, with neon accents, ink splatter highlights, and a dynamic, almost 'cyber-graffiti' aesthetic."
+    },
+    {
+      "role": "Antagonist",
+      "name": "The Eraser",
+      "description": "The Eraser, a chilling corporate enforcer who seeks to cleanse the city of all 'undesirable' art and culture, a direct opposite to Splatter's vibrant chaos. Their appearance is stark and unsettling: a tall, imposing figure clad in a featureless, sleek black suit, devoid of any creases or texture, appearing as a pure, deep void against the urban backdrop. Instead of a head, they have a smooth, polished chrome orb, perfectly reflecting distorted fragments of the city's graffiti, but never revealing a face. Their hands are encased in thick, black, industrial-grade gloves, appearing almost robotic. They carry a long, staff-like device that projects beams of pure white light, symbolizing erasure. The entire figure is rendered with harsh, angular lines and deep, oppressive shadows, almost like a negative space in the vibrant world, embodying a cold, minimalist, and destructive interpretation of the grungy street art style, with stark contrasts and a sense of unnatural perfection that is inherently unsettling."
+    },
+    {
+      "role": "Sidekick",
+      "name": "Conformity",
+      "description": "Conformity, The Eraser's loyal and unthinking enforcer, tasked with painting over all vibrant street art with monotonous gray. They are a hulking, broad-shouldered figure, draped in a heavy, almost shapeless, industrial gray jumpsuit, made from thick, rough canvas that appears to absorb all color. Their head is covered by a bulky, featureless gray helmet, reminiscent of a construction worker's, with a single, horizontal slit for vision, giving them a robotic, unfeeling gaze. Instead of hands, they have large, blocky, paint-roller attachments, constantly dripping a uniform, dull gray paint. Their boots are massive and scuffed, leaving gray tracks wherever they go. The figure is drawn with heavy, thick lines and a flat, desaturated color palette, contrasting sharply with the dynamic, colorful world of Splatter, existing as a symbol of oppressive uniformity within the grungy street art style, appearing like a crude, spray-painted silhouette come to life."
+    }
+  ]
+}
