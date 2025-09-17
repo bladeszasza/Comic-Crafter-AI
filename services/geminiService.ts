@@ -1,9 +1,6 @@
 
 
 
-
-
-
 import { GoogleGenAI, Type, Modality, GenerateContentResponse } from "@google/genai";
 import type { CharacterProfile, StoryOutline, Panel, CharacterConcept, StoryDevelopmentPackage, CharacterImage, PanelSetting } from '../types.js';
 import {
@@ -14,6 +11,7 @@ import {
   STORY_DEVELOPMENT_PROMPT_TEMPLATE,
   COVER_PAGE_PROMPT_TEMPLATE,
   SCENE_IMAGE_PROMPT_TEMPLATE,
+  FULL_STORY_TEXT_GENERATION_PROMPT_TEMPLATE,
 } from '../constants.js';
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
@@ -199,9 +197,26 @@ export async function developStory(characterConcepts: CharacterConcept[]): Promi
     return parseJsonResponse<StoryDevelopmentPackage>(response, 'developStory');
 }
 
-async function generateImage(prompt: string, inputImages: CharacterImage[] = [], aspectRatio: '1:1' | '3:4' | '4:3' | '9:16' | '16:9' = '1:1'): Promise<string> {
-    const fullPrompt = `${prompt}\n\nStrictly generate the image with an aspect ratio of ${aspectRatio}.`;
+async function generateImage(prompt: string, inputImages: CharacterImage[] = [], aspectRatio: '1:1' | '3:4' | '4:3' | '9:16' | '16:9' = '1:1', isRetry: boolean = false): Promise<string> {
+    let fullPrompt = `${prompt}\n\nStrictly generate the image with an aspect ratio of ${aspectRatio}.`;
     
+    if (isRetry) {
+        const safetyPrefix = `
+        The previous attempt to generate this image was blocked for safety reasons (PROHIBITED_CONTENT).
+        Re-attempting with a focus on metaphorical and artistic interpretation.
+        **Critical Instructions for this attempt:**
+        1.  **Avoid Literal Depictions:** Do NOT generate any graphic or realistic imagery of violence, injury, or other sensitive themes.
+        2.  **Use Metaphor:** If the prompt implies conflict or impact, represent it with abstract visual effects like starbursts of light, dynamic action lines, or symbolic imagery (e.g., a shattered mirror for emotional pain) instead of physical harm.
+        3.  **Focus on Emotion and Atmosphere:** Emphasize character expressions (determination, shock, etc.) and mood (shadows, dramatic lighting) to convey the story's intent safely.
+        4.  **Adhere to Comic Book Style:** Ensure the final image is a stylized, SFW comic book illustration.
+
+        Please generate a safe image based on this new interpretation of the original prompt that follows.
+        ---
+        Original Prompt:
+        `;
+        fullPrompt = safetyPrefix + fullPrompt;
+    }
+
     const parts = [
         ...inputImages.map(img => ({
             inlineData: {
@@ -217,6 +232,7 @@ async function generateImage(prompt: string, inputImages: CharacterImage[] = [],
         contents: { parts },
         config: {
           responseModalities: [Modality.IMAGE, Modality.TEXT],
+          temperature: 0,
         }
     });
 
@@ -259,15 +275,15 @@ async function generateImage(prompt: string, inputImages: CharacterImage[] = [],
 }
 
 
-export async function generateCharacterImage(description: string, artStyle: string, shotDescription: string): Promise<string> {
+export async function generateCharacterImage(description: string, artStyle: string, shotDescription: string, isRetry: boolean = false): Promise<string> {
     const prompt = CHARACTER_IMAGE_PROMPT_TEMPLATE
       .replace('{character_description}', description)
       .replace('{art_style}', artStyle)
       .replace('{shot_description}', shotDescription);
-    return generateImage(prompt, [], '1:1');
+    return generateImage(prompt, [], '1:1', isRetry);
 }
 
-export async function generateSceneImage(setting: PanelSetting, artStyle: string, perspective: string): Promise<string> {
+export async function generateSceneImage(setting: PanelSetting, artStyle: string, perspective: string, isRetry: boolean = false): Promise<string> {
     const settingDescription = `Location: ${setting.location}. Time: ${setting.time_of_day}. Description: ${setting.description}`;
     const prompt = SCENE_IMAGE_PROMPT_TEMPLATE
         .replace('{art_style}', artStyle)
@@ -275,7 +291,7 @@ export async function generateSceneImage(setting: PanelSetting, artStyle: string
         .replace('{perspective}', perspective);
     
     // Use a landscape aspect ratio for scenes, as they are often establishing shots.
-    return generateImage(prompt, [], '16:9');
+    return generateImage(prompt, [], '16:9', isRetry);
 }
 
 export async function generateStory(storyDevelopmentPackage: StoryDevelopmentPackage, allCharactersDescription: string): Promise<StoryOutline> {
@@ -382,7 +398,8 @@ export async function generatePanelImage(
     characterDescriptions: string, 
     characterImages: CharacterImage[], 
     artStyle: string,
-    sceneImage?: CharacterImage
+    sceneImage?: CharacterImage,
+    isRetry: boolean = false
 ): Promise<string> {
     const characterList = panel.visuals.characters?.map(c => `${c.name}(1)`).join(', ');
     const prompt = PANEL_IMAGE_PROMPT_TEMPLATE
@@ -403,7 +420,7 @@ export async function generatePanelImage(
         allReferenceImages.push(sceneImage);
     }
   
-    return generateImage(prompt, allReferenceImages, aspectRatio);
+    return generateImage(prompt, allReferenceImages, aspectRatio, isRetry);
 }
 
 export async function generateCoverImage(
@@ -411,7 +428,8 @@ export async function generateCoverImage(
     logline: string,
     characterDescriptions: string,
     characterImages: CharacterImage[],
-    artStyle: string
+    artStyle: string,
+    isRetry: boolean = false
 ): Promise<string> {
     const prompt = COVER_PAGE_PROMPT_TEMPLATE
         .replace('{title}', title)
@@ -421,5 +439,23 @@ export async function generateCoverImage(
     
     const aspectRatio = '3:4';
   
-    return generateImage(prompt, characterImages, aspectRatio);
+    return generateImage(prompt, characterImages, aspectRatio, isRetry);
+}
+
+export async function generateFullStoryText(storyOutline: StoryOutline): Promise<string> {
+  // Remove the fullStoryText from the object sent to the model to avoid infinite loops or confusion.
+  const { fullStoryText, ...outlineForPrompt } = storyOutline;
+
+  const prompt = FULL_STORY_TEXT_GENERATION_PROMPT_TEMPLATE
+    .replace('{storyOutline}', JSON.stringify(outlineForPrompt, null, 2));
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+    config: {
+      temperature: 0.7, // A bit more creative for story writing
+    }
+  });
+
+  return response.text;
 }

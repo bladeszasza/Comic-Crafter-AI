@@ -1,5 +1,6 @@
 
 
+
 export const TOTAL_PAGES = 6;
 export const COVER_PAGE_NUMBER = 0;
 export const CENTERFOLD_PAGE_NUMBER = "3-4";
@@ -136,11 +137,15 @@ Do NOT render panel borders. The image should fill the entire frame.
 - Use a classic, legible comic book font like 'CC Wild Words' for dialogue and captions. For sound effects (SFX), use a bold, dynamic, and impactful font style that matches the sound's nature (e.g., jagged for 'CRASH', flowing for 'WHOOSH').
 - Refer to characters consistently by name when they are portrayed in the image and when they speak.
 
-**MANDATORY DIRECTIVE: BACKGROUND AND CHARACTER INTEGRITY - THIS IS THE MOST IMPORTANT RULE.**
-1.  **ABSOLUTE BACKGROUND TRUTH:** You have been provided with a background image for the scene. This image is the **absolute ground truth** for the panel's environment. You MUST use this image as the background for the panel you generate. Place the characters within this existing scene. Do NOT alter the background.
-2.  **Absolute Visual Ground Truth (Characters):** You have been provided with reference images for the characters. These images are the **absolute ground truth** and NON-NEGOTIABLE. You MUST replicate the characters' appearance from these images with 100% accuracy in EVERY panel.
-3.  **Unwavering Consistency:** This includes ALL visual details: costume, cape, clothing, fur color, breed, species, markings, and physical features. There must be ZERO deviation from the provided reference images. The supplementary text descriptions are for posing and expression ONLY, not for changing the character's core appearance: {character_descriptions}.
-4.  **Strict Character Count:** The scene must contain EXACTLY these characters and no others: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
+**MANDATORY DIRECTIVE: CHARACTER AND BACKGROUND CONSISTENCY - THIS IS THE MOST IMPORTANT RULE.**
+1.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** You have been provided with character reference images. These images are the **single source of truth** for character appearance and are NON-NEGOTIABLE.
+    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from these images with 100% accuracy.
+    -   **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, and physical features. Do NOT add, remove, or alter any element of a character's design from panel to panel. For example, if a character has a cape in the reference image, they MUST have a cape in this panel unless the prompt explicitly states it was removed. If they do NOT have a cape, DO NOT add one.
+    -   **Text Descriptions are Secondary:** The supplementary text descriptions for {character_descriptions} are for posing, positioning, and expression ONLY. They are NOT for altering a character's core appearance. The reference images ALWAYS take precedence.
+
+2.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
+
+3.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
 
 **Panel Visuals (JSON):**
 {panel_visuals}
@@ -167,8 +172,27 @@ Generate a stunning, cinematic cover for a comic book titled "{title}" in the {a
 - Use a professional, bold, and stylish font that fits the comic's genre and tone. The title should be easily readable and visually integrated into the artwork.
 
 **CRITICAL MANDATE: ABSOLUTE CHARACTER CONSISTENCY**
-- You have been provided with reference images for the characters. These images are the **absolute ground truth** and NON-NEGOTIABLE.
-- It is MANDATORY that you replicate the characters' appearance from these images with 100% accuracy.
-- This includes ALL visual details: costume, cape, clothing, fur color, breed, species, markings, and physical features. There must be ZERO deviation.
-- The supplementary text descriptions are for posing and expression ONLY: {consistency_tags}
+- **Single Source of Truth:** You have been provided with character reference images. These images are the **single source of truth** for character appearance and are NON-NEGOTIABLE.
+- **100% Accuracy Required:** You MUST replicate the characters' appearance from these images with 100% accuracy.
+- **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, and physical features. Do NOT add, remove, or alter any element of a character's design.
+- **Text is for Posing Only:** The supplementary text descriptions ({consistency_tags}) are for posing and expression ONLY, not for changing the character's core appearance. The reference images ALWAYS take precedence.
+`;
+
+export const FULL_STORY_TEXT_GENERATION_PROMPT_TEMPLATE = `
+You are a master novelist. Your task is to transform a detailed comic book script, provided in JSON format, into a cohesive and engaging full-length narrative story. Retain the core plot, character voices, and key moments.
+
+**Comic Script (JSON):**
+{storyOutline}
+
+**CRITICAL REQUIREMENTS:**
+
+1.  **Narrative Flow**: Weave the panel descriptions, actions, dialogue, and captions into a smooth, flowing story. Do not just list the events.
+2.  **Descriptive Language**: Elaborate on the visual descriptions from the 'visuals' section. Describe settings, character expressions, and actions with rich, evocative language.
+3.  **Show, Don't Tell**: Convert compositional notes (e.g., 'Close-Up', 'Low Angle') into narrative descriptions that convey the intended emotion or power dynamic. For instance, instead of saying 'a close-up on the character's face,' describe the intense emotion visible in their eyes.
+4.  **Dialogue Integration**: Seamlessly integrate the dialogue from the 'textual' section into the narrative. Use proper formatting for spoken words and attribute them to the correct characters.
+5.  **Internal Monologue**: Use thought bubbles and captions to inform characters' internal thoughts and feelings.
+6.  **Pacing**: Maintain the pacing intended by the script's three-act structure. Build tension, create impactful moments, and provide a satisfying resolution.
+7.  **Tone**: Preserve the overall tone and atmosphere described in the 'mood_and_lighting' sections.
+
+The final output should be a single block of text representing the complete story, ready to be read like a chapter in a book. Do not include any JSON or formatting instructions in your output.
 `;

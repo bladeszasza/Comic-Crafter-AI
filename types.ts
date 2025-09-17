@@ -181,6 +181,7 @@ export interface StoryOutline {
   title: string;
   prologue: string;
   panels: Panel[];
+  fullStoryText?: string;
 }
 
 export interface CharacterImage {

@@ -9,7 +9,7 @@ interface GenerationProgressProps {
   status: string;
   error: string | null;
   onRetry: () => void;
-  onDownload: () => void;
+  onDownload: (isError: boolean) => void;
   panels: GeneratedPanel[];
   title: string;
 }
@@ -48,7 +48,7 @@ const GenerationProgress: React.FC<GenerationProgressProps> = ({ progress, statu
                     Retry
                 </button>
                 <button
-                    onClick={onDownload}
+                    onClick={() => onDownload(true)}
                     className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg text-lg font-display tracking-wider hover:bg-blue-400 transition-all duration-300"
                 >
                     Download Progress

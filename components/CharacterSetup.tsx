@@ -5,11 +5,12 @@ import { UploadIcon, SparklesIcon } from './icons.js';
 interface CharacterSetupProps {
   onCharacterAnalyzed: (imageBase64: string) => void;
   onStartFromDefault: () => void;
+  onRestoreProgress: (file: File) => void;
   isLoading: boolean;
   setError: (error: string | null) => void;
 }
 
-const CharacterSetup: React.FC<CharacterSetupProps> = ({ onCharacterAnalyzed, onStartFromDefault, isLoading, setError }) => {
+const CharacterSetup: React.FC<CharacterSetupProps> = ({ onCharacterAnalyzed, onStartFromDefault, onRestoreProgress, isLoading, setError }) => {
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const handleFileChange = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +33,15 @@ const CharacterSetup: React.FC<CharacterSetupProps> = ({ onCharacterAnalyzed, on
       reader.readAsDataURL(selectedFile);
     }
   }, [onCharacterAnalyzed, setError]);
+
+  const handleZipChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      onRestoreProgress(file);
+    }
+    // Clear the input value so the same file can be selected again
+    event.target.value = '';
+  }, [onRestoreProgress]);
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-lg p-8">
@@ -73,6 +83,14 @@ const CharacterSetup: React.FC<CharacterSetupProps> = ({ onCharacterAnalyzed, on
                 <SparklesIcon className="w-6 h-6 mr-3" />
                 Start with Default Story
             </button>
+            <label
+                htmlFor="restore-zip"
+                className={`w-full mt-4 bg-gray-600 text-white font-bold py-4 px-6 rounded-lg text-lg font-display tracking-wider transition-all duration-300 flex items-center justify-center ${isLoading ? 'bg-gray-800 cursor-not-allowed' : 'hover:bg-gray-500 cursor-pointer'}`}
+            >
+                <UploadIcon className="w-6 h-6 mr-3" />
+                Restore Progress from ZIP
+            </label>
+            <input id="restore-zip" type="file" className="hidden" accept=".zip" onChange={handleZipChange} disabled={isLoading} />
         </div>
       </div>
     </div>

@@ -3,16 +3,16 @@ import React, { useState } from 'react';
 import type { GeneratedPanel } from '../types.js';
 import { COVER_PAGE_NUMBER, CENTERFOLD_PAGE_NUMBER } from '../constants.js';
 import ComicPage from './ComicPage.js';
-import { createComicPdf } from '../utils/pdfGenerator.js';
 import { DownloadIcon } from './icons.js';
 
 interface ComicViewerProps {
   panels: GeneratedPanel[];
   title: string;
   onRestart: () => void;
+  onDownload: (isError: boolean) => void;
 }
 
-const ComicViewer: React.FC<ComicViewerProps> = ({ panels, title, onRestart }) => {
+const ComicViewer: React.FC<ComicViewerProps> = ({ panels, title, onRestart, onDownload }) => {
   const [isDownloading, setIsDownloading] = useState(false);
 
   // Group panels by page
@@ -35,10 +35,10 @@ const ComicViewer: React.FC<ComicViewerProps> = ({ panels, title, onRestart }) =
   const handleDownload = async () => {
     setIsDownloading(true);
     try {
-      await createComicPdf(panels, title);
+      await onDownload(false);
     } catch (error) {
-      console.error("Failed to generate PDF:", error);
-      alert("There was an error creating the PDF. Please check the console for details.");
+      console.error("Failed to generate Zip file:", error);
+      alert("There was an error creating the Zip file. Please check the console for details.");
     } finally {
       setIsDownloading(false);
     }
@@ -64,7 +64,7 @@ const ComicViewer: React.FC<ComicViewerProps> = ({ panels, title, onRestart }) =
             className="bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-xl font-display tracking-wider hover:bg-green-500 transition-all duration-300 flex items-center justify-center disabled:bg-green-800 disabled:cursor-not-allowed"
         >
             <DownloadIcon className="w-6 h-6 mr-3" />
-            {isDownloading ? 'Generating PDF...' : 'Download PDF'}
+            {isDownloading ? 'Generating ZIP...' : 'Download ZIP'}
         </button>
       </div>
 

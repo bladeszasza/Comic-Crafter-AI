@@ -1,4 +1,6 @@
 
+
+
 import React, { useState, useCallback, useEffect } from 'react';
 import type { StoryOutline, GeneratedPanel, GeneratedCharacter, CharacterProfile, Panel, StoryDevelopmentPackage, CharacterConcept, CharacterImage } from './types.js';
 import { AppStep } from './types.js';
@@ -7,10 +9,12 @@ import CharacterGenerator from './components/CharacterGenerator.js';
 import GenerationProgress from './components/GenerationProgress.js';
 import ComicViewer from './components/ComicViewer.js';
 import StoryViewer from './components/StoryViewer.js';
-import { analyzeCharacter, generateStory, generatePanelImage, generateCharacterConcepts, developStory, generateCharacterImage, generateCoverImage, generateSceneImage } from './services/geminiService.js';
+import { analyzeCharacter, generateStory, generatePanelImage, generateCharacterConcepts, developStory, generateCharacterImage, generateCoverImage, generateSceneImage, generateFullStoryText } from './services/geminiService.js';
 import { COVER_PAGE_NUMBER, CENTERFOLD_PAGE_NUMBER } from './constants.js';
 import { logExecutionTime } from './utils/logger.js';
 import { zipAndDownloadProgress } from './utils/zipDownloader.js';
+
+declare const JSZip: any;
 
 const slugify = (text: string) =>
   text
@@ -37,7 +41,6 @@ const App: React.FC = () => {
   const [generatedPanels, setGeneratedPanels] = useState<GeneratedPanel[]>([]);
   const [characterRoster, setCharacterRoster] = useState<GeneratedCharacter[]>([]);
   const [sceneImages, setSceneImages] = useState<Map<string, Record<string, CharacterImage>>>(new Map());
-  const [isComicGenerationReady, setIsComicGenerationReady] = useState(false);
   
   const [lastUploadedImage, setLastUploadedImage] = useState<string | null>(null);
   const [isDevMode, setIsDevMode] = useState(false);
@@ -56,7 +59,6 @@ const App: React.FC = () => {
     setGeneratedPanels([]);
     setCharacterRoster([]);
     setSceneImages(new Map());
-    setIsComicGenerationReady(false);
     setLastUploadedImage(null);
     setIsDevMode(false);
   };
@@ -69,19 +71,12 @@ const App: React.FC = () => {
             return null;
         }
         let blob = await response.blob();
-
-        // FIX: If the server provides a generic MIME type, override it based on the file extension.
-        // This prevents 'application/octet-stream' from being used, which is unsupported by the API.
         if (blob.type === '' || blob.type === 'application/octet-stream') {
-            let newMimeType = 'image/jpeg'; // Default to jpeg as all default assets are jpg
-            if (path.endsWith('.png')) {
-                newMimeType = 'image/png';
-            } else if (path.endsWith('.gif')) {
-                newMimeType = 'image/gif';
-            }
+            let newMimeType = 'image/jpeg';
+            if (path.endsWith('.png')) newMimeType = 'image/png';
+            else if (path.endsWith('.gif')) newMimeType = 'image/gif';
             blob = new Blob([blob], { type: newMimeType });
         }
-
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onloadend = () => resolve(reader.result as string);
@@ -99,7 +94,8 @@ const App: React.FC = () => {
       allCharacters: GeneratedCharacter[],
       currentSceneImages: Map<string, Record<string, CharacterImage>>,
       currentCharacterProfile: CharacterProfile,
-      currentStoryDevelopmentPackage: StoryDevelopmentPackage | null
+      currentStoryDevelopmentPackage: StoryDevelopmentPackage | null,
+      isRetry: boolean = false
     ) => {
       if (!currentCharacterProfile || !currentStoryDevelopmentPackage) {
           setError("Character profile or story blueprint is missing. Cannot generate pages.");
@@ -117,7 +113,7 @@ const App: React.FC = () => {
         const panelsToGenerate = storyOutline.panels.filter(p => !existingPanelKeys.has(`${p.page_number}-${p.panel_number}`));
         
         let panelsGeneratedCount = generatedPanels.length;
-        const totalPanelsToGenerate = generatedPanels.length + panelsToGenerate.length + 1; // +1 for the cover
+        const totalPanelsToGenerate = storyOutline.panels.length;
 
         const updateProgress = () => {
             panelsGeneratedCount++;
@@ -126,9 +122,9 @@ const App: React.FC = () => {
         };
 
         // Generate Cover First
-        setStatus('Generating the cover...');
         const coverPanel = storyOutline.panels.find(p => p.page_number === COVER_PAGE_NUMBER);
         if (coverPanel && !existingPanelKeys.has(`${coverPanel.page_number}-${coverPanel.panel_number}`)) {
+          setStatus('Generating the cover...');
           const protagonist = allCharacters.find(c => c.role === 'Protagonist') || allCharacters[0];
           const characterDescriptions = `${protagonist.name} (${protagonist.role}): ${protagonist.description}`;
           
@@ -147,7 +143,8 @@ const App: React.FC = () => {
                  currentStoryDevelopmentPackage.logline,
                  characterDescriptions,
                  characterImageForCover,
-                 art_style
+                 art_style,
+                 isRetry
               )
           );
           const newCoverPanel: GeneratedPanel = { 
@@ -164,60 +161,37 @@ const App: React.FC = () => {
             setStatus(`Generating Page ${panel.page_number}, Panel ${panel.panel_number}...`);
 
             const characterNamesOnPanel = new Set<string>();
-            panel.visuals.characters?.forEach(char => {
-              characterNamesOnPanel.add(char.name);
-            });
+            panel.visuals.characters?.forEach(char => characterNamesOnPanel.add(char.name));
             
             const charactersOnPanel = allCharacters.filter(char => characterNamesOnPanel.has(char.name));
-            const characterDescriptions = charactersOnPanel
-              .map(c => `${c.name} (${c.role}): ${c.description}`)
-              .join('. ');
+            const characterDescriptions = charactersOnPanel.map(c => `${c.name} (${c.role}): ${c.description}`).join('. ');
             
-            const characterImagesOnPanel: CharacterImage[] = charactersOnPanel.flatMap(char => {
-              return Object.values(char.imageUrls).map(url => {
+            const characterImagesOnPanel: CharacterImage[] = charactersOnPanel.flatMap(char => 
+              Object.values(char.imageUrls).map(url => {
                   if (!url || !url.includes(',')) return null;
                   const [header, base64] = url.split(',');
                   const mimeType = header.match(/:(.*?);/)?.[1] || 'image/jpeg';
                   if (!base64) return null;
                   return { name: char.name, base64, mimeType };
-              }).filter((img): img is CharacterImage => img !== null);
-            });
+              }).filter((img): img is CharacterImage => img !== null)
+            );
 
             const locationKey = panel.visuals.setting.location.trim().toLowerCase();
             const locationScenes = currentSceneImages.get(locationKey);
             let sceneImage: CharacterImage | undefined;
 
             if (locationScenes) {
-                const angle = panel.visuals.composition.angle.toLowerCase();
-                const shotType = panel.visuals.composition.shot_type.toLowerCase();
-
-                if (angle.includes('low')) {
-                    sceneImage = locationScenes['low'];
-                } else if (angle.includes('high')) {
-                    sceneImage = locationScenes['high'];
-                } else if (shotType.includes('wide') || shotType.includes('splash')) {
-                    sceneImage = locationScenes['wide'];
-                } else {
-                    sceneImage = locationScenes['medium']; // Default/fallback
-                }
+                // Always use the single generated wide establishing shot for the location.
+                // The panel-specific angle/shot is passed in the prompt to guide character placement.
+                sceneImage = Object.values(locationScenes)[0];
             }
 
             const panelImageBase64 = await logExecutionTime(
                 `6b. Generate Panel Image (Page ${panel.page_number}, Panel ${panel.panel_number})`,
-                () => generatePanelImage(
-                    panel, 
-                    characterDescriptions, 
-                    characterImagesOnPanel, 
-                    art_style,
-                    sceneImage
-                )
+                () => generatePanelImage(panel, characterDescriptions, characterImagesOnPanel, art_style, sceneImage, isRetry)
             );
             
-            const newPanel: GeneratedPanel = { 
-              ...panel, 
-              imageUrl: `data:image/jpeg;base64,${panelImageBase64}` 
-            };
-
+            const newPanel: GeneratedPanel = { ...panel, imageUrl: `data:image/jpeg;base64,${panelImageBase64}` };
             setGeneratedPanels(prev => [...prev, newPanel]);
             updateProgress();
         }
@@ -233,60 +207,211 @@ const App: React.FC = () => {
       } catch (err) {
         console.error(err);
         let errorMessage = 'An unknown error occurred during panel generation.';
-        if (err instanceof Error) {
-            errorMessage = err.message;
-        }
+        if (err instanceof Error) errorMessage = err.message;
         setError(`Generation Failed: ${errorMessage}`);
       }
   }, [generatedPanels]);
 
 
-  const handleStartFromDefault = useCallback(async () => {
+  const startFullGeneration = useCallback(async (initialImageBase64?: string, isRetry: boolean = false) => {
     setIsLoading(true);
     setError(null);
+    const generationStartTime = performance.now();
+    
+    // Determine which image to use: the new one, or the one from state (for retries)
+    const imageToUse = initialImageBase64 || lastUploadedImage;
+    if (!imageToUse) {
+        setError("No character image available to start generation.");
+        setIsLoading(false);
+        return;
+    }
+
+    try {
+        let currentProfile = characterProfile;
+        if (!currentProfile) {
+            setCastStatus('Analyzing character...');
+            const [mimeType, cleanBase64] = imageToUse.split(';base64,');
+            currentProfile = await logExecutionTime(
+                '1. Analyze Character', 
+                () => analyzeCharacter(cleanBase64, mimeType.split(':')[1])
+            );
+            setCharacterProfile(currentProfile);
+        }
+        
+        let currentConcepts = characterConcepts;
+        if (currentConcepts.length === 0) {
+            setCastStatus('Generating supporting cast...');
+            currentConcepts = await logExecutionTime(
+                '2. Generate Character Concepts',
+                () => generateCharacterConcepts(currentProfile)
+            );
+            setCharacterConcepts(currentConcepts);
+        }
+        
+        let currentDevPackage = storyDevelopmentPackage;
+        if (!currentDevPackage) {
+            setCastStatus('Developing story blueprint...');
+            currentDevPackage = await logExecutionTime(
+                '3. Develop Story Blueprint',
+                () => developStory(currentConcepts)
+            );
+            setStoryDevelopmentPackage(currentDevPackage);
+        }
+
+        let currentStory = story;
+        if (!currentStory) {
+            setCastStatus('Generating detailed comic script...');
+            const allCharactersDescription = currentConcepts.map(c => `${c.name} (${c.role}): ${c.description}`).join('. ');
+            const storyOutline = await logExecutionTime(
+                '4. Generate Detailed Comic Script',
+                () => generateStory(currentDevPackage, allCharactersDescription)
+            );
+
+            setCastStatus('Transcribing comic script into story format...');
+            const storyText = await logExecutionTime(
+                '4b. Generate Full Story Text',
+                () => generateFullStoryText(storyOutline)
+            );
+            
+            currentStory = { ...storyOutline, fullStoryText: storyText };
+            setStory(currentStory);
+        }
+        
+        const planningEndTime = performance.now();
+        const planningDuration = ((planningEndTime - generationStartTime) / 1000).toFixed(2);
+        console.log(`%c[TOTAL] Story Planning Phase took ${planningDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
+        
+        setStep(AppStep.CHARACTER_GENERATION);
+
+        // --- ASSET GENERATION ---
+        const assetGenerationStartTime = performance.now();
+        const artStyle = currentProfile.art_style;
+
+        // 5a. Generate Portraits (Resumable)
+        const characterShots: Record<string, string> = {
+            'full': 'Full-body, dynamic, neutral standing pose.',
+            'closeup_happy': 'Close-up portrait from the chest up, happy expression.',
+            'action': 'Medium shot, in a dynamic action pose.'
+        };
+        
+        let currentRoster = [...characterRoster];
+        const conceptsToGenerate = currentConcepts.filter(c => !currentRoster.some(r => r.name === c.name));
+        if (conceptsToGenerate.length > 0) {
+            const portraitGenerationStartTime = performance.now();
+            for (const concept of conceptsToGenerate) {
+                setCastStatus(`Designing character: ${concept.name}...`);
+                const imageUrls: Record<string, string> = {};
+                for (const [shotKey, shotDesc] of Object.entries(characterShots)) {
+                    const imageBase64 = await logExecutionTime(
+                        `5a. Generate Portrait: ${concept.name} (${shotKey})`,
+                        () => generateCharacterImage(concept.description, artStyle, shotDesc, isRetry)
+                    );
+                    imageUrls[shotKey] = `data:image/jpeg;base64,${imageBase64}`;
+                }
+                const newCharacter: GeneratedCharacter = { ...concept, imageUrls };
+                currentRoster.push(newCharacter);
+                setCharacterRoster(prev => [...prev, newCharacter]);
+            }
+            const portraitGenerationEndTime = performance.now();
+            const portraitDuration = ((portraitGenerationEndTime - portraitGenerationStartTime) / 1000).toFixed(2);
+            console.log(`%c[TOTAL] All Character Portrait Generation took ${portraitDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
+        }
+
+        // 5b. Generate Scenes (Resumable & Optimized)
+        setCastStatus('Pre-rendering background scenes...');
+        const sceneGenerationStartTime = performance.now();
+        const uniqueLocationsMap = new Map<string, Panel['visuals']['setting']>();
+        currentStory.panels.forEach(panel => {
+            const locationKey = panel.visuals.setting.location.trim().toLowerCase();
+            if (!uniqueLocationsMap.has(locationKey)) {
+                uniqueLocationsMap.set(locationKey, panel.visuals.setting);
+            }
+        });
+
+        const newSceneImages = new Map(sceneImages);
+        for (const [locationKey, setting] of uniqueLocationsMap.entries()) {
+            const existingLocationImages = newSceneImages.get(locationKey) || {};
+            if (!existingLocationImages['wide']) { // Only generate one wide shot if it doesn't exist
+                setCastStatus(`Generating scene: ${setting.location}...`);
+                const imageBase64 = await logExecutionTime(
+                    `5b. Generate Scene: ${setting.location}`,
+                    () => generateSceneImage(setting, artStyle, 'Establishing Wide Shot', isRetry)
+                );
+                const sceneImage: CharacterImage = { name: setting.location, base64: imageBase64, mimeType: 'image/jpeg' };
+                
+                // Ensure the map entry exists before setting the property
+                if (!newSceneImages.has(locationKey)) {
+                    newSceneImages.set(locationKey, {});
+                }
+                newSceneImages.get(locationKey)!['wide'] = sceneImage;
+                setSceneImages(new Map(newSceneImages));
+            }
+        }
+        const sceneGenerationEndTime = performance.now();
+        const sceneDuration = ((sceneGenerationEndTime - sceneGenerationStartTime) / 1000).toFixed(2);
+        console.log(`%c[TOTAL] All Scene Generation took ${sceneDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
+        
+        const assetGenerationEndTime = performance.now();
+        const assetDuration = ((assetGenerationEndTime - assetGenerationStartTime) / 1000).toFixed(2);
+        console.log(`%c[TOTAL] Asset Generation Phase (Portraits & Scenes) took ${assetDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
+
+        setCastStatus('The cast and scenes are ready! Assembling the pages...');
+        await startComicGeneration(currentStory, currentRoster, newSceneImages, currentProfile, currentDevPackage, isRetry);
+
+    } catch (err) {
+        console.error(err);
+        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
+        setError(`Failed during generation: ${errorMessage}`);
+    } finally {
+        setIsLoading(false);
+    }
+  }, [lastUploadedImage, characterProfile, characterConcepts, storyDevelopmentPackage, story, characterRoster, sceneImages, startComicGeneration]);
+
+  const handleCharacterAnalyzed = useCallback(async (imageBase64: string) => {
+    // This is a new generation, so reset everything first.
+    resetState();
+    setLastUploadedImage(imageBase64);
+    setIsDevMode(false);
+    // Kick off the single, resumable generation pipeline
+    await startFullGeneration(imageBase64);
+  }, [startFullGeneration]);
+
+  const handleStartFromDefault = useCallback(async (isRetry: boolean = false) => {
+    resetState();
+    setIsLoading(true);
     setIsDevMode(true);
 
     try {
-        // 1. Load metadata
         setCastStatus('Loading default story from file...');
-        setStatus('Loading default story...');
         const response = await fetch('./default/comic_metadata.json');
         if (!response.ok) throw new Error('Could not load default/comic_metadata.json.');
         const data = await response.json();
 
+        const defaultImage = await loadLocalImageAsBase64('./default/portraits/Splatter/full.jpg');
+        setLastUploadedImage(defaultImage);
+
         const fullStory: StoryOutline = data.story;
-        const shortStory: StoryOutline = {
-            ...fullStory,
-            panels: fullStory.panels.filter(panel => panel.page_number <= 3),
-        };
+        const shortStory: StoryOutline = { ...fullStory, panels: fullStory.panels.filter(panel => panel.page_number <= 3) };
         const profile: CharacterProfile = data.characterProfile;
         const devPackage: StoryDevelopmentPackage = data.storyDevelopmentPackage;
         const concepts: CharacterConcept[] = data.characterConcepts;
 
-        // Set metadata state
         setCharacterProfile(profile);
         setStoryDevelopmentPackage(devPackage);
         setStory(shortStory);
         setCharacterConcepts(concepts);
-        
-        // Go to progress screen immediately
         setStep(AppStep.GENERATION_IN_PROGRESS);
 
-        // 2. Load all local assets
         setCastStatus('Loading default character portraits...');
         const roster: GeneratedCharacter[] = [];
         for (const concept of concepts) {
             const imageUrls: Record<string, string> = {};
-            const characterNameSanitized = concept.name.replace(/\s+/g, '_');
-            const path = `./default/portraits/${characterNameSanitized}/full.jpg`;
+            const path = `./default/portraits/${concept.name.replace(/\s+/g, '_')}/full.jpg`;
             const dataUrl = await loadLocalImageAsBase64(path);
             if (!dataUrl) throw new Error(`Default asset missing: ${path}`);
-            
-            // Duplicate 'full.jpg' for all required shots to avoid falling back to generation
             imageUrls['full'] = dataUrl;
             imageUrls['closeup_happy'] = dataUrl;
             imageUrls['action'] = dataUrl;
-            
             roster.push({ ...concept, imageUrls });
         }
         setCharacterRoster(roster);
@@ -295,287 +420,181 @@ const App: React.FC = () => {
         const uniqueLocations = new Map<string, Panel['visuals']['setting']>();
         shortStory.panels.forEach(panel => {
             const locationKey = panel.visuals.setting.location.trim().toLowerCase();
-            if (!uniqueLocations.has(locationKey)) {
-                uniqueLocations.set(locationKey, panel.visuals.setting);
-            }
+            if (!uniqueLocations.has(locationKey)) uniqueLocations.set(locationKey, panel.visuals.setting);
         });
 
         const newSceneImages = new Map<string, Record<string, CharacterImage>>();
         for (const [locationKey, setting] of uniqueLocations.entries()) {
-            const locationPerspectives: Record<string, CharacterImage> = {};
-            const locationSlug = slugify(locationKey);
-            const path = `./default/scenes/${locationSlug}/wide.jpg`;
+            const path = `./default/scenes/${slugify(locationKey)}/wide.jpg`;
             const dataUrl = await loadLocalImageAsBase64(path);
             if (dataUrl) {
                 const [header, base64] = dataUrl.split(',');
                 const mimeType = header.match(/:(.*?);/)?.[1] || 'image/jpeg';
                 if (base64) {
-                    const sceneImage: CharacterImage = { name: `${setting.location} (wide)`, base64, mimeType };
-                    // Duplicate 'wide.jpg' for all perspectives to avoid generation
-                    locationPerspectives['wide'] = sceneImage;
-                    locationPerspectives['medium'] = sceneImage;
-                    locationPerspectives['low'] = sceneImage;
-                    locationPerspectives['high'] = sceneImage;
-                    newSceneImages.set(locationKey, locationPerspectives);
+                    const sceneImage: CharacterImage = { name: setting.location, base64, mimeType };
+                    newSceneImages.set(locationKey, { 'wide': sceneImage });
                 }
             } else {
-               console.warn(`Could not find default scene asset: ${path}. This may fall back to generation.`);
+               console.warn(`Could not find default scene asset: ${path}.`);
             }
         }
         setSceneImages(newSceneImages);
         
-        // 3. Start comic generation directly with loaded assets
-        await startComicGeneration(shortStory, roster, newSceneImages, profile, devPackage);
+        await startComicGeneration(shortStory, roster, newSceneImages, profile, devPackage, isRetry);
 
     } catch (err) {
         console.error(err);
         const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
         setError(`Failed to load default story: ${errorMessage}`);
-        setStep(AppStep.CHARACTER_SETUP);
-        setIsDevMode(false);
+        resetState();
     } finally {
         setIsLoading(false);
     }
   }, [startComicGeneration]);
-
-  useEffect(() => {
-    if (isComicGenerationReady && story && characterRoster.length > 0 && characterProfile && step !== AppStep.GENERATION_IN_PROGRESS && step !== AppStep.VIEW_COMIC) {
-      startComicGeneration(story, characterRoster, sceneImages, characterProfile, storyDevelopmentPackage);
-    }
-  }, [isComicGenerationReady, story, characterRoster, startComicGeneration, step, sceneImages, characterProfile, storyDevelopmentPackage]);
   
-  useEffect(() => {
-    const generateAssets = async () => {
-        if (step === AppStep.CHARACTER_GENERATION && characterConcepts.length > 0 && characterRoster.length === 0 && characterProfile && story) {
-            setIsLoading(true);
-            const assetGenerationStartTime = performance.now();
-            try {
-                // 1. Generate Portraits
-                const characterShots: Record<string, string> = {
-                    'full': 'Full-body, dynamic, neutral standing pose.',
-                    'closeup_happy': 'Close-up portrait from the chest up, happy expression.',
-                    'action': 'Medium shot, in a dynamic action pose.'
-                };
-                const artStyle = characterProfile.art_style;
-                const roster: GeneratedCharacter[] = [];
-
-                const portraitGenerationStartTime = performance.now();
-                for (const concept of characterConcepts) {
-                    setCastStatus(`Designing character: ${concept.name}...`);
-                    const imageUrls: Record<string, string> = {};
-                    for (const [shotKey, shotDesc] of Object.entries(characterShots)) {
-                        let dataUrl: string | null = null;
-                        if (isDevMode) {
-                            const characterNameSanitized = concept.name.replace(/\s+/g, '_');
-                            const path = `./default/portraits/${characterNameSanitized}/${shotKey}.jpg`;
-                            dataUrl = await loadLocalImageAsBase64(path);
-                        }
-
-                        if (!dataUrl) {
-                            // Fallback to generation
-                            const imageBase64 = await logExecutionTime(
-                                `5a. Generate Portrait: ${concept.name} (${shotKey})`,
-                                () => generateCharacterImage(concept.description, artStyle, shotDesc)
-                            );
-                            dataUrl = `data:image/jpeg;base64,${imageBase64}`;
-                        }
-                        
-                        imageUrls[shotKey] = dataUrl;
-                    }
-                    const newCharacter: GeneratedCharacter = { ...concept, imageUrls };
-                    roster.push(newCharacter);
-                    setCharacterRoster(prev => [...prev, newCharacter]); // Update incrementally for UI
-                }
-                const portraitGenerationEndTime = performance.now();
-                const portraitDuration = ((portraitGenerationEndTime - portraitGenerationStartTime) / 1000).toFixed(2);
-                console.log(`%c[TOTAL] All Character Portrait Generation took ${portraitDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
-                
-                // 2. Generate Scenes
-                setCastStatus('Pre-rendering background scenes...');
-                const uniqueLocations = new Map<string, Panel['visuals']['setting']>();
-                story.panels.forEach(panel => {
-                    const locationKey = panel.visuals.setting.location.trim().toLowerCase();
-                    if (!uniqueLocations.has(locationKey)) {
-                        uniqueLocations.set(locationKey, panel.visuals.setting);
-                    }
-                });
-                
-                const sceneGenerationStartTime = performance.now();
-                const scenePerspectives: Record<string, string> = {
-                    'wide': 'Establishing Wide Shot',
-                    'medium': 'Medium Shot from a neutral angle',
-                    'low': 'Dramatic Low Angle',
-                    'high': 'Observational High Angle'
-                };
-
-                const newSceneImages = new Map<string, Record<string, CharacterImage>>();
-                for (const [locationKey, setting] of uniqueLocations.entries()) {
-                    const locationPerspectives: Record<string, CharacterImage> = {};
-                    for (const [perspectiveKey, perspectiveDesc] of Object.entries(scenePerspectives)) {
-                        setCastStatus(`Generating scene: ${setting.location} (${perspectiveKey} view)...`);
-                        
-                        let imageBase64: string | null = null;
-                        let mimeType = 'image/jpeg';
-
-                        if (isDevMode) {
-                            const locationSlug = slugify(locationKey);
-                            const path = `./default/scenes/${locationSlug}/${perspectiveKey}.jpg`;
-                            const dataUrl = await loadLocalImageAsBase64(path);
-                            if (dataUrl) {
-                                const [header, base64] = dataUrl.split(',');
-                                mimeType = header.match(/:(.*?);/)?.[1] || 'image/jpeg';
-                                if(base64) imageBase64 = base64;
-                            }
-                        }
-
-                        if (!imageBase64) {
-                            // Fallback to generation
-                            imageBase64 = await logExecutionTime(
-                                `5b. Generate Scene: ${setting.location} (${perspectiveKey})`,
-                                () => generateSceneImage(setting, artStyle, perspectiveDesc)
-                            );
-                        }
-
-                        locationPerspectives[perspectiveKey] = {
-                            name: `${setting.location} (${perspectiveKey})`,
-                            base64: imageBase64,
-                            mimeType: mimeType
-                        };
-                    }
-                    newSceneImages.set(locationKey, locationPerspectives);
-                    setSceneImages(new Map(newSceneImages)); // Update incrementally for UI
-                }
-                const sceneGenerationEndTime = performance.now();
-                const sceneDuration = ((sceneGenerationEndTime - sceneGenerationStartTime) / 1000).toFixed(2);
-                console.log(`%c[TOTAL] All Scene Generation took ${sceneDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
-
-                
-                // 3. Signal readiness
-                const assetGenerationEndTime = performance.now();
-                const assetDuration = ((assetGenerationEndTime - assetGenerationStartTime) / 1000).toFixed(2);
-                console.log(`%c[TOTAL] Asset Generation Phase (Portraits & Scenes) took ${assetDuration} seconds.`, 'color: #f39c12; font-weight: bold;');
-
-                setCastStatus('The cast and scenes are ready! Assembling the pages...');
-                setIsComicGenerationReady(true);
-
-            } catch (err) {
-                console.error(err);
-                const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
-                setError(`Failed to generate assets: ${errorMessage}`);
-                setStep(AppStep.CHARACTER_SETUP);
-            } finally {
-                setIsLoading(false);
-            }
-        }
-    };
-    if (!isDevMode) {
-        generateAssets();
-    }
-  }, [step, characterConcepts, characterProfile, story, characterRoster.length, isDevMode]);
-
-
-  const handleCharacterAnalyzed = useCallback(async (imageBase64: string) => {
-    setLastUploadedImage(imageBase64);
-    setIsLoading(true);
+  const handleRetryPanelGeneration = useCallback(() => {
     setError(null);
-    setIsDevMode(false); // Set to false for the standard user upload flow
-    const analysisStartTime = performance.now();
-
-    try {
-        setCastStatus('Analyzing character...');
-        const [mimeType, cleanBase64] = imageBase64.split(';base64,');
-        const profile: CharacterProfile = await logExecutionTime(
-            '1. Analyze Character', 
-            () => analyzeCharacter(cleanBase64, mimeType.split(':')[1])
-        );
-        setCharacterProfile(profile);
-        
-        setCastStatus('Generating supporting cast...');
-        const concepts = await logExecutionTime(
-            '2. Generate Character Concepts',
-            () => generateCharacterConcepts(profile)
-        );
-        setCharacterConcepts(concepts);
-        
-        setCastStatus('Developing story blueprint...');
-        const devPackage = await logExecutionTime(
-            '3. Develop Story Blueprint',
-            () => developStory(concepts)
-        );
-        setStoryDevelopmentPackage(devPackage);
-        
-        setCastStatus('Generating detailed comic panels from blueprint...');
-        const allCharactersDescription = concepts
-            .map(c => `${c.name} (${c.role}): ${c.description}`)
-            .join('. ');
-        const storyOutline = await logExecutionTime(
-            '4. Generate Detailed Comic Script',
-            () => generateStory(devPackage, allCharactersDescription)
-        );
-        setStory(storyOutline);
-        
-        const analysisEndTime = performance.now();
-        const duration = ((analysisEndTime - analysisStartTime) / 1000).toFixed(2);
-        console.log(`%c[TOTAL] Story Planning Phase took ${duration} seconds.`, 'color: #f39c12; font-weight: bold;');
-        
-        setStep(AppStep.CHARACTER_GENERATION);
-
-    } catch (err) {
-        console.error(err);
-        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
-        setError(`Failed to create story: ${errorMessage}`);
-        setStep(AppStep.CHARACTER_SETUP);
-    } finally {
-        setIsLoading(false);
-    }
-  }, []);
-  
-  const handleRetryGeneration = useCallback(() => {
     if (story && characterRoster.length > 0 && characterProfile && storyDevelopmentPackage) {
-        startComicGeneration(story, characterRoster, sceneImages, characterProfile, storyDevelopmentPackage);
+        startComicGeneration(story, characterRoster, sceneImages, characterProfile, storyDevelopmentPackage, true);
     } else {
-        setError("Cannot retry. Story or character data is missing.");
+        setError("Cannot retry panel generation. Story or character data is missing.");
         setStep(AppStep.CHARACTER_SETUP);
     }
-  }, [story, characterRoster, startComicGeneration, sceneImages, characterProfile, storyDevelopmentPackage]);
+  }, [story, characterRoster, sceneImages, characterProfile, storyDevelopmentPackage, startComicGeneration]);
 
-  const handleDownloadProgress = useCallback(async () => {
+  const handleDownloadProgress = useCallback(async (isError: boolean = false) => {
     try {
-        await zipAndDownloadProgress(
-            story?.title || 'comic_crafter',
-            {
-                characterProfile,
-                storyDevelopmentPackage,
-                story,
-                characterConcepts,
-                characterRoster,
-                sceneImages,
-                generatedPanels
-            }
-        );
+        await zipAndDownloadProgress(story?.title || 'comic_crafter', {
+            characterProfile, 
+            storyDevelopmentPackage, 
+            story, 
+            characterConcepts, 
+            characterRoster, 
+            sceneImages, 
+            generatedPanels,
+            initialImageBase64: lastUploadedImage
+        }, { isErrorState: isError });
     } catch(err) {
         console.error("Failed to create zip file:", err);
         setError("Failed to create zip file. Check console for details.");
     }
-  }, [characterProfile, storyDevelopmentPackage, story, characterConcepts, characterRoster, sceneImages, generatedPanels]);
+  }, [characterProfile, storyDevelopmentPackage, story, characterConcepts, characterRoster, sceneImages, generatedPanels, lastUploadedImage]);
 
-  const handleRetryInitial = useCallback(() => {
+  const handleRetry = useCallback(() => {
+    setError(null);
     if (isDevMode) {
-        handleStartFromDefault();
-    } else if (lastUploadedImage) {
-        handleCharacterAnalyzed(lastUploadedImage);
+        handleStartFromDefault(true);
     } else {
-        setError("No image was uploaded to retry.");
-        resetState();
+        startFullGeneration(undefined, true);
     }
-  }, [lastUploadedImage, handleCharacterAnalyzed, isDevMode, handleStartFromDefault]);
+  }, [isDevMode, handleStartFromDefault, startFullGeneration]);
+
+  const handleRestoreProgress = useCallback(async (file: File) => {
+    resetState();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+        const zip = await JSZip.loadAsync(file);
+        const stateFile = zip.file("save_state.json");
+        if (!stateFile) {
+            throw new Error("save_state.json not found in the zip file.");
+        }
+        const stateContent = await stateFile.async("string");
+        const restoredState = JSON.parse(stateContent);
+
+        const getImageAsDataUrl = async (path: string): Promise<string> => {
+            const imageFile = zip.file(path);
+            if (!imageFile) {
+                console.warn(`Image not found in zip: ${path}`);
+                return "";
+            }
+            const base64 = await imageFile.async("base64");
+            const mimeType = path.endsWith(".png") ? "image/png" : "image/jpeg";
+            return `data:${mimeType};base64,${base64}`;
+        };
+
+        if (restoredState.characterProfile) setCharacterProfile(restoredState.characterProfile);
+        if (restoredState.storyDevelopmentPackage) setStoryDevelopmentPackage(restoredState.storyDevelopmentPackage);
+        if (restoredState.story) setStory(restoredState.story);
+        if (restoredState.characterConcepts) setCharacterConcepts(restoredState.characterConcepts);
+        
+        const newCharacterRoster: GeneratedCharacter[] = [];
+        if (restoredState.characterRoster) {
+            for (const char of restoredState.characterRoster) {
+                const imageUrls: Record<string, string> = {};
+                for (const [shotKey, path] of Object.entries(char.imageUrls)) {
+                    imageUrls[shotKey] = await getImageAsDataUrl(path as string);
+                }
+                newCharacterRoster.push({ ...char, imageUrls });
+            }
+            setCharacterRoster(newCharacterRoster);
+        }
+
+        const newSceneImages = new Map<string, Record<string, CharacterImage>>();
+        if (restoredState.sceneImages) {
+            for (const [locationKey, sceneGroup] of restoredState.sceneImages as [string, Record<string, Omit<CharacterImage, 'base64'> & { path: string }>][]) {
+                const newSceneGroup: Record<string, CharacterImage> = {};
+                for (const [perspectiveKey, imageMetadata] of Object.entries(sceneGroup)) {
+                    const dataUrl = await getImageAsDataUrl(imageMetadata.path);
+                    const base64 = dataUrl.split(',')[1];
+                    if (base64) {
+                       newSceneGroup[perspectiveKey] = { name: imageMetadata.name, mimeType: imageMetadata.mimeType, base64 };
+                    }
+                }
+                newSceneImages.set(locationKey, newSceneGroup);
+            }
+            setSceneImages(newSceneImages);
+        }
+        
+        const newGeneratedPanels: GeneratedPanel[] = [];
+        if (restoredState.generatedPanels) {
+            for (const panel of restoredState.generatedPanels) {
+                const imageUrl = await getImageAsDataUrl(panel.imageUrl);
+                newGeneratedPanels.push({ ...panel, imageUrl });
+            }
+            setGeneratedPanels(newGeneratedPanels);
+        }
+        
+        const totalPanelsInStory = restoredState.story?.panels?.length || 0;
+        if (newGeneratedPanels.length > 0) {
+            if (totalPanelsInStory > 0 && newGeneratedPanels.length >= totalPanelsInStory) {
+                setStep(AppStep.VIEW_COMIC);
+            } else {
+                setStep(AppStep.GENERATION_IN_PROGRESS);
+                const progress = totalPanelsInStory > 0 ? Math.round((newGeneratedPanels.length / totalPanelsInStory) * 100) : 0;
+                setProgress(progress);
+                setStatus('Progress restored. Ready to continue generation.');
+            }
+        } else if (newCharacterRoster.length > 0) {
+            setStep(AppStep.CHARACTER_GENERATION);
+            setCastStatus('Cast and scenes restored. Ready to assemble comic pages.');
+        } else if (restoredState.story) {
+             setStep(AppStep.CHARACTER_GENERATION);
+             setCastStatus('Story restored. Ready to generate characters.');
+        } else {
+            if (restoredState.characterProfile) {
+                throw new Error("Cannot restore from this early state. Please restore a more complete progress file.");
+            }
+            setStep(AppStep.CHARACTER_SETUP);
+        }
+    } catch (err) {
+        console.error("Failed to restore progress from zip:", err);
+        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
+        setError(`Failed to restore progress: ${errorMessage}`);
+        resetState();
+    } finally {
+        setIsLoading(false);
+    }
+  }, []);
 
   const renderStep = () => {
     switch (step) {
       case AppStep.CHARACTER_SETUP:
         return <CharacterSetup 
                   onCharacterAnalyzed={handleCharacterAnalyzed} 
-                  onStartFromDefault={handleStartFromDefault}
+                  onStartFromDefault={() => handleStartFromDefault()}
+                  onRestoreProgress={handleRestoreProgress}
                   isLoading={isLoading} 
                   setError={setError} 
                 />;
@@ -607,7 +626,7 @@ const App: React.FC = () => {
               progress={progress}
               status={status}
               error={error}
-              onRetry={handleRetryGeneration}
+              onRetry={handleRetryPanelGeneration}
               onDownload={handleDownloadProgress}
               panels={generatedPanels}
               title={story.title}
@@ -615,7 +634,7 @@ const App: React.FC = () => {
           </div>
         );
       case AppStep.VIEW_COMIC:
-        return story && <ComicViewer panels={generatedPanels} title={story.title} onRestart={resetState} />;
+        return story && <ComicViewer panels={generatedPanels} title={story.title} onRestart={resetState} onDownload={handleDownloadProgress} />;
       default:
         return null;
     }
@@ -633,8 +652,8 @@ const App: React.FC = () => {
           <div className="w-full max-w-4xl mx-auto bg-red-800/50 border border-red-600 text-red-200 p-4 rounded-lg mb-6 text-center absolute top-28 z-10">
               <p><strong>Error:</strong> {error}</p>
               <div className="flex justify-center gap-4 mt-2">
-                  <button onClick={handleRetryInitial} className="bg-yellow-500 text-gray-900 font-bold py-1 px-4 rounded text-sm hover:bg-yellow-400">Retry</button>
-                  <button onClick={handleDownloadProgress} className="bg-blue-500 text-white font-bold py-1 px-4 rounded text-sm hover:bg-blue-400">Download Progress</button>
+                  <button onClick={handleRetry} className="bg-yellow-500 text-gray-900 font-bold py-1 px-4 rounded text-sm hover:bg-yellow-400">Retry</button>
+                  <button onClick={() => handleDownloadProgress(true)} className="bg-blue-500 text-white font-bold py-1 px-4 rounded text-sm hover:bg-blue-400">Download Progress</button>
               </div>
               <button onClick={() => { setError(null); resetState(); }} className="mt-2 text-xs underline text-gray-400">Dismiss & Start Over</button>
           </div>

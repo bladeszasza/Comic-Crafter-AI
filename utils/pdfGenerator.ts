@@ -7,13 +7,14 @@ import { COVER_PAGE_NUMBER, CENTERFOLD_PAGE_NUMBER } from '../constants.js';
 declare const jspdf: any;
 
 // FIX: Use GeneratedPanel[] for the images parameter.
-export async function createComicPdf(images: GeneratedPanel[], title: string) {
+export async function createComicPdf(images: GeneratedPanel[], title: string, options: { output?: 'save' | 'blob' } = {}): Promise<Blob | null> {
   const { jsPDF } = jspdf;
   const doc = new jsPDF({
     orientation: 'p',
     unit: 'in',
     format: [6.625, 10.25] // Standard comic book size
   });
+  const outputType = options.output || 'save';
 
   const getPageSortValue = (pageNumber: string | number): number => {
     if (pageNumber === COVER_PAGE_NUMBER) return -1;
@@ -61,9 +62,14 @@ export async function createComicPdf(images: GeneratedPanel[], title: string) {
   doc.setFillColor(17, 24, 39); // bg-gray-900
   doc.rect(0, 0, 6.625, 10.25, 'F');
   doc.setTextColor(255, 255, 255);
-  doc.setFont('Bebas Neue', 'normal');
+  doc.setFont('helvetica', 'bold');
   doc.setFontSize(36);
   doc.text('Comic Crafter AI', doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() / 2, { align: 'center' });
 
-  doc.save(`${title.replace(/\s+/g, '_').toLowerCase()}_comic.pdf`);
+  if (outputType === 'blob') {
+    return doc.output('blob');
+  } else {
+    doc.save(`${title.replace(/\s+/g, '_').toLowerCase()}_comic.pdf`);
+    return null;
+  }
 }
