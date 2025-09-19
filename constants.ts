@@ -1,6 +1,7 @@
 
 
 
+
 export const TOTAL_PAGES = 6;
 export const COVER_PAGE_NUMBER = 0;
 export const CENTERFOLD_PAGE_NUMBER = "3-4";
@@ -34,6 +35,7 @@ For each character, provide:
 - A 'role' (e.g., "Protagonist", "Mentor", "Antagonist", "Sidekick").
 - A unique, catchy 'name'.
 - A detailed 'description' for image generation, focusing on their visual appearance, costume, and key features.
+- A 'consistency_tags' string of 3-5 key visual keywords for prompt injection (e.g., 'orange hoodie, black mask, skateboard').
 
 Return the output as a JSON object containing a 'characters' array.
 `;
@@ -48,34 +50,34 @@ Do NOT include any text, logos, or watermarks.
 `;
 
 export const STORY_DEVELOPMENT_PROMPT_TEMPLATE = `
-You are an expert story architect and narrative designer. Your task is to create a complete story blueprint for a 20-22 page comic book based on the provided cast of characters.
+You are an expert story architect and narrative designer with a flair for creating emotionally resonant, gritty, and profound narratives. Your task is to create a complete story blueprint for a 20-22 page comic book, drawing inspiration from the themes found in stories like "Logan," "The Wrestler," and biblical allegories. Focus on themes of sacrifice, the weight of a legacy, redemption for past failures, and the struggle of a world-weary protagonist facing one last fight.
 
 Characters: {allCharactersDescription}
 
 **CRITICAL BLUEPRINT REQUIREMENTS:**
 
 1.  **Title & Logline**:
-    -   Generate a catchy 'title'.
-    -   Write a one-sentence 'logline' that summarizes the core conflict.
+    -   Generate a catchy, evocative 'title'.
+    -   Write a one-sentence 'logline' that summarizes the core, personal conflict.
 
 2.  **Themes**:
-    -   Identify 1-2 central creative 'themes' the story will explore (e.g., "Betrayal and Redemption", "Power vs. Responsibility").
+    -   Identify 1-2 central 'themes' the story will explore. Prioritize themes from this list: [Sacrifice for a Greater Good, The Burden of Legacy, Atonement and Redemption, Finding Purpose in a Fading World, The Cost of Defiance].
 
 3.  **Character Arc**:
-    -   For one major character, define their 'character_arc'.
-    -   Specify their 'internal_conflict' that drives their actions.
-    -   Provide a brief 'arc_summary' of their gradual slow transformation from beginning to end.
+    -   For the protagonist, define their 'character_arc' as that of a reluctant, world-weary hero.
+    -   Specify their 'internal_conflict', which should stem from a past failure or a loss of faith in their own cause.
+    -   Provide a brief 'arc_summary' that details their journey from disillusionment to making a meaningful, potentially sacrificial, stand.
 
 4.  **Character Voices**:
     -   For each character, describe their 'character_voice'.
-    -   Detail their 'speech_patterns' (e.g., "quick and witty", "slow and deliberate").
-    -   Describe their 'vocabulary' (e.g., "uses complex jargon", "speaks in simple terms").
+    -   Detail their 'speech_patterns' (e.g., "sparse and weary", "bitter and cynical", "hopeful but naive").
+    -   Describe their 'vocabulary' (e.g., "uses simple, direct language", "prone to philosophical musings").
 
 5.  **Three-Act Outline**:
     -   Structure the story into a classic 'three_act_outline'.
-    -   **Act 1 (The Setup)**: Introduce characters and the inciting incident.
-    -   **Act 2 (The Confrontation)**: Escalate the conflict, raise the stakes, and include a major turning point (midpoint).
-    -   **Act 3 (The Resolution)**: Build to the climax and provide a satisfying or unexpected resolution.
+    -   **Act 1 (The Setup)**: Introduce the world-weary protagonist, their quiet, post-conflict life, and hint at a past tragedy or failure. The inciting incident should drag them back into a fight they no longer believe in.
+    -   **Act 2 (The Confrontation)**: Escalate the conflict, forcing the protagonist to confront their past. They suffer a significant setback or loss, pushing them to the brink of despair. The midpoint should be a moment of painful realization where they understand the true, personal cost of victory.
+    -   **Act 3 (The Resolution)**: Build to a raw, emotionally charged climax where the protagonist makes a significant sacrifice. The resolution should be bittersweet, not a simple victory. It should secure a future for others but at a great personal cost to the hero, cementing their legacy.
     -   For each act, define 'key_scenes' with a 'scene_title' and 'description' of what happens.
 
 The output must be a valid JSON object following the specified schema for the Story Development Package.
@@ -83,7 +85,7 @@ The output must be a valid JSON object following the specified schema for the St
 
 
 export const STORY_GENERATION_PROMPT = `
-You are a master comic book writer and artist specializing in visual storytelling, sophisticated dialogue, and dynamic layouts. Your task is to generate a complete, panel-by-panel 3-act comic book script based on the provided **Story Blueprint** and character descriptions.
+You are a master comic book writer in the vein of a modern epic storyteller, channeling the raw, emotional gravity of narratives like "Logan" and "The Wrestler." Your task is to generate a complete, panel-by-panel comic book script that feels grounded, visceral, and emotionally impactful, based on the provided **Story Blueprint**.
 
 **Story Blueprint (Your guide):**
 {storyDevelopmentPackage}
@@ -93,20 +95,20 @@ You are a master comic book writer and artist specializing in visual storytellin
 
 **CRITICAL SCRIPTING REQUIREMENTS:**
 
-1.  **Adherence to Blueprint**: You MUST follow the Three-Act Outline, Character Arcs, and Themes defined in the blueprint. The panels you describe must directly serve the pre-established narrative.
+1.  **Adherence to Blueprint**: You MUST follow the Three-Act Outline, Character Arcs, and Themes defined in the blueprint. The panels you describe must directly serve the pre-established narrative's tone of sacrifice and bittersweet victory.
 2.  **Visual Storytelling**:
     -   Translate the 'key_scenes' from the blueprint into specific visual actions and compositions.
-    -   Use silent panels and visual metaphors to convey emotion.
-    -   Show character relationships through body language and positioning.
+    -   Focus on a grounded, almost cinematic feel. Use close-ups on weary faces, panels that linger on the aftermath of action, and compositions that emphasize the protagonist's isolation or the weight of their burdens.
+    -   Use silent panels to build emotional tension and let poignant moments breathe.
 3.  **Dialogue and Voice**:
-    -   Write witty, meaningful, and character-driven dialogue that STRICTLY adheres to the 'Character Voice' guides for each character.
-    -   Conversations must reveal personality and advance the plot, using subtext and avoiding generic or nonsensical exposition dumps.
+    -   Write sparse, meaningful, and character-driven dialogue that STRICTLY adheres to the 'Character Voice' guides. Avoid witty banter.
+    -   Conversations should be heavy with subtext, revealing past pain and current struggles. Dialogue should feel realistic and earned, not expositional.
 4.  **Pacing and Layout**:
     -   The story must span approximately 20-22 pages.
-    -   Page 0: A dynamic 'Splash Page' for the opening, as described in the blueprint.
-    -   Pages 10-11: The story's climax should be a "cinematic double-page spread".
-    -   Final page: A satisfying conclusion, potentially with a sequel hook.
-    -   Vary shot types ('Splash Page', 'Wide Shot', 'Medium Shot', 'Close-Up', etc.) and angles ('High Angle', 'Low Angle', etc.) to create a dynamic reading experience.
+    -   Page 0: A somber, atmospheric 'Splash Page' that establishes the protagonist's world-weary state, not necessarily an action shot.
+    -   Pages 10-11: The story's climax should be a "cinematic double-page spread" that is emotionally devastating, focusing on the protagonist's sacrifice rather than just a spectacular fight.
+    -   Final page: A somber, reflective conclusion, showing the consequences of the climax and the bittersweet nature of the hero's legacy. It should leave the reader with a lasting emotional impression.
+    -   Vary shot types ('Splash Page', 'Wide Shot', 'Medium Shot', 'Close-Up', etc.) and angles ('High Angle', 'Low Angle', etc.) to create an emotionally resonant reading experience.
 5.  **Sophisticated Element Placement (VERY IMPORTANT)**:
     -   For all textual and auditory elements, you MUST provide precise placement data to create a professional layout.
     -   The panel is a coordinate system from (0,0) in the top-left to (100,100) in the bottom-right.
@@ -135,17 +137,20 @@ Do NOT render panel borders. The image should fill the entire frame.
     - Render the 'sfx_text' with the specified 'style'.
     - Use the 'position', 'rotation', and 'scale' data to place the SFX dynamically for maximum impact. The (0,0) coordinate is top-left, (100,100) is bottom-right.
 - Use a classic, legible comic book font like 'CC Wild Words' for dialogue and captions. For sound effects (SFX), use a bold, dynamic, and impactful font style that matches the sound's nature (e.g., jagged for 'CRASH', flowing for 'WHOOSH').
-- Refer to characters consistently by name when they are portrayed in the image and when they speak.
+- Refer to characters consistently by the names provided in the 'CHARACTER REFERENCES' section when they are portrayed in the image and when they speak.
 
 **MANDATORY DIRECTIVE: CHARACTER AND BACKGROUND CONSISTENCY - THIS IS THE MOST IMPORTANT RULE.**
-1.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** You have been provided with character reference images. These images are the **single source of truth** for character appearance and are NON-NEGOTIABLE.
-    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from these images with 100% accuracy.
+1.  **CHARACTER REFERENCES:** You have been provided with reference images for the following characters. You MUST treat their 'consistency_tags' and reference image as the absolute, non-negotiable truth for their appearance. Use their names as provided below.
+    {character_references}
+
+2.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** The provided reference images are the **single source of truth** for character appearance and are NON-NEGOTIABLE.
+    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from their reference images with 100% accuracy in every panel.
     -   **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, and physical features. Do NOT add, remove, or alter any element of a character's design from panel to panel. For example, if a character has a cape in the reference image, they MUST have a cape in this panel unless the prompt explicitly states it was removed. If they do NOT have a cape, DO NOT add one.
-    -   **Text Descriptions are Secondary:** The supplementary text descriptions for {character_descriptions} are for posing, positioning, and expression ONLY. They are NOT for altering a character's core appearance. The reference images ALWAYS take precedence.
+    -   **Text Descriptions are Secondary:** The supplementary text descriptions in the "Panel Visuals" JSON are for posing, positioning, and expression ONLY. They are NOT for altering a character's core appearance. The reference images and the visual descriptions above ALWAYS take precedence.
 
-2.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
+3.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
 
-3.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
+4.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
 
 **Panel Visuals (JSON):**
 {panel_visuals}
@@ -194,5 +199,5 @@ You are a master novelist. Your task is to transform a detailed comic book scrip
 6.  **Pacing**: Maintain the pacing intended by the script's three-act structure. Build tension, create impactful moments, and provide a satisfying resolution.
 7.  **Tone**: Preserve the overall tone and atmosphere described in the 'mood_and_lighting' sections.
 
-The final output should be a single block of text representing the complete story, ready to be read like a chapter in a book. Do not include any JSON or formatting instructions in your output.
+The final output should be a single block of text. Use standard paragraph breaks (a blank line between paragraphs) to separate distinct paragraphs and ideas for clear readability. The story should flow naturally, not like a list of events. Do not include any JSON or formatting instructions in your output.
 `;

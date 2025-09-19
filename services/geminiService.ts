@@ -1,8 +1,9 @@
 
 
 
+
 import { GoogleGenAI, Type, Modality, GenerateContentResponse } from "@google/genai";
-import type { CharacterProfile, StoryOutline, Panel, CharacterConcept, StoryDevelopmentPackage, CharacterImage, PanelSetting } from '../types.js';
+import type { CharacterProfile, StoryOutline, Panel, CharacterConcept, StoryDevelopmentPackage, CharacterImage, PanelSetting, GeneratedCharacter } from '../types.js';
 import {
   PANEL_IMAGE_PROMPT_TEMPLATE,
   STORY_GENERATION_PROMPT,
@@ -108,8 +109,9 @@ export async function generateCharacterConcepts(protagonistProfile: CharacterPro
                                 role: { type: Type.STRING },
                                 name: { type: Type.STRING },
                                 description: { type: Type.STRING },
+                                consistency_tags: { type: Type.STRING },
                             },
-                            required: ["role", "name", "description"]
+                            required: ["role", "name", "description", "consistency_tags"]
                         }
                     }
                 },
@@ -395,16 +397,24 @@ export async function generateStory(storyDevelopmentPackage: StoryDevelopmentPac
 
 export async function generatePanelImage(
     panel: Panel, 
-    characterDescriptions: string, 
+    allCharacters: GeneratedCharacter[],
     characterImages: CharacterImage[], 
     artStyle: string,
     sceneImage?: CharacterImage,
     isRetry: boolean = false
 ): Promise<string> {
+    const characterNamesInPanel = new Set(panel.visuals.characters?.map(c => c.name) || []);
+    const charactersInPanel = allCharacters.filter(c => characterNamesInPanel.has(c.name));
+    
+    const characterReferences = charactersInPanel
+        .map(c => `- ${c.name}: ${c.consistency_tags}`)
+        .join('\n');
+
     const characterList = panel.visuals.characters?.map(c => `${c.name}(1)`).join(', ');
+
     const prompt = PANEL_IMAGE_PROMPT_TEMPLATE
         .replace('{art_style}', artStyle)
-        .replace('{character_descriptions}', characterDescriptions)
+        .replace('{character_references}', characterReferences || 'No characters in this panel.')
         .replace('{character_list_for_semantic_negative}', characterList || 'No characters in this scene.')
         .replace('{panel_visuals}', JSON.stringify(panel.visuals, null, 2))
         .replace('{panel_textual}', JSON.stringify(panel.textual, null, 2))

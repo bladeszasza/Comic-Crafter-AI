@@ -1,6 +1,4 @@
 
-
-
 import React, { useState, useCallback, useEffect } from 'react';
 import type { StoryOutline, GeneratedPanel, GeneratedCharacter, CharacterProfile, Panel, StoryDevelopmentPackage, CharacterConcept, CharacterImage } from './types.js';
 import { AppStep } from './types.js';
@@ -44,6 +42,7 @@ const App: React.FC = () => {
   
   const [lastUploadedImage, setLastUploadedImage] = useState<string | null>(null);
   const [isDevMode, setIsDevMode] = useState(false);
+  const [isRestoredAndReady, setIsRestoredAndReady] = useState(false);
 
   const resetState = () => {
     setStep(AppStep.CHARACTER_SETUP);
@@ -61,6 +60,7 @@ const App: React.FC = () => {
     setSceneImages(new Map());
     setLastUploadedImage(null);
     setIsDevMode(false);
+    setIsRestoredAndReady(false);
   };
 
   const loadLocalImageAsBase64 = async (path: string): Promise<string | null> => {
@@ -126,7 +126,7 @@ const App: React.FC = () => {
         if (coverPanel && !existingPanelKeys.has(`${coverPanel.page_number}-${coverPanel.panel_number}`)) {
           setStatus('Generating the cover...');
           const protagonist = allCharacters.find(c => c.role === 'Protagonist') || allCharacters[0];
-          const characterDescriptions = `${protagonist.name} (${protagonist.role}): ${protagonist.description}`;
+          const characterDescriptions = protagonist.consistency_tags;
           
           const characterImageForCover: CharacterImage[] = Object.values(protagonist.imageUrls).flatMap(url => {
               if (!url || !url.includes(',')) return [];
@@ -164,7 +164,6 @@ const App: React.FC = () => {
             panel.visuals.characters?.forEach(char => characterNamesOnPanel.add(char.name));
             
             const charactersOnPanel = allCharacters.filter(char => characterNamesOnPanel.has(char.name));
-            const characterDescriptions = charactersOnPanel.map(c => `${c.name} (${c.role}): ${c.description}`).join('. ');
             
             const characterImagesOnPanel: CharacterImage[] = charactersOnPanel.flatMap(char => 
               Object.values(char.imageUrls).map(url => {
@@ -188,7 +187,7 @@ const App: React.FC = () => {
 
             const panelImageBase64 = await logExecutionTime(
                 `6b. Generate Panel Image (Page ${panel.page_number}, Panel ${panel.panel_number})`,
-                () => generatePanelImage(panel, characterDescriptions, characterImagesOnPanel, art_style, sceneImage, isRetry)
+                () => generatePanelImage(panel, allCharacters, characterImagesOnPanel, art_style, sceneImage, isRetry)
             );
             
             const newPanel: GeneratedPanel = { ...panel, imageUrl: `data:image/jpeg;base64,${panelImageBase64}` };
@@ -497,9 +496,8 @@ const App: React.FC = () => {
     try {
         const zip = await JSZip.loadAsync(file);
         const stateFile = zip.file("save_state.json");
-        if (!stateFile) {
-            throw new Error("save_state.json not found in the zip file.");
-        }
+        if (!stateFile) throw new Error("save_state.json not found in the zip file.");
+        
         const stateContent = await stateFile.async("string");
         const restoredState = JSON.parse(stateContent);
 
@@ -514,11 +512,13 @@ const App: React.FC = () => {
             return `data:${mimeType};base64,${base64}`;
         };
 
+        // Restore core data first
         if (restoredState.characterProfile) setCharacterProfile(restoredState.characterProfile);
         if (restoredState.storyDevelopmentPackage) setStoryDevelopmentPackage(restoredState.storyDevelopmentPackage);
         if (restoredState.story) setStory(restoredState.story);
-        if (restoredState.characterConcepts) setCharacterConcepts(restoredState.characterConcepts);
-        
+        if (restoredState.initialImageBase64) setLastUploadedImage(restoredState.initialImageBase64);
+
+        // Restore assets and perform robust checks
         const newCharacterRoster: GeneratedCharacter[] = [];
         if (restoredState.characterRoster) {
             for (const char of restoredState.characterRoster) {
@@ -531,6 +531,22 @@ const App: React.FC = () => {
             setCharacterRoster(newCharacterRoster);
         }
 
+        // Fallback for initial image if not in save file
+        if (!restoredState.initialImageBase64 && newCharacterRoster.length > 0) {
+            const protagonist = newCharacterRoster.find(c => c.role === 'Protagonist');
+            if (protagonist && protagonist.imageUrls.full) {
+                setLastUploadedImage(protagonist.imageUrls.full);
+            }
+        }
+        
+        // Robustly set character concepts
+        let conceptsToSet = restoredState.characterConcepts;
+        if ((!conceptsToSet || conceptsToSet.length === 0) && newCharacterRoster.length > 0) {
+            console.warn("Character concepts were missing, rebuilding from character roster.");
+            conceptsToSet = newCharacterRoster.map(({ imageUrls, ...concept }) => concept);
+        }
+        if (conceptsToSet) setCharacterConcepts(conceptsToSet);
+        
         const newSceneImages = new Map<string, Record<string, CharacterImage>>();
         if (restoredState.sceneImages) {
             for (const [locationKey, sceneGroup] of restoredState.sceneImages as [string, Record<string, Omit<CharacterImage, 'base64'> & { path: string }>][]) {
@@ -557,6 +573,8 @@ const App: React.FC = () => {
         }
         
         const totalPanelsInStory = restoredState.story?.panels?.length || 0;
+        let shouldResume = false;
+
         if (newGeneratedPanels.length > 0) {
             if (totalPanelsInStory > 0 && newGeneratedPanels.length >= totalPanelsInStory) {
                 setStep(AppStep.VIEW_COMIC);
@@ -565,18 +583,23 @@ const App: React.FC = () => {
                 const progress = totalPanelsInStory > 0 ? Math.round((newGeneratedPanels.length / totalPanelsInStory) * 100) : 0;
                 setProgress(progress);
                 setStatus('Progress restored. Ready to continue generation.');
+                shouldResume = true;
             }
         } else if (newCharacterRoster.length > 0) {
             setStep(AppStep.CHARACTER_GENERATION);
-            setCastStatus('Cast and scenes restored. Ready to assemble comic pages.');
+            setCastStatus('Cast and scenes restored. Resuming comic assembly...');
+            shouldResume = true;
         } else if (restoredState.story) {
              setStep(AppStep.CHARACTER_GENERATION);
-             setCastStatus('Story restored. Ready to generate characters.');
+             setCastStatus('Story restored. Resuming character generation...');
+             shouldResume = true;
         } else {
-            if (restoredState.characterProfile) {
-                throw new Error("Cannot restore from this early state. Please restore a more complete progress file.");
-            }
             setStep(AppStep.CHARACTER_SETUP);
+            // Don't auto-resume from the very start.
+        }
+
+        if (shouldResume) {
+            setIsRestoredAndReady(true);
         }
     } catch (err) {
         console.error("Failed to restore progress from zip:", err);
@@ -587,6 +610,19 @@ const App: React.FC = () => {
         setIsLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (isRestoredAndReady) {
+        setIsRestoredAndReady(false); // Reset trigger to prevent re-running
+        
+        if (step === AppStep.GENERATION_IN_PROGRESS || step === AppStep.CHARACTER_GENERATION) {
+            console.log('Restoration complete, resuming generation pipeline...');
+            // The main pipeline function is designed to be resumable and will pick up
+            // from the current state after the restore.
+            startFullGeneration(undefined, false);
+        }
+    }
+  }, [isRestoredAndReady, step, startFullGeneration]);
 
   const renderStep = () => {
     switch (step) {

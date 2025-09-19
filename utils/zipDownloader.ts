@@ -1,3 +1,4 @@
+
 import type { StoryOutline, GeneratedPanel, GeneratedCharacter, CharacterProfile, StoryDevelopmentPackage, CharacterConcept, CharacterImage } from '../types.js';
 import { createCreativeBookPdf } from './creativeBookGenerator.js';
 import { createComicPdf } from './pdfGenerator.js';
@@ -70,6 +71,7 @@ export async function zipAndDownloadProgress(
     });
 
     const fullState = {
+        initialImageBase64: data.initialImageBase64,
         characterProfile: data.characterProfile,
         storyDevelopmentPackage: data.storyDevelopmentPackage,
         story: data.story,

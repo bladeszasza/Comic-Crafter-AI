@@ -16,6 +16,7 @@ export interface GeneratedCharacter {
   role: string;
   name: string;
   description: string;
+  consistency_tags: string;
   imageUrls: Record<string, string>;
 }
 
@@ -24,6 +25,7 @@ export interface CharacterConcept {
   role:string;
   name: string;
   description: string;
+  consistency_tags: string;
 }
 
 export interface GeneratedPanel extends Panel {
