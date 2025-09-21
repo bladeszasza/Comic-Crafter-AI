@@ -407,7 +407,7 @@ export async function generatePanelImage(
     const charactersInPanel = allCharacters.filter(c => characterNamesInPanel.has(c.name));
     
     const characterReferences = charactersInPanel
-        .map(c => `- ${c.name}: ${c.consistency_tags}`)
+        .map(c => `- ${c.name} (${c.role}): ${c.consistency_tags}`)
         .join('\n');
 
     const characterList = panel.visuals.characters?.map(c => `${c.name}(1)`).join(', ');

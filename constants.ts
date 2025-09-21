@@ -95,21 +95,21 @@ You are a master comic book writer in the vein of a modern epic storyteller, cha
 
 **CRITICAL SCRIPTING REQUIREMENTS:**
 
-1.  **Adherence to Blueprint**: You MUST follow the Three-Act Outline, Character Arcs, and Themes defined in the blueprint. The panels you describe must directly serve the pre-established narrative's tone of sacrifice and bittersweet victory.
-2.  **Visual Storytelling**:
+1.  **Strict Role Adherence**: You MUST maintain clear character alignments. The Protagonist and their allies ALWAYS oppose the Antagonist and their minions. The Protagonist must never act submissively towards, take orders from, or assist the Antagonist. Every character's actions and dialogue must strictly reflect their established role. Reversals of allegiance are forbidden.
+2.  **Adherence to Blueprint**: You MUST follow the Three-Act Outline, Character Arcs, and Themes defined in the blueprint. The panels you describe must directly serve the pre-established narrative's tone of sacrifice and bittersweet victory.
+3.  **Visual Storytelling**:
     -   Translate the 'key_scenes' from the blueprint into specific visual actions and compositions.
     -   Focus on a grounded, almost cinematic feel. Use close-ups on weary faces, panels that linger on the aftermath of action, and compositions that emphasize the protagonist's isolation or the weight of their burdens.
     -   Use silent panels to build emotional tension and let poignant moments breathe.
-3.  **Dialogue and Voice**:
-    -   Write sparse, meaningful, and character-driven dialogue that STRICTLY adheres to the 'Character Voice' guides. Avoid witty banter.
-    -   Conversations should be heavy with subtext, revealing past pain and current struggles. Dialogue should feel realistic and earned, not expositional.
-4.  **Pacing and Layout**:
+4.  **Dialogue and Voice**:
+    -   Write character-driven dialogue that STRICTLY adheres to the 'Character Voice' guides. While avoiding out-of-character witty banter, ensure conversations feel natural and impactful by incorporating realistic speech patterns, emotional beats, subtext, and occasional pauses (ellipses). Dialogue should feel earned, not just be for exposition.
+5.  **Pacing and Layout**:
     -   The story must span approximately 20-22 pages.
     -   Page 0: A somber, atmospheric 'Splash Page' that establishes the protagonist's world-weary state, not necessarily an action shot.
     -   Pages 10-11: The story's climax should be a "cinematic double-page spread" that is emotionally devastating, focusing on the protagonist's sacrifice rather than just a spectacular fight.
     -   Final page: A somber, reflective conclusion, showing the consequences of the climax and the bittersweet nature of the hero's legacy. It should leave the reader with a lasting emotional impression.
     -   Vary shot types ('Splash Page', 'Wide Shot', 'Medium Shot', 'Close-Up', etc.) and angles ('High Angle', 'Low Angle', etc.) to create an emotionally resonant reading experience.
-5.  **Sophisticated Element Placement (VERY IMPORTANT)**:
+6.  **Sophisticated Element Placement (VERY IMPORTANT)**:
     -   For all textual and auditory elements, you MUST provide precise placement data to create a professional layout.
     -   The panel is a coordinate system from (0,0) in the top-left to (100,100) in the bottom-right.
     -   **Speech Bubbles ('dialogue')**: Must include a 'position' object with 'x' and 'y' percentages. Place the bubble near the character who is speaking, without obscuring their face or key action.
@@ -143,9 +143,9 @@ Do NOT render panel borders. The image should fill the entire frame.
 1.  **CHARACTER REFERENCES:** You have been provided with reference images for the following characters. You MUST treat their 'consistency_tags' and reference image as the absolute, non-negotiable truth for their appearance. Use their names as provided below.
     {character_references}
 
-2.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** The provided reference images are the **single source of truth** for character appearance and are NON-NEGOTIABLE.
-    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from their reference images with 100% accuracy in every panel.
-    -   **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, and physical features. Do NOT add, remove, or alter any element of a character's design from panel to panel. For example, if a character has a cape in the reference image, they MUST have a cape in this panel unless the prompt explicitly states it was removed. If they do NOT have a cape, DO NOT add one.
+2.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** The provided reference images are the **single source of truth** for character appearance and are NON-NEGOTIABLE. Treat these images as a base layer; you are to trace the character's established design, not reinterpret it.
+    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from their reference images with 100% accuracy in every panel. The final character in the panel must be visually identical to the reference provided.
+    -   **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, hairstyle, race, species, and physical features. Do NOT add, remove, or alter any element of a character's design from panel to panel. For example, if a character has a cybernetic arm in the reference image, they MUST have it in this panel. If they are human, they MUST remain human.
     -   **Text Descriptions are Secondary:** The supplementary text descriptions in the "Panel Visuals" JSON are for posing, positioning, and expression ONLY. They are NOT for altering a character's core appearance. The reference images and the visual descriptions above ALWAYS take precedence.
 
 3.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
