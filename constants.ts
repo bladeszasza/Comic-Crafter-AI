@@ -115,8 +115,29 @@ You are a master comic book writer in the vein of a modern epic storyteller, cha
     -   **Speech Bubbles ('dialogue')**: Must include a 'position' object with 'x' and 'y' percentages. Place the bubble near the character who is speaking, without obscuring their face or key action.
     -   **Sound Effects ('sound_effects')**: Must include a 'position' object. Also provide 'rotation' (e.g., -15 to 15 degrees) and 'scale' (e.g., 1.0 for normal, 1.5 for large) to add dynamism. Place SFX where the sound originates or for maximum impact.
     -   **Captions ('caption')**: Must include a 'coordinates' object with 'x' and 'y' percentages. Place captions in corners or edges where they don't disrupt the art.
+7.  **Reinforce Visuals for Consistency**: To aid the subsequent image generation process, occasionally and subtly weave a character's key, permanent visual traits into the panel's 'visuals.description' or 'characters.description' fields. For example: "His iconic red jacket catches the light," or "She adjusts her glasses, her cybernetic arm whirring softly." This helps reinforce visual consistency for the AI artist.
 
 The output must be a valid JSON object with 'title', 'prologue', and a 'panels' array following the provided schema. The 'title' and 'prologue' should be derived from the blueprint.
+`;
+
+export const DIALOGUE_POLISHING_PROMPT_TEMPLATE = `
+You are a master dialogue writer for comic books, specializing in natural, emotionally resonant, and in-character conversations. Your task is to polish and refine the dialogue for a single comic book panel.
+
+**SCENE CONTEXT:**
+{scene_description}
+
+**CHARACTER VOICE PROFILES (Your Guide):**
+{character_voices}
+
+**ORIGINAL DIALOGUE (JSON Array):**
+{original_dialogue}
+
+**INSTRUCTIONS:**
+1.  Rewrite the dialogue in the provided JSON array to make it sound more natural, impactful, and authentic.
+2.  STRICTLY adhere to the character voice profiles.
+3.  Preserve the original intent and plot points of the conversation. Do not change what is happening.
+4.  You can adjust pacing, add pauses (using "..."), and refine word choice to enhance emotional depth.
+5.  The output MUST be a valid JSON object containing a single key "polished_dialogue", which is an array following the exact same schema as the original dialogue. Do not include any other text or markdown formatting.
 `;
 
 export const PANEL_IMAGE_PROMPT_TEMPLATE = `
@@ -139,18 +160,29 @@ Do NOT render panel borders. The image should fill the entire frame.
 - Use a classic, legible comic book font like 'CC Wild Words' for dialogue and captions. For sound effects (SFX), use a bold, dynamic, and impactful font style that matches the sound's nature (e.g., jagged for 'CRASH', flowing for 'WHOOSH').
 - Refer to characters consistently by the names provided in the 'CHARACTER REFERENCES' section when they are portrayed in the image and when they speak.
 
-**MANDATORY DIRECTIVE: CHARACTER AND BACKGROUND CONSISTENCY - THIS IS THE MOST IMPORTANT RULE.**
-1.  **CHARACTER REFERENCES:** You have been provided with reference images for the following characters. You MUST treat their 'consistency_tags' and reference image as the absolute, non-negotiable truth for their appearance. Use their names as provided below.
+**ULTRA-CRITICAL DIRECTIVE: ABSOLUTE CHARACTER FIDELITY - NON-NEGOTIABLE**
+This is the most important instruction. Failure to comply will result in a failed generation.
+
+1.  **REFERENCE IMAGES ARE LAW:** You have been given reference images for the characters. These images are the ABSOLUTE, UNBREAKABLE source of truth for each character's appearance. You are not an artist reinterpreting a character; you are a technician perfectly replicating an established design.
     {character_references}
 
-2.  **ABSOLUTE VISUAL TRUTH (CHARACTERS):** The provided reference images are the **single source of truth** for character appearance and are NON-NEGOTIABLE. Treat these images as a base layer; you are to trace the character's established design, not reinterpret it.
-    -   **Replicate Appearance 100%:** You MUST replicate the characters' appearance from their reference images with 100% accuracy in every panel. The final character in the panel must be visually identical to the reference provided.
-    -   **NO DEVIATION:** This includes ALL visual details: costume, cape, clothing, armor, accessories, colors, markings, hairstyle, race, species, and physical features. Do NOT add, remove, or alter any element of a character's design from panel to panel. For example, if a character has a cybernetic arm in the reference image, they MUST have it in this panel. If they are human, they MUST remain human.
-    -   **Text Descriptions are Secondary:** The supplementary text descriptions in the "Panel Visuals" JSON are for posing, positioning, and expression ONLY. They are NOT for altering a character's core appearance. The reference images and the visual descriptions above ALWAYS take precedence.
+2.  **100% VISUAL REPLICATION REQUIRED:**
+    -   You MUST replicate every character's appearance from their reference images with ZERO deviation. The character in your generated panel must look IDENTICAL to the reference images.
+    -   This applies to ALL visual attributes without exception: costume, clothing, colors, hairstyle, hair color, species, race, physical features, accessories, markings, etc.
+    -   If a character has a scar in the reference, they MUST have a scar in this panel. If their jacket is green, it MUST be green. If they are a humanoid cat, they MUST remain a humanoid cat.
 
-3.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
+3.  **FORBIDDEN ALTERATIONS:** Under NO circumstances should you:
+    -   Change a character's costume or clothing.
+    -   Change a character's hair color, style, or length.
+    -   Change a character's species or race.
+    -   Add or remove key accessories (e.g., glasses, armor, jewelry).
+    -   Alter the color palette of a character's design.
 
-4.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
+4.  **JSON IS FOR STAGING ONLY:** The character descriptions in the JSON are ONLY for pose, position, and expression. They DO NOT override the visual truth established by the reference images. The reference images ALWAYS win any conflict.
+
+5.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
+
+6.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
 
 **Panel Visuals (JSON):**
 {panel_visuals}
@@ -160,6 +192,26 @@ Do NOT render panel borders. The image should fill the entire frame.
 
 **Panel Auditory (JSON):**
 {panel_auditory}
+`;
+
+export const CHARACTER_CONSISTENCY_CHECK_PROMPT_TEMPLATE = `
+You are an AI assistant for quality control in comic book creation. Your task is to verify if a character in a generated panel image matches their established visual profile.
+
+**CHARACTER PROFILE (Source of Truth):**
+- Name: {character_name}
+- Key Visuals (consistency_tags): {consistency_tags}
+
+**INSTRUCTIONS:**
+1.  Carefully examine the provided image, focusing ONLY on the character named "{character_name}".
+2.  Compare this character's appearance against the "Key Visuals" described above.
+3.  Determine if the character in the image is a 100% match to the description. Pay close attention to clothing, colors, hairstyle, species, and any distinctive features mentioned.
+4.  Respond ONLY with a valid JSON object. Do not include any other text or markdown formatting.
+
+**JSON Response Schema:**
+{
+  "match": boolean, // true if the character is a perfect visual match, false otherwise.
+  "reason": string // If false, provide a concise, one-sentence explanation of the specific mismatch (e.g., "The character's jacket is blue instead of green," or "The character is missing their distinctive facial scar."). If true, this should be an empty string.
+}
 `;
 
 export const COVER_PAGE_PROMPT_TEMPLATE = `

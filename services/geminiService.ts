@@ -2,6 +2,8 @@
 
 
 
+
+
 import { GoogleGenAI, Type, Modality, GenerateContentResponse } from "@google/genai";
 import type { CharacterProfile, StoryOutline, Panel, CharacterConcept, StoryDevelopmentPackage, CharacterImage, PanelSetting, GeneratedCharacter } from '../types.js';
 import {
@@ -13,6 +15,8 @@ import {
   COVER_PAGE_PROMPT_TEMPLATE,
   SCENE_IMAGE_PROMPT_TEMPLATE,
   FULL_STORY_TEXT_GENERATION_PROMPT_TEMPLATE,
+  CHARACTER_CONSISTENCY_CHECK_PROMPT_TEMPLATE,
+  DIALOGUE_POLISHING_PROMPT_TEMPLATE,
 } from '../constants.js';
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
@@ -395,13 +399,107 @@ export async function generateStory(storyDevelopmentPackage: StoryDevelopmentPac
   return parseJsonResponse<StoryOutline>(response, 'generateStory');
 }
 
+export async function polishPanelDialogue(panel: Panel, storyPackage: StoryDevelopmentPackage): Promise<Panel> {
+  if (!panel.textual?.dialogue || panel.textual.dialogue.length === 0) {
+    return panel;
+  }
+
+  // Use the panel's action description as the most immediate context.
+  const sceneDescription = panel.visuals.action.description;
+
+  // Filter character voices for characters present in the dialogue
+  const charactersInDialogue = new Set(panel.textual.dialogue.map(d => d.character));
+  const relevantVoices = storyPackage.character_voices.filter(v => charactersInDialogue.has(v.character_name));
+
+  const prompt = DIALOGUE_POLISHING_PROMPT_TEMPLATE
+    .replace('{scene_description}', sceneDescription)
+    .replace('{character_voices}', JSON.stringify(relevantVoices, null, 2))
+    .replace('{original_dialogue}', JSON.stringify(panel.textual.dialogue, null, 2));
+
+  const dialogueSchema = {
+    type: Type.OBJECT,
+    properties: {
+      character: { type: Type.STRING },
+      content: { type: Type.STRING },
+      type: { type: Type.STRING },
+      position: { type: Type.OBJECT, properties: { x: { type: Type.NUMBER }, y: { type: Type.NUMBER } } }
+    },
+    required: ["character", "content", "type"]
+  };
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      temperature: 0.7, // More creative for dialogue
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          polished_dialogue: {
+            type: Type.ARRAY,
+            items: dialogueSchema
+          }
+        },
+        required: ["polished_dialogue"]
+      }
+    }
+  });
+
+  try {
+    const result = parseJsonResponse<{ polished_dialogue: Panel['textual']['dialogue'] }>(response, 'polishPanelDialogue');
+    const polishedPanel = {
+      ...panel,
+      textual: {
+        ...panel.textual,
+        dialogue: result.polished_dialogue,
+      },
+    };
+    return polishedPanel;
+  } catch (e) {
+    console.warn(`Dialogue polishing failed for panel ${panel.page_number}-${panel.panel_number}. Reverting to original dialogue.`, e);
+    return panel; // Return original panel on failure
+  }
+}
+
+
+export async function verifyCharacterConsistency(
+  panelImageBase64: string,
+  character: GeneratedCharacter
+): Promise<{ match: boolean; reason: string }> {
+  const imagePart = base64ToGenerativePart(panelImageBase64, 'image/jpeg');
+
+  const prompt = CHARACTER_CONSISTENCY_CHECK_PROMPT_TEMPLATE
+    .replace(/{character_name}/g, character.name)
+    .replace('{consistency_tags}', character.consistency_tags);
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: { parts: [imagePart, { text: prompt }] },
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          match: { type: Type.BOOLEAN },
+          reason: { type: Type.STRING },
+        },
+        required: ["match", "reason"]
+      }
+    }
+  });
+  
+  return parseJsonResponse<{ match: boolean; reason: string }>(response, 'verifyCharacterConsistency');
+}
+
 export async function generatePanelImage(
     panel: Panel, 
     allCharacters: GeneratedCharacter[],
     characterImages: CharacterImage[], 
     artStyle: string,
     sceneImage?: CharacterImage,
-    isRetry: boolean = false
+    isRetry: boolean = false,
+    correctionReason?: string
 ): Promise<string> {
     const characterNamesInPanel = new Set(panel.visuals.characters?.map(c => c.name) || []);
     const charactersInPanel = allCharacters.filter(c => characterNamesInPanel.has(c.name));
@@ -412,13 +510,24 @@ export async function generatePanelImage(
 
     const characterList = panel.visuals.characters?.map(c => `${c.name}(1)`).join(', ');
 
-    const prompt = PANEL_IMAGE_PROMPT_TEMPLATE
+    let prompt = PANEL_IMAGE_PROMPT_TEMPLATE
         .replace('{art_style}', artStyle)
         .replace('{character_references}', characterReferences || 'No characters in this panel.')
         .replace('{character_list_for_semantic_negative}', characterList || 'No characters in this scene.')
         .replace('{panel_visuals}', JSON.stringify(panel.visuals, null, 2))
         .replace('{panel_textual}', JSON.stringify(panel.textual, null, 2))
         .replace('{panel_auditory}', JSON.stringify(panel.auditory, null, 2));
+
+    if (correctionReason) {
+        const correctionPrefix = `
+        !! IMMEDIATE CORRECTION REQUIRED !!
+        The previous generation failed a consistency check. REASON: "${correctionReason}"
+        You MUST correct this error. Pay EXTREME attention to the reference images and consistency tags to fix this mistake. The original design is NON-NEGOTIABLE.
+        ---
+        Original Prompt Follows:
+        `;
+        prompt = correctionPrefix + prompt;
+    }
 
     const description = panel.layout.description.toLowerCase();
     const shotType = panel.visuals.composition.shot_type.toLowerCase();

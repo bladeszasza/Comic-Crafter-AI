@@ -1,4 +1,7 @@
 
+
+
+
 import React, { useState, useCallback, useEffect } from 'react';
 import type { StoryOutline, GeneratedPanel, GeneratedCharacter, CharacterProfile, Panel, StoryDevelopmentPackage, CharacterConcept, CharacterImage } from './types.js';
 import { AppStep } from './types.js';
@@ -7,7 +10,7 @@ import CharacterGenerator from './components/CharacterGenerator.js';
 import GenerationProgress from './components/GenerationProgress.js';
 import ComicViewer from './components/ComicViewer.js';
 import StoryViewer from './components/StoryViewer.js';
-import { analyzeCharacter, generateStory, generatePanelImage, generateCharacterConcepts, developStory, generateCharacterImage, generateCoverImage, generateSceneImage, generateFullStoryText } from './services/geminiService.js';
+import { analyzeCharacter, generateStory, generatePanelImage, generateCharacterConcepts, developStory, generateCharacterImage, generateCoverImage, generateSceneImage, generateFullStoryText, verifyCharacterConsistency, polishPanelDialogue } from './services/geminiService.js';
 import { COVER_PAGE_NUMBER, CENTERFOLD_PAGE_NUMBER } from './constants.js';
 import { logExecutionTime } from './utils/logger.js';
 import { zipAndDownloadProgress } from './utils/zipDownloader.js';
@@ -158,11 +161,8 @@ const App: React.FC = () => {
         const regularPanelsToGenerate = panelsToGenerate.filter(p => p.page_number !== COVER_PAGE_NUMBER);
 
         for (const panel of regularPanelsToGenerate) {
-            setStatus(`Generating Page ${panel.page_number}, Panel ${panel.panel_number}...`);
-
             const characterNamesOnPanel = new Set<string>();
             panel.visuals.characters?.forEach(char => characterNamesOnPanel.add(char.name));
-            
             const charactersOnPanel = allCharacters.filter(char => characterNamesOnPanel.has(char.name));
             
             const characterImagesOnPanel: CharacterImage[] = charactersOnPanel.flatMap(char => 
@@ -180,16 +180,76 @@ const App: React.FC = () => {
             let sceneImage: CharacterImage | undefined;
 
             if (locationScenes) {
-                // Always use the single generated wide establishing shot for the location.
-                // The panel-specific angle/shot is passed in the prompt to guide character placement.
                 sceneImage = Object.values(locationScenes)[0];
             }
-
-            const panelImageBase64 = await logExecutionTime(
-                `6b. Generate Panel Image (Page ${panel.page_number}, Panel ${panel.panel_number})`,
-                () => generatePanelImage(panel, allCharacters, characterImagesOnPanel, art_style, sceneImage, isRetry)
-            );
             
+            // --- Consistency Check & Retry Loop ---
+            const MAX_CONSISTENCY_ATTEMPTS = 2;
+            let panelImageBase64 = '';
+            let success = false;
+            let lastCorrectionReason = '';
+
+            for (let attempt = 1; attempt <= MAX_CONSISTENCY_ATTEMPTS; attempt++) {
+                try {
+                    setStatus(`Generating Page ${panel.page_number}, Panel ${panel.panel_number} (Attempt ${attempt})...`);
+                    
+                    const generatedBase64 = await logExecutionTime(
+                        `6b. Generate Panel Image (Page ${panel.page_number}, Panel ${panel.panel_number}, Attempt ${attempt})`,
+                        () => generatePanelImage(
+                            panel, 
+                            allCharacters, 
+                            characterImagesOnPanel, 
+                            art_style, 
+                            sceneImage, 
+                            isRetry, 
+                            lastCorrectionReason || undefined
+                        )
+                    );
+
+                    // Verification only needed if characters are present
+                    if (charactersOnPanel.length > 0) {
+                        setStatus(`Verifying consistency for Page ${panel.page_number}, Panel ${panel.panel_number}...`);
+                        let allCharactersConsistent = true;
+                        
+                        for (const char of charactersOnPanel) {
+                            const verificationResult = await logExecutionTime(
+                                `6c. Verify Consistency: ${char.name}`,
+                                () => verifyCharacterConsistency(generatedBase64, char)
+                            );
+
+                            if (!verificationResult.match) {
+                                console.warn(`Consistency check FAILED for ${char.name} on attempt ${attempt}. Reason: ${verificationResult.reason}`);
+                                lastCorrectionReason = `For character ${char.name}: ${verificationResult.reason}`;
+                                allCharactersConsistent = false;
+                                break; // Fail this attempt
+                            }
+                        }
+
+                        if (allCharactersConsistent) {
+                            panelImageBase64 = generatedBase64;
+                            success = true;
+                            break; // Exit retry loop on success
+                        }
+                    } else {
+                        // No characters, no verification needed
+                        panelImageBase64 = generatedBase64;
+                        success = true;
+                        break;
+                    }
+
+                } catch (err) {
+                    console.error(`Attempt ${attempt} failed for panel ${panel.page_number}-${panel.panel_number}`, err);
+                    lastCorrectionReason = err instanceof Error ? err.message : 'An unknown error occurred.';
+                    if (attempt === MAX_CONSISTENCY_ATTEMPTS) {
+                        throw err; // If it's the last attempt, re-throw the error
+                    }
+                }
+            }
+            
+            if (!success) {
+                throw new Error(`Failed to generate a consistent image for panel ${panel.page_number}-${panel.panel_number} after ${MAX_CONSISTENCY_ATTEMPTS} attempts. Last reason: ${lastCorrectionReason}`);
+            }
+
             const newPanel: GeneratedPanel = { ...panel, imageUrl: `data:image/jpeg;base64,${panelImageBase64}` };
             setGeneratedPanels(prev => [...prev, newPanel]);
             updateProgress();
@@ -261,10 +321,21 @@ const App: React.FC = () => {
         if (!currentStory) {
             setCastStatus('Generating detailed comic script...');
             const allCharactersDescription = currentConcepts.map(c => `${c.name} (${c.role}): ${c.description}`).join('. ');
-            const storyOutline = await logExecutionTime(
+            let storyOutline = await logExecutionTime(
                 '4. Generate Detailed Comic Script',
                 () => generateStory(currentDevPackage, allCharactersDescription)
             );
+
+            // --- DIALOGUE POLISHING STEP ---
+            setCastStatus('Polishing script dialogue...');
+            const polishedPanels = await logExecutionTime('4a. Polish Panel Dialogue', async () => {
+                const polishingPromises = storyOutline.panels.map(panel => 
+                    polishPanelDialogue(panel, currentDevPackage!)
+                );
+                return Promise.all(polishingPromises);
+            });
+            storyOutline = { ...storyOutline, panels: polishedPanels };
+            // --- END DIALOGUE POLISHING ---
 
             setCastStatus('Transcribing comic script into story format...');
             const storyText = await logExecutionTime(
@@ -290,7 +361,8 @@ const App: React.FC = () => {
         const characterShots: Record<string, string> = {
             'full': 'Full-body, dynamic, neutral standing pose.',
             'closeup_happy': 'Close-up portrait from the chest up, happy expression.',
-            'action': 'Medium shot, in a dynamic action pose.'
+            'action': 'Medium shot, in a dynamic action pose.',
+            'profile': 'Profile view, side-on, neutral expression.'
         };
         
         let currentRoster = [...characterRoster];
