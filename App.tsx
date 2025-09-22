@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useState, useCallback, useEffect } from 'react';
 import type { StoryOutline, GeneratedPanel, GeneratedCharacter, CharacterProfile, Panel, StoryDevelopmentPackage, CharacterConcept, CharacterImage } from './types.js';
 import { AppStep } from './types.js';
@@ -26,6 +23,12 @@ const slugify = (text: string) =>
     .replace(/^-+|-+$/g, '')
     .substring(0, 75); // Truncate for safety
 
+interface ConsistencyInterventionState {
+  panel: Panel;
+  characterInQuestion: GeneratedCharacter;
+  generatedImageBase64: string;
+  reason: string;
+}
 
 const App: React.FC = () => {
   const [step, setStep] = useState<AppStep>(AppStep.CHARACTER_SETUP);
@@ -47,6 +50,10 @@ const App: React.FC = () => {
   const [isDevMode, setIsDevMode] = useState(false);
   const [isRestoredAndReady, setIsRestoredAndReady] = useState(false);
 
+  // State for consistency check user intervention
+  const [interventionState, setInterventionState] = useState<ConsistencyInterventionState | null>(null);
+  const [interventionResolver, setInterventionResolver] = useState<{ resolve: (choice: 'accept' | 'retry') => void } | null>(null);
+
   const resetState = () => {
     setStep(AppStep.CHARACTER_SETUP);
     setIsLoading(false);
@@ -64,6 +71,8 @@ const App: React.FC = () => {
     setLastUploadedImage(null);
     setIsDevMode(false);
     setIsRestoredAndReady(false);
+    setInterventionState(null);
+    setInterventionResolver(null);
   };
 
   const loadLocalImageAsBase64 = async (path: string): Promise<string | null> => {
@@ -183,17 +192,17 @@ const App: React.FC = () => {
                 sceneImage = Object.values(locationScenes)[0];
             }
             
-            // --- Consistency Check & Retry Loop ---
-            const MAX_CONSISTENCY_ATTEMPTS = 2;
+            const MAX_ATTEMPTS = 3; // 2 auto-retries, 1 manual
             let panelImageBase64 = '';
             let success = false;
             let lastCorrectionReason = '';
 
-            for (let attempt = 1; attempt <= MAX_CONSISTENCY_ATTEMPTS; attempt++) {
+            for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+                let generatedBase64 = '';
                 try {
                     setStatus(`Generating Page ${panel.page_number}, Panel ${panel.panel_number} (Attempt ${attempt})...`);
                     
-                    const generatedBase64 = await logExecutionTime(
+                    generatedBase64 = await logExecutionTime(
                         `6b. Generate Panel Image (Page ${panel.page_number}, Panel ${panel.panel_number}, Attempt ${attempt})`,
                         () => generatePanelImage(
                             panel, 
@@ -205,49 +214,67 @@ const App: React.FC = () => {
                             lastCorrectionReason || undefined
                         )
                     );
+                } catch (err) {
+                    console.error(`Generation failed on attempt ${attempt} for panel ${panel.page_number}-${panel.panel_number}`, err);
+                    if (attempt === MAX_ATTEMPTS) throw err; // Final attempt failed, re-throw.
+                    continue; // Try next attempt
+                }
 
-                    // Verification only needed if characters are present
-                    if (charactersOnPanel.length > 0) {
-                        setStatus(`Verifying consistency for Page ${panel.page_number}, Panel ${panel.panel_number}...`);
-                        let allCharactersConsistent = true;
-                        
-                        for (const char of charactersOnPanel) {
-                            const verificationResult = await logExecutionTime(
-                                `6c. Verify Consistency: ${char.name}`,
-                                () => verifyCharacterConsistency(generatedBase64, char)
-                            );
+                if (charactersOnPanel.length > 0) {
+                    setStatus(`Verifying consistency for Page ${panel.page_number}, Panel ${panel.panel_number}...`);
+                    let allCharactersConsistent = true;
+                    
+                    for (const char of charactersOnPanel) {
+                        const verificationResult = await logExecutionTime(
+                            `6c. Verify Consistency: ${char.name}`,
+                            () => verifyCharacterConsistency(generatedBase64, char)
+                        );
 
-                            if (!verificationResult.match) {
-                                console.warn(`Consistency check FAILED for ${char.name} on attempt ${attempt}. Reason: ${verificationResult.reason}`);
-                                lastCorrectionReason = `For character ${char.name}: ${verificationResult.reason}`;
-                                allCharactersConsistent = false;
-                                break; // Fail this attempt
+                        if (!verificationResult.match) {
+                            console.warn(`Consistency check FAILED for ${char.name} on attempt ${attempt}. Reason: ${verificationResult.reason}`);
+                            lastCorrectionReason = `For character ${char.name}: ${verificationResult.reason}`;
+                            allCharactersConsistent = false;
+
+                            if (attempt === MAX_ATTEMPTS - 1) { // On the second-to-last attempt, ask user
+                                setStatus(`Consistency check failed for ${char.name}. Please review.`);
+                                const userChoice = await new Promise<'accept' | 'retry'>((resolve) => {
+                                    setInterventionState({
+                                        panel,
+                                        characterInQuestion: char,
+                                        generatedImageBase64: generatedBase64,
+                                        reason: verificationResult.reason,
+                                    });
+                                    setInterventionResolver({ resolve });
+                                });
+                                setInterventionState(null);
+                                setInterventionResolver(null);
+
+                                if (userChoice === 'accept') {
+                                    console.log(`User accepted inconsistent image for panel ${panel.page_number}-${panel.panel_number}.`);
+                                    panelImageBase64 = generatedBase64;
+                                    success = true; // Override success
+                                }
+                                // If user chose 'retry', we let the loop continue to the final attempt
                             }
+                            break; // Exit character verification loop
                         }
+                    }
 
-                        if (allCharactersConsistent) {
-                            panelImageBase64 = generatedBase64;
-                            success = true;
-                            break; // Exit retry loop on success
-                        }
-                    } else {
-                        // No characters, no verification needed
+                    if (success) break; // User accepted, exit attempt loop
+                    if (allCharactersConsistent) {
                         panelImageBase64 = generatedBase64;
                         success = true;
-                        break;
+                        break; // All good, exit attempt loop
                     }
-
-                } catch (err) {
-                    console.error(`Attempt ${attempt} failed for panel ${panel.page_number}-${panel.panel_number}`, err);
-                    lastCorrectionReason = err instanceof Error ? err.message : 'An unknown error occurred.';
-                    if (attempt === MAX_CONSISTENCY_ATTEMPTS) {
-                        throw err; // If it's the last attempt, re-throw the error
-                    }
+                } else {
+                    panelImageBase64 = generatedBase64;
+                    success = true;
+                    break;
                 }
             }
             
             if (!success) {
-                throw new Error(`Failed to generate a consistent image for panel ${panel.page_number}-${panel.panel_number} after ${MAX_CONSISTENCY_ATTEMPTS} attempts. Last reason: ${lastCorrectionReason}`);
+                throw new Error(`Failed to generate a consistent image for panel ${panel.page_number}-${panel.panel_number} after ${MAX_ATTEMPTS} attempts. Last reason: ${lastCorrectionReason}`);
             }
 
             const newPanel: GeneratedPanel = { ...panel, imageUrl: `data:image/jpeg;base64,${panelImageBase64}` };
@@ -270,6 +297,19 @@ const App: React.FC = () => {
         setError(`Generation Failed: ${errorMessage}`);
       }
   }, [generatedPanels]);
+
+  // Handlers for user intervention
+  const handleAcceptInconsistentImage = useCallback(() => {
+    if (interventionResolver) {
+        interventionResolver.resolve('accept');
+    }
+  }, [interventionResolver]);
+
+  const handleRejectInconsistentImage = useCallback(() => {
+    if (interventionResolver) {
+        interventionResolver.resolve('retry');
+    }
+  }, [interventionResolver]);
 
 
   const startFullGeneration = useCallback(async (initialImageBase64?: string, isRetry: boolean = false) => {
@@ -738,6 +778,9 @@ const App: React.FC = () => {
               onDownload={handleDownloadProgress}
               panels={generatedPanels}
               title={story.title}
+              interventionState={interventionState}
+              onAcceptInconsistent={handleAcceptInconsistentImage}
+              onRejectInconsistent={handleRejectInconsistentImage}
             />
           </div>
         );

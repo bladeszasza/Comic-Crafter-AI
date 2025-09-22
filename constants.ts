@@ -37,7 +37,7 @@ For each character, provide:
 - A detailed 'description' for image generation, focusing on their visual appearance, costume, and key features.
 - A 'consistency_tags' string of 3-5 key visual keywords for prompt injection (e.g., 'orange hoodie, black mask, skateboard').
 
-Return the output as a JSON object containing a 'characters' array.
+Return the output as a YAML object containing a 'characters' array. Each item in the array must be an object with 'role', 'name', 'description', and a 'consistency_tags' string.
 `;
 
 export const CHARACTER_IMAGE_PROMPT_TEMPLATE = `
@@ -80,14 +80,14 @@ Characters: {allCharactersDescription}
     -   **Act 3 (The Resolution)**: Build to a raw, emotionally charged climax where the protagonist makes a significant sacrifice. The resolution should be bittersweet, not a simple victory. It should secure a future for others but at a great personal cost to the hero, cementing their legacy.
     -   For each act, define 'key_scenes' with a 'scene_title' and 'description' of what happens.
 
-The output must be a valid JSON object following the specified schema for the Story Development Package.
+The output must be a valid YAML object representing the Story Development Package. The root object must contain the following keys: 'title' (string), 'logline' (string), 'themes' (array of strings), 'character_arcs' (array of objects, each with 'character_name', 'internal_conflict', 'arc_summary'), 'character_voices' (array of objects, each with 'character_name', 'speech_patterns', 'vocabulary'), and 'three_act_outline' (array of Act objects, each with 'act_number', 'act_title', 'summary', and 'key_scenes' which is an array of scene objects with 'scene_title', 'description', and 'page_estimation').
 `;
 
 
 export const STORY_GENERATION_PROMPT = `
 You are a master comic book writer in the vein of a modern epic storyteller, channeling the raw, emotional gravity of narratives like "Logan" and "The Wrestler." Your task is to generate a complete, panel-by-panel comic book script that feels grounded, visceral, and emotionally impactful, based on the provided **Story Blueprint**.
 
-**Story Blueprint (Your guide):**
+**Story Blueprint (YAML - Your guide):**
 {storyDevelopmentPackage}
 
 **Characters:**
@@ -117,7 +117,7 @@ You are a master comic book writer in the vein of a modern epic storyteller, cha
     -   **Captions ('caption')**: Must include a 'coordinates' object with 'x' and 'y' percentages. Place captions in corners or edges where they don't disrupt the art.
 7.  **Reinforce Visuals for Consistency**: To aid the subsequent image generation process, occasionally and subtly weave a character's key, permanent visual traits into the panel's 'visuals.description' or 'characters.description' fields. For example: "His iconic red jacket catches the light," or "She adjusts her glasses, her cybernetic arm whirring softly." This helps reinforce visual consistency for the AI artist.
 
-The output must be a valid JSON object with 'title', 'prologue', and a 'panels' array following the provided schema. The 'title' and 'prologue' should be derived from the blueprint.
+The output must be a valid YAML object with 'title', 'prologue', and a 'panels' array. Each panel object in the array must strictly adhere to the defined structure, including nested objects for 'visuals', 'textual', 'auditory', and 'layout'. The 'title' and 'prologue' should be derived from the blueprint.
 `;
 
 export const DIALOGUE_POLISHING_PROMPT_TEMPLATE = `
@@ -126,22 +126,22 @@ You are a master dialogue writer for comic books, specializing in natural, emoti
 **SCENE CONTEXT:**
 {scene_description}
 
-**CHARACTER VOICE PROFILES (Your Guide):**
+**CHARACTER VOICE PROFILES (YAML - Your Guide):**
 {character_voices}
 
-**ORIGINAL DIALOGUE (JSON Array):**
+**ORIGINAL DIALOGUE (YAML Array):**
 {original_dialogue}
 
 **INSTRUCTIONS:**
-1.  Rewrite the dialogue in the provided JSON array to make it sound more natural, impactful, and authentic.
+1.  Rewrite the dialogue in the provided YAML array to make it sound more natural, impactful, and authentic.
 2.  STRICTLY adhere to the character voice profiles.
 3.  Preserve the original intent and plot points of the conversation. Do not change what is happening.
 4.  You can adjust pacing, add pauses (using "..."), and refine word choice to enhance emotional depth.
-5.  The output MUST be a valid JSON object containing a single key "polished_dialogue", which is an array following the exact same schema as the original dialogue. Do not include any other text or markdown formatting.
+5.  The output MUST be a valid YAML object containing a single key "polished_dialogue", which is an array following the exact same schema as the original dialogue. Do not include any other text or markdown formatting.
 `;
 
 export const PANEL_IMAGE_PROMPT_TEMPLATE = `
-Generate the artwork for a single comic book panel in the {art_style} aesthetic, based on the following JSON description, a background scene image, and character reference images.
+Generate the artwork for a single comic book panel in the {art_style} aesthetic, based on the following YAML description, a background scene image, and character reference images.
 Do NOT render panel borders. The image should fill the entire frame.
 
 **Core Style:**
@@ -150,7 +150,7 @@ Do NOT render panel borders. The image should fill the entire frame.
 - Composition: Use the specified camera angles, shot types, and focus to create a cinematic and dynamic scene.
 
 **Critical Mandate: Render All Textual and Auditory Elements**
-- You MUST render the dialogue, captions, AND sound effects provided in the JSON sections below directly into the artwork.
+- You MUST render the dialogue, captions, AND sound effects provided in the YAML sections below directly into the artwork.
 - **Dialogue & Captions**:
     - Place speech bubbles appropriately near the character who is speaking. The bubble's tail should point towards the speaker's mouth.
     - Place captions in visually appropriate locations, such as corners, to frame the scene.
@@ -178,19 +178,19 @@ This is the most important instruction. Failure to comply will result in a faile
     -   Add or remove key accessories (e.g., glasses, armor, jewelry).
     -   Alter the color palette of a character's design.
 
-4.  **JSON IS FOR STAGING ONLY:** The character descriptions in the JSON are ONLY for pose, position, and expression. They DO NOT override the visual truth established by the reference images. The reference images ALWAYS win any conflict.
+4.  **YAML IS FOR STAGING ONLY:** The character descriptions in the YAML are ONLY for pose, position, and expression. They DO NOT override the visual truth established by the reference images. The reference images ALWAYS win any conflict.
 
 5.  **ABSOLUTE BACKGROUND TRUTH (SCENE):** You have been provided with a background image for the scene. This is the **absolute ground truth** for the panel's environment. You MUST use this image as the background. Place the characters within this existing scene. Do NOT alter, redraw, or reinterpret the background in any way.
 
 6.  **STRICT CHARACTER COUNT:** The scene must contain EXACTLY these characters: {character_list_for_semantic_negative}. Do NOT add, remove, or duplicate any character.
 
-**Panel Visuals (JSON):**
+**Panel Visuals (YAML):**
 {panel_visuals}
 
-**Panel Textual (JSON):**
+**Panel Textual (YAML):**
 {panel_textual}
 
-**Panel Auditory (JSON):**
+**Panel Auditory (YAML):**
 {panel_auditory}
 `;
 
@@ -205,13 +205,11 @@ You are an AI assistant for quality control in comic book creation. Your task is
 1.  Carefully examine the provided image, focusing ONLY on the character named "{character_name}".
 2.  Compare this character's appearance against the "Key Visuals" described above.
 3.  Determine if the character in the image is a 100% match to the description. Pay close attention to clothing, colors, hairstyle, species, and any distinctive features mentioned.
-4.  Respond ONLY with a valid JSON object. Do not include any other text or markdown formatting.
+4.  Respond ONLY with a valid YAML object. Do not include any other text or markdown formatting.
 
-**JSON Response Schema:**
-{
-  "match": boolean, // true if the character is a perfect visual match, false otherwise.
-  "reason": string // If false, provide a concise, one-sentence explanation of the specific mismatch (e.g., "The character's jacket is blue instead of green," or "The character is missing their distinctive facial scar."). If true, this should be an empty string.
-}
+**YAML Response Schema:**
+match: boolean # true if the character is a perfect visual match, false otherwise.
+reason: string # If false, a concise, one-sentence explanation of the mismatch. If true, an empty string.
 `;
 
 export const COVER_PAGE_PROMPT_TEMPLATE = `
@@ -236,9 +234,9 @@ Generate a stunning, cinematic cover for a comic book titled "{title}" in the {a
 `;
 
 export const FULL_STORY_TEXT_GENERATION_PROMPT_TEMPLATE = `
-You are a master novelist. Your task is to transform a detailed comic book script, provided in JSON format, into a cohesive and engaging full-length narrative story. Retain the core plot, character voices, and key moments.
+You are a master novelist. Your task is to transform a detailed comic book script, provided in YAML format, into a cohesive and engaging full-length narrative story. Retain the core plot, character voices, and key moments.
 
-**Comic Script (JSON):**
+**Comic Script (YAML):**
 {storyOutline}
 
 **CRITICAL REQUIREMENTS:**
@@ -251,5 +249,5 @@ You are a master novelist. Your task is to transform a detailed comic book scrip
 6.  **Pacing**: Maintain the pacing intended by the script's three-act structure. Build tension, create impactful moments, and provide a satisfying resolution.
 7.  **Tone**: Preserve the overall tone and atmosphere described in the 'mood_and_lighting' sections.
 
-The final output should be a single block of text. Use standard paragraph breaks (a blank line between paragraphs) to separate distinct paragraphs and ideas for clear readability. The story should flow naturally, not like a list of events. Do not include any JSON or formatting instructions in your output.
+The final output should be a single block of text. Use standard paragraph breaks (a blank line between paragraphs) to separate distinct paragraphs and ideas for clear readability. The story should flow naturally, not like a list of events. Do not include any YAML or formatting instructions in your output.
 `;
